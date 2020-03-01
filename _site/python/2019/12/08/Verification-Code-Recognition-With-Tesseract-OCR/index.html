@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Verification Code Recognition With Tesseract OCR &middot; A Dream Chaser
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/main.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"> </script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], processEscapes: true } });
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="sidebar-personal-info">
+      <div class="sidebar-personal-info-section">
+        <a href="http://gravatar.com/a2590617c567e9568d51e2ded184d225">
+          <img src="http://www.gravatar.com/avatar/a2590617c567e9568d51e2ded184d225?s=350" title="View on Gravatar" alt="View on Gravatar" />
+        </a>
+      </div>
+      <div class="sidebar-personal-info-section">
+        <p>A passionate <strong>developer and researcher</strong>, learning to be a giant.</p>
+      </div>
+      
+      
+      
+      <div class="sidebar-personal-info-section">
+        <p> Follow me: 
+        
+        
+        
+        <a href="https://www.linkedin.com/in/%E5%85%B4%E5%9B%BD-%E5%90%B4-b4296b195/">
+          <i class="fa fa-linkedin" aria-hidden="true"></i>
+        </a>
+        
+        |
+        
+        
+        
+        <a href="https://github.com/voltwu">
+          <i class="fa fa-github" aria-hidden="true"></i>
+        </a>
+        
+        |
+        
+        
+        
+        <a href="https://twitter.com/chaserwu">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        
+        
+        
+        </p>
+      </div>
+      
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    
+      
+      
+      
+
+      
+
+      <span class="">
+        <a class="sidebar-nav-item " href="/blog/">
+          Home
+        </a>
+
+        
+      </span>
+
+    
+      
+      
+      
+
+      
+
+      <span class="foldable">
+        <a class="sidebar-nav-item " href="/blog/blog/">
+          Blog
+        </a>
+
+        
+          
+            
+            
+            
+              <a class="sidebar-nav-item sidebar-nav-item-sub " href="/blog/blog/categories/">
+                Categories
+              </a>
+          
+        
+          
+            
+            
+            
+              <a class="sidebar-nav-item sidebar-nav-item-sub " href="/blog/blog/tags/">
+                Tags
+              </a>
+          
+        
+      </span>
+
+    
+      
+      
+      
+
+      
+
+      <span class="">
+        <a class="sidebar-nav-item " href="/blog/about/">
+          About
+        </a>
+
+        
+      </span>
+
+    
+
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+    &copy; 2020 A Dream Chaser. This work is liscensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+    </p>
+  </div>
+
+  <div class="sidebar-item">
+    <p>
+    Powered by <a href="http://jekyllrb.com">jekyll</a> and <a href="https://github.com/poole/lanyon">lanyon</a>
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/blog/" title="Home" title="A Dream Chaser">
+              <img class="masthead-logo" src="/blog/public/logo.png"/>
+            </a>
+            <small>An Enthusiastic Programmer</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div style="top: 7.0rem; position: fixed;left:0rem">
+
+</div>
+
+<div class="post">
+  <h1 class="post-title">Verification Code Recognition With Tesseract OCR</h1>
+  <span class="post-date">08 Dec 2019</span>
+   | 
+  
+    <a href="/blog/blog/tags/#ocr" class="post-tag">OCR</a>
+  
+  
+  <article>
+    <p>Optical character recognition or optical character reader(OCR) is very popular today. OCR is the electrical or mechanical conversion of images of typed, handwritten or printed text into machine_encoded text. And OCR is the field of pattern recognition, artificial intelligence, and computer vision.</p>
+
+<p>Tesseract is an optical character recognition engine, it’s free software. and the development has been sponsored by google by 2006. more information can be found in <a href="https://github.com/tesseract-ocr/tesseract">tesseract ocr</a>.</p>
+
+<p>The general idea of verification code recognition is:</p>
+<ul>
+  <li>picture noise reduction</li>
+  <li>recognize image verification code</li>
+</ul>
+
+<p>I prepared a very simple verification code image</p>
+
+<p><img src="/blog/assets/images/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-a.jpg" alt="Alt" /></p>
+
+<h1 id="picture-noise-reduction">Picture Noise Reduction</h1>
+<h2 id="import-the-image-package-and-open-the-image">Import The Image Package And Open The Image</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s">'56538.jpg'</span><span class="p">)</span>
+</code></pre></div></div>
+<h2 id="conver-the-image-into-grayscale-image">Conver The Image Into Grayscale Image</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">gray_img</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s">'L'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">gray_img</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="open-the-image-in-ps-watch-for-the-pixel-gradation">Open The Image In PS, Watch For The Pixel Gradation</h2>
+
+<p><img src="/blog/assets/images/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-b.png" alt="Alt" /></p>
+
+<p>Watch for the pixel gradation value between digits and background. As you can see from the example image. The pixel gradation percentage is getting bigger from the surrounding environment to digits. It’s the white, then the light gray, then the gray, then the dark gray, then the dark.</p>
+
+<p>We have to choose a pixel gradation value as a threshold that will be used in the next step.  I decide to choose 35% as the target pixel gradation percentage. because it almost can difference the text and the surrounding environment. so the target threshold is: 35% * 255 = 89.25</p>
+
+<h2 id="dithering-the-image-with-custom-threshold">Dithering The Image With Custom Threshold</h2>
+<p>Because this Image is simple, so we directly use binarization. set the gradation value greater than the threshold to 1, set the gradation value smaller than the threshold to 0.</p>
+
+<p>generate a lookup table and map it to the image with <code class="highlighter-rouge">point()</code> function</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">threshold</span> <span class="o">=</span> <span class="mf">89.25</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">table</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
+<span class="o">...</span>    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">:</span>
+<span class="o">...</span>            <span class="n">table</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">...</span>    <span class="k">else</span><span class="p">:</span>
+<span class="o">...</span>            <span class="n">table</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">out_img</span> <span class="o">=</span> <span class="n">gray_img</span><span class="o">.</span><span class="n">point</span><span class="p">(</span><span class="n">lut</span><span class="o">=</span><span class="n">table</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">'1'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">out_img</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<p>the output picture:</p>
+
+<p><img src="/blog/assets/images/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-c.jpg" alt="Alt" /></p>
+
+<h1 id="pull-the-text-out-of-image">Pull The Text Out Of Image</h1>
+<p>There are a lot of OCR engines. Here I use the Tesseract Ocr Engine that development by google.</p>
+
+<p>save the image with noise deducted</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">out_img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">'out_img.jpg'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="command-prompt">Command Prompt</h2>
+<p>tesseract can be installed in many ways via binary package or build from source. <a href="https://github.com/tesseract-ocr/tesseract">Tesseract Ocr Github address</a>.</p>
+
+<p>my operation system is windows 10. I download the <code class="highlighter-rouge">tesseract-Ocr-win64-setup-v5.0.0</code> version.</p>
+
+<p>After installed, open the Command Prompt. input</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tesseract.exe out_img.jpg stdout --psm 7
+</code></pre></div></div>
+<p>the use <code class="highlighter-rouge">--psm</code> specify the page segmentation mode. <code class="highlighter-rouge">7</code> represent treat the image as a single text line.
+Here is the recognition result</p>
+
+<p><img src="/blog/assets/images/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-d.png" alt="Alt" /></p>
+
+<p>the output is perfect, It can recognition perfectly. There is a little strange symbol in the last line. It’s an error substitution symbol. we can ignore it.</p>
+
+<h2 id="pytesseract">Pytesseract</h2>
+<p>Python-tesseract is a python wrapper for Google’s tesseract-OCR. Tesseract is a third party library package. the installation and other usages see <a href="https://pypi.org/project/pytesseract/">pytesseract</a>.</p>
+
+<p>check the version</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pytesseract</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">pytesseract</span><span class="o">.</span><span class="n">get_tesseract_version</span><span class="p">())</span>
+<span class="mf">5.0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">alpha</span><span class="o">.</span><span class="mi">20191030</span>
+</code></pre></div></div>
+<p>After checked the version. can find more helpful information if you don’t clear on something. or input <code class="highlighter-rouge">tesseract --help</code> after installing the same version executable.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pytesseract</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c"># If you don't have tesseract executable in your PATH, include the following</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pytesseract</span><span class="o">.</span><span class="n">pytesseract</span><span class="o">.</span><span class="n">tesseract_cmd</span> <span class="o">=</span> <span class="s">r'your tesseract executable location</span><span class="err">
+</span><span class="s">&gt;&gt;&gt;</span><span class="err">
+</span><span class="s">&gt;&gt;&gt; custom_oem_psm_config = r'</span><span class="o">--</span><span class="n">oem</span> <span class="mi">3</span> <span class="o">--</span><span class="n">psm</span> <span class="mi">7</span><span class="s">'</span><span class="err">
+</span><span class="s">&gt;&gt;&gt; image = Image.open('</span><span class="n">out_img</span><span class="o">.</span><span class="n">jpg</span><span class="s">')</span><span class="err">
+</span><span class="s">&gt;&gt;&gt; pytesseract.image_to_string(image, config=custom_oem_psm_config)</span><span class="err">
+</span><span class="s">56538</span><span class="err">
+</span></code></pre></div></div>
+<p>As we write before, the <code class="highlighter-rouge">--psm 7</code> represent treat the image as a single text line. the <code class="highlighter-rouge">--oem</code> specify the OCR Engine mode(such as Legacy or LSTM), the <code class="highlighter-rouge">3</code> is the default value, based on what mode is available.</p>
+
+<p>The Verification Code recognize successfully.</p>
+
+
+  </article>
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/">
+            Entity Framework Tutorial
+            <small>28 Feb 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/">
+            EF Core Load Related Entities
+            <small>28 Feb 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/blog/csharp/2020/02/25/Tutorial-Explore-EF-Core-Console-Application/">
+            Tutorial: Explore EF Core Console Application
+            <small>25 Feb 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+<div class="comments">
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+  <script>
+var disqus_config = function () {
+  this.page.url = 'http://localhost:4000/python/2019/12/08/Verification-Code-Recognition-With-Tesseract-OCR/'; // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = '/python/2019/12/08/Verification-Code-Recognition-With-Tesseract-OCR'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() {
+  var d = document, s = d.createElement('script');
+  s.src = '//https-github-com-voltwu-blog.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if (target === toggle) {
+            checkbox.checked = !checkbox.checked;
+            e.preventDefault();
+          } else if (checkbox.checked && !sidebar.contains(target)) {
+            /* click outside the sidebar when sidebar is open */
+            checkbox.checked = false;
+          }
+        }, false);
+      })(document);
+    </script>
+    
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-00000000-1', 'auto');
+ga('send', 'pageview');
+    </script>
+    
+  </body>
+  
+  <script id="dsq-count-scr" src="//https-github-com-voltwu-blog.disqus.com/count.js" async></script>
+  
+</html>
