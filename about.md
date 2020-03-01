@@ -1,30 +1,14 @@
 ---
 layout: page
-title: About
+title: About Me
 ---
+Programming is an interesting work seems to me. I expect to produce stability and reliability code. the charming of coding attracts constantly me. most of my knowledge I get is through self-study. Eager to learn something new in my interesting area is whole my life need to do. I will never lose energy.
+motto:
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+>Nothing is impossible, the word itself says:"I am possible!" __ Audrey Hepburn
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+I have grown a strong interest in programming a lot of years ago. No doubts, Interest is the best teacher, I have been benefitted from the best teacher when I created a strong learning attraction. the sight of study from morning until night appears clearly in my head. As a reword of my study hard in school, I favorably became a programmer at a little company with less than 5 people in October 2017. 
 
-There are currently two themes built on Poole:
+I always dreaming become a master in programming, even though I'm lacking a lot of materials. this hope light will lead me forwards far away. This tough road full of difficulties, but I will insist on. sometimes, a moment or two, I wanted to give up, but the power of strong hope pulled me back immediately. I still not reach the shore of hope, never lose energy, never lose hope.
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
-
-Learn more and contribute on [GitHub](https://github.com/poole).
-
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+I am a dream chaser as you are.
