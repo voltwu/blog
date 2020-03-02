@@ -232,7 +232,7 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
 
 <p>I prepared a very simple verification code image</p>
 
-<p><img src="/blog/assets/images/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-a.jpg" alt="Alt" /></p>
+<p><img src="/blog/public/img/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-a.jpg" alt="Alt" /></p>
 
 <h1 id="picture-noise-reduction">Picture Noise Reduction</h1>
 <h2 id="import-the-image-package-and-open-the-image">Import The Image Package And Open The Image</h2>
@@ -246,7 +246,7 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
 
 <h2 id="open-the-image-in-ps-watch-for-the-pixel-gradation">Open The Image In PS, Watch For The Pixel Gradation</h2>
 
-<p><img src="/blog/assets/images/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-b.png" alt="Alt" /></p>
+<p><img src="/blog/public/img/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-b.png" alt="Alt" /></p>
 
 <p>Watch for the pixel gradation value between digits and background. As you can see from the example image. The pixel gradation percentage is getting bigger from the surrounding environment to digits. It’s the white, then the light gray, then the gray, then the dark gray, then the dark.</p>
 
@@ -269,7 +269,7 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
 </code></pre></div></div>
 <p>the output picture:</p>
 
-<p><img src="/blog/assets/images/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-c.jpg" alt="Alt" /></p>
+<p><img src="/blog/public/img/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-c.jpg" alt="Alt" /></p>
 
 <h1 id="pull-the-text-out-of-image">Pull The Text Out Of Image</h1>
 <p>There are a lot of OCR engines. Here I use the Tesseract Ocr Engine that development by google.</p>
@@ -289,7 +289,7 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
 <p>the use <code class="highlighter-rouge">--psm</code> specify the page segmentation mode. <code class="highlighter-rouge">7</code> represent treat the image as a single text line.
 Here is the recognition result</p>
 
-<p><img src="/blog/assets/images/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-d.png" alt="Alt" /></p>
+<p><img src="/blog/public/img/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-d.png" alt="Alt" /></p>
 
 <p>the output is perfect, It can recognition perfectly. There is a little strange symbol in the last line. It’s an error substitution symbol. we can ignore it.</p>
 

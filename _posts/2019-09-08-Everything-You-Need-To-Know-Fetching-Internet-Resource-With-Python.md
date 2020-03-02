@@ -204,4 +204,4 @@ Alright! we have arrived at the bottom of this document. I hope you absorb this 
 
 [1]: https://docs.python.org/2.7/library/urllib.html#urllib-restrictions
 [2]: https://docs.python.org/2.7/library/urllib2.html#urllib2.Request
-[3]: /blog/assets/images/2019-09-0-Everythings-You-Need-To-Know-Fetching-Internet-Resource-With-Python-a.jpg
+[3]: /blog/public/img/2019-09-0-Everythings-You-Need-To-Know-Fetching-Internet-Resource-With-Python-a.jpg

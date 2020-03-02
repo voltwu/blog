@@ -4,7 +4,7 @@
  <title>A Dream Chaser</title>
  <link href="http://localhost:4000/blog/atom.xml" rel="self"/>
  <link href="http://localhost:4000/blog/"/>
- <updated>2020-03-02T10:13:29+08:00</updated>
+ <updated>2020-03-02T23:31:37+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>A Dream Chaser</name>
@@ -78,11 +78,11 @@
 
 &lt;p&gt;it’s very convenient to create a .NET Core Console Application. I had already created a .NET Core Console Application.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/2020-02-25-Tutorial-Explore-EF-Core-Console-Application-a.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2020-02-25-Tutorial-Explore-EF-Core-Console-Application-a.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Open &lt;code class=&quot;highlighter-rouge&quot;&gt;Tools&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;NuGet Package Manager&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Manage Nuget Package For Solution&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/2020-02-25-Tutorial-Explore-EF-Core-Console-Application-b.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2020-02-25-Tutorial-Explore-EF-Core-Console-Application-b.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Search for &lt;code class=&quot;highlighter-rouge&quot;&gt;Microsoft.EntityFrameworkCore.SqlServer&lt;/code&gt;, then install it.&lt;/p&gt;
 
@@ -147,7 +147,7 @@
 
 &lt;p&gt;This will create a &lt;code class=&quot;highlighter-rouge&quot;&gt;Migrations&lt;/code&gt; folder in the project and create the &lt;code class=&quot;highlighter-rouge&quot;&gt;ModelSnapshot&lt;/code&gt; file.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/2020-02-25-Tutorial-Explore-EF-Core-Console-Application-c.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2020-02-25-Tutorial-Explore-EF-Core-Console-Application-c.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;if want to undo this action, use command &lt;code class=&quot;highlighter-rouge&quot;&gt;Remove-Migration&lt;/code&gt;&lt;/p&gt;
 
@@ -258,7 +258,7 @@
 
 &lt;p&gt;I prepared a very simple verification code image&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-a.jpg&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-a.jpg&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;picture-noise-reduction&quot;&gt;Picture Noise Reduction&lt;/h1&gt;
 &lt;h2 id=&quot;import-the-image-package-and-open-the-image&quot;&gt;Import The Image Package And Open The Image&lt;/h2&gt;
@@ -272,7 +272,7 @@
 
 &lt;h2 id=&quot;open-the-image-in-ps-watch-for-the-pixel-gradation&quot;&gt;Open The Image In PS, Watch For The Pixel Gradation&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-b.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-b.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Watch for the pixel gradation value between digits and background. As you can see from the example image. The pixel gradation percentage is getting bigger from the surrounding environment to digits. It’s the white, then the light gray, then the gray, then the dark gray, then the dark.&lt;/p&gt;
 
@@ -295,7 +295,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;the output picture:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-c.jpg&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-c.jpg&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;pull-the-text-out-of-image&quot;&gt;Pull The Text Out Of Image&lt;/h1&gt;
 &lt;p&gt;There are a lot of OCR engines. Here I use the Tesseract Ocr Engine that development by google.&lt;/p&gt;
@@ -315,7 +315,7 @@
 &lt;p&gt;the use &lt;code class=&quot;highlighter-rouge&quot;&gt;--psm&lt;/code&gt; specify the page segmentation mode. &lt;code class=&quot;highlighter-rouge&quot;&gt;7&lt;/code&gt; represent treat the image as a single text line.
 Here is the recognition result&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-d.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-d.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;the output is perfect, It can recognition perfectly. There is a little strange symbol in the last line. It’s an error substitution symbol. we can ignore it.&lt;/p&gt;
 
@@ -366,7 +366,7 @@ Here is the recognition result&lt;/p&gt;
 
 &lt;p&gt;Common Gateway Interface Architecture Diagram&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/2019-10-08-Running-A-CGI-Web-Server-With-http-server-Module-cgi-diagram.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2019-10-08-Running-A-CGI-Web-Server-With-http-server-Module-cgi-diagram.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;httpserver&quot;&gt;http.server&lt;/h1&gt;
 &lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;http.server&lt;/code&gt; module defines classes for implementing HTTP servers(web servers).&lt;/p&gt;
@@ -443,7 +443,7 @@ Here is the recognition result&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Then access &lt;a href=&quot;http://localhost:8000/cgi-bin/hello.py?first_name=jame&amp;amp;last_name=curry&quot; title=&quot;link&quot;&gt;http://localhost:8000/cgi-bin/hello.py?first_name=jame&amp;amp;last_name=curry&lt;/a&gt; in the browser client.
-&lt;img src=&quot;/blog/assets/images/2019-10-08-Running-A-CGI-Web-Server-With-http-server-Module-a.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/blog/public/img/2019-10-08-Running-A-CGI-Web-Server-With-http-server-Module-a.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;CGI is the Common Gateway Interface that defines the standard exchange format between webserver and custom scripts.&lt;/p&gt;
@@ -556,7 +556,7 @@ The &lt;code class=&quot;highlighter-rouge&quot;&gt;urllib.request.urlopen()&lt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;if you are in win7 environment, then make sure your &lt;em&gt;automatically detect settings&lt;/em&gt; at &lt;em&gt;LAN setting&lt;/em&gt; dialog  have been clicked on.
-&lt;img src=&quot;/blog/assets/images/2019-09-0-Everythings-You-Need-To-Know-Fetching-Internet-Resource-With-Python-a.jpg&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/blog/public/img/2019-09-0-Everythings-You-Need-To-Know-Fetching-Internet-Resource-With-Python-a.jpg&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;however, if you don’t want to change your computer environment, then maybe you can register a new &lt;code class=&quot;highlighter-rouge&quot;&gt;ProxyHandler&lt;/code&gt; to the default &lt;code class=&quot;highlighter-rouge&quot;&gt;OpenerDirector&lt;/code&gt;, and disable the default proxy settings.&lt;/p&gt;
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;urllib.request&lt;/span&gt;

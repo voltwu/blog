@@ -117,9 +117,9 @@ As we write before, the `--psm 7` represent treat the image as a single text lin
 
 The Verification Code recognize successfully.
 
-[1]: /blog/assets/images/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-a.jpg
-[2]: /blog/assets/images/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-b.png
-[3]: /blog/assets/images/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-c.jpg
-[4]: /blog/assets/images/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-d.png
+[1]: /blog/public/img/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-a.jpg
+[2]: /blog/public/img/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-b.png
+[3]: /blog/public/img/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-c.jpg
+[4]: /blog/public/img/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-d.png
 [5]: https://pypi.org/project/pytesseract/
 [6]: https://github.com/tesseract-ocr/tesseract
