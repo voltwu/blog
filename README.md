@@ -15,9 +15,15 @@ The theme supports:
 3. Integration of FontAwesome, MathJax, Disqus and Google Analytics
 4. and numerous improvements over original Lanyon
 
-
 ## License
 
 Open sourced under the [MIT license](LICENSE.md).
 
-<3
+# Running
+after you clone it into your local. run:
+```
+jekyll serve --watch
+```
+open https:127.0.0.1:4000 in local browser.
+
+
