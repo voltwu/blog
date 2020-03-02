@@ -4,7 +4,7 @@
  <title>A Dream Chaser</title>
  <link href="http://localhost:4000/blog/atom.xml" rel="self"/>
  <link href="http://localhost:4000/blog/"/>
- <updated>2020-03-02T09:14:45+08:00</updated>
+ <updated>2020-03-02T09:24:48+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>A Dream Chaser</name>
@@ -13,9 +13,30 @@
 
  
  <entry>
+   <title>Entity Framework Tutorial</title>
+   <link href="http://localhost:4000/csharp/2020/02/28/Entitiy-Framework-Tutorial/"/>
+   <updated>2020-02-28T01:01:01+08:00</updated>
+   <id>http://localhost:4000/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial</id>
+   <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
+&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/02/25/Tutorial-Explore-EF-Core-Console-Application/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;Tutorial: Explore EF Core Console Application&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;Load Related Entities&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Conventions
+    &lt;ul&gt;
+      &lt;li&gt;one to many&lt;/li&gt;
+      &lt;li&gt;one to one&lt;/li&gt;
+      &lt;li&gt;many to many&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>EF Core Load Related Entities</title>
    <link href="http://localhost:4000/csharp/2020/02/28/EF-Core-Load-Related-Entities/"/>
-   <updated>2020-02-28T01:01:02+08:00</updated>
+   <updated>2020-02-28T01:01:01+08:00</updated>
    <id>http://localhost:4000/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities</id>
    <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
 &amp;gt;
@@ -36,27 +57,6 @@
 &lt;li&gt;&lt;a href=&quot;&quot; style=&quot;cursor: pointer;text-decoration: none;font-size: 0.85em;&quot;&gt;Lazy Loading&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Entity Framework Tutorial</title>
-   <link href="http://localhost:4000/csharp/2020/02/28/Entitiy-Framework-Tutorial/"/>
-   <updated>2020-02-28T01:01:01+08:00</updated>
-   <id>http://localhost:4000/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial</id>
-   <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
-&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/02/25/Tutorial-Explore-EF-Core-Console-Application/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;Tutorial: Explore EF Core Console Application&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;Load Related Entities&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Conventions
-    &lt;ul&gt;
-      &lt;li&gt;one to many&lt;/li&gt;
-      &lt;li&gt;one to one&lt;/li&gt;
-      &lt;li&gt;many to many&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
 </content>
  </entry>
  

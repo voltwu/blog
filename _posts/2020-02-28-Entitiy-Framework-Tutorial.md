@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Entity Framework Tutorial"
-date: 2020-02-28T01:01:01+08:00
+date: 2020-02-28 01:01:01+0800
 categories:
   - CSharp
 tags:

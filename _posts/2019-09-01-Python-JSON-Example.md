@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python JSON Example"
-date: 2019-09-01T01:01:01+08:00
+date: 2019-09-01 01:01:01+0800
 categories:
   - Python
 tags:
