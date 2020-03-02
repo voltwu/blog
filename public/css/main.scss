@@ -17,3 +17,15 @@
 @import 'component/tag';
 @import 'component/masthead';
 @import 'component/pagination';
+
+.toc-side{
+top: 7.0rem; 
+position: absolute;
+left:0.5rem;
+max-width:16rem;
+}
+@media (max-width: 84em) {
+ .toc-side {
+  position:inherit;
+ }
+}

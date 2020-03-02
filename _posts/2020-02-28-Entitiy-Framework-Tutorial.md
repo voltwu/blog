@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Entity Framework Tutorial"
-date: ‘2020-02-28 01:01:01+0800’
+date: 2020-02-28 01:01:01+0800
 categories:
   - CSharp
 tags:
   - EF
-toc: true
+toc: false
 toc_label: "Table of Contents"
 toc_icon: "cog"
 comments: true
