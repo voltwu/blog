@@ -5,6 +5,8 @@ description: 'WuXingGuo blog'
 baseurl: "/blog"
 url: https://github.com/voltwu
 logo: '/public/logo.png'
+timezone: Asia/Shanghai
+
 
 # Site configurations
 gems:
