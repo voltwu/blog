@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Tutorial: Explore EF Core Console Application"
-date: 2020-02-25T00:00:00+08:00
+date: 2020-02-25T01:01:01+08:00
 categories:
   - CSharp
 tags:

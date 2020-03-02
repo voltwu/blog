@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Running A CGI Web Server With http.server Module"
-date: 2019-10-08T00:00:00+08:00
+date: 2019-10-08T01:01:01+08:00
 categories:
   - Python
 tags:

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Verification Code Recognition With Tesseract OCR"
-date: 2019-12-08T00:00:00+08:00
+date: 2019-12-08T01:01:01+08:00
 categories:
   - Python
 tags:
