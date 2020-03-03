@@ -7,7 +7,7 @@ categories:
 tags:
   - EF
 toc: true
-toc_label: "Table of Contents"
+toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: true
 description: how to run an EF(entity framework) Core Console Application, with a simple, basic demonstration.

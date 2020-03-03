@@ -4,7 +4,7 @@
  <title>A Dream Chaser</title>
  <link href="http://localhost:4000/blog/atom.xml" rel="self"/>
  <link href="http://localhost:4000/blog/"/>
- <updated>2020-03-02T23:31:37+08:00</updated>
+ <updated>2020-03-03T21:55:27+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>A Dream Chaser</name>
@@ -19,17 +19,20 @@
    <id>http://localhost:4000/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial</id>
    <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
 &lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Entity Framework is an object-relational mapper (O/RM) that enables .NET developers to work with a database using .NET objects. It eliminates the need for most of the data-access code that developers usually need to write.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div&gt;
+&lt;span style=&quot;color: green;&quot;&gt;In this article:&lt;/span&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/02/25/Tutorial-Explore-EF-Core-Console-Application/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;Tutorial: Explore EF Core Console Application&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;Load Related Entities&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Conventions
-    &lt;ul&gt;
-      &lt;li&gt;one to many&lt;/li&gt;
-      &lt;li&gt;one to one&lt;/li&gt;
-      &lt;li&gt;many to many&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/02/25/Tutorial-Explore-EF-Core-Console-Application/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;Tutorial: Explore EF Core Console Application&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;Load Related Entities&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Conventions
+&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/div&gt;
 </content>
  </entry>
  
