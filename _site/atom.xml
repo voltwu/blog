@@ -4,13 +4,43 @@
  <title>A Dream Chaser</title>
  <link href="http://localhost:4000/blog/atom.xml" rel="self"/>
  <link href="http://localhost:4000/blog/"/>
- <updated>2020-03-03T21:55:27+08:00</updated>
+ <updated>2020-03-04T12:11:41+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>A Dream Chaser</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>EF Core Eager Loading</title>
+   <link href="http://localhost:4000/csharp/2020/03/03/EF-Core-Eager-Loading/"/>
+   <updated>2020-03-03T01:01:01+08:00</updated>
+   <id>http://localhost:4000/blog/csharp/2020/03/03/EF-Core-Eager-Loading</id>
+   <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
+&amp;gt;
+&lt;a href=&quot;/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;main&lt;/a&gt;
+&amp;gt;
+&lt;a href=&quot;/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;query&lt;/a&gt;
+&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;I supposed that you had known &lt;strong&gt;Eager Loading&lt;/strong&gt; means that related entities are loaded as part of the initial query.&lt;/p&gt;
+
+&lt;p&gt;This project can be found in &lt;a href=&quot;www.baidu.com&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;use &lt;code class=&quot;highlighter-rouge&quot;&gt;Include&lt;/code&gt; method or &lt;code class=&quot;highlighter-rouge&quot;&gt;ThenInclude&lt;/code&gt; method to complete an eager loading. the &lt;code class=&quot;highlighter-rouge&quot;&gt;Include&lt;/code&gt; method specify what navigation property you want to include.  the &lt;code class=&quot;highlighter-rouge&quot;&gt;ThenInclude&lt;/code&gt; can allow you to continue including further levels of related entities.&lt;/p&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Caution&lt;/strong&gt;:&lt;/p&gt;
+
+  &lt;p&gt;Since version 3.0.0(.net core 3.0.0), each Include will cause an additional JOIN to be added to SQL queries produced by relational providers, whereas previous versions generated additional SQL queries. This can significantly change the performance of your queries, for better or worse. In particular, LINQ queries with an exceedingly high number of Include operators may need to be broken down into multiple separate LINQ queries in order to avoid the cartesian explosion problem.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Entity Framework Tutorial</title>
