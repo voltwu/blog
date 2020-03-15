@@ -1,0 +1,18 @@
+I"
+<ul>
+  <li><a href="#picture-noise-reduction">Picture Noise Reduction</a>
+    <ul>
+      <li><a href="#import-the-image-package-and-open-the-image">Import The Image Package And Open The Image</a></li>
+      <li><a href="#conver-the-image-into-grayscale-image">Conver The Image Into Grayscale Image</a></li>
+      <li><a href="#open-the-image-in-ps-watch-for-the-pixel-gradation">Open The Image In PS, Watch For The Pixel Gradation</a></li>
+      <li><a href="#dithering-the-image-with-custom-threshold">Dithering The Image With Custom Threshold</a></li>
+    </ul>
+  </li>
+  <li><a href="#pull-the-text-out-of-image">Pull The Text Out Of Image</a>
+    <ul>
+      <li><a href="#command-prompt">Command Prompt</a></li>
+      <li><a href="#pytesseract">Pytesseract</a></li>
+    </ul>
+  </li>
+</ul>
+:EF

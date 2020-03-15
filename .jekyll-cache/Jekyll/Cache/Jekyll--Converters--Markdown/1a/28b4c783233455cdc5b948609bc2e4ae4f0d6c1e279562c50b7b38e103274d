@@ -1,0 +1,98 @@
+I"�&<p>Optical character recognition or optical character reader(OCR) is very popular today. OCR is the electrical or mechanical conversion of images of typed, handwritten or printed text into machine_encoded text. And OCR is the field of pattern recognition, artificial intelligence, and computer vision.</p>
+
+<p>Tesseract is an optical character recognition engine, it’s free software. and the development has been sponsored by google by 2006. more information can be found in <a href="https://github.com/tesseract-ocr/tesseract">tesseract ocr</a>.</p>
+
+<p>The general idea of verification code recognition is:</p>
+<ul>
+  <li>picture noise reduction</li>
+  <li>recognize image verification code</li>
+</ul>
+
+<p>I prepared a very simple verification code image</p>
+
+<p><img src="/blog/public/img/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-a.jpg" alt="Alt" /></p>
+
+<h1 id="picture-noise-reduction">Picture Noise Reduction</h1>
+<h2 id="import-the-image-package-and-open-the-image">Import The Image Package And Open The Image</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s">'56538.jpg'</span><span class="p">)</span>
+</code></pre></div></div>
+<h2 id="conver-the-image-into-grayscale-image">Conver The Image Into Grayscale Image</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">gray_img</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s">'L'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">gray_img</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="open-the-image-in-ps-watch-for-the-pixel-gradation">Open The Image In PS, Watch For The Pixel Gradation</h2>
+
+<p><img src="/blog/public/img/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-b.png" alt="Alt" /></p>
+
+<p>Watch for the pixel gradation value between digits and background. As you can see from the example image. The pixel gradation percentage is getting bigger from the surrounding environment to digits. It’s the white, then the light gray, then the gray, then the dark gray, then the dark.</p>
+
+<p>We have to choose a pixel gradation value as a threshold that will be used in the next step.  I decide to choose 35% as the target pixel gradation percentage. because it almost can difference the text and the surrounding environment. so the target threshold is: 35% * 255 = 89.25</p>
+
+<h2 id="dithering-the-image-with-custom-threshold">Dithering The Image With Custom Threshold</h2>
+<p>Because this Image is simple, so we directly use binarization. set the gradation value greater than the threshold to 1, set the gradation value smaller than the threshold to 0.</p>
+
+<p>generate a lookup table and map it to the image with <code class="highlighter-rouge">point()</code> function</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">threshold</span> <span class="o">=</span> <span class="mf">89.25</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">table</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
+<span class="o">...</span>    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">:</span>
+<span class="o">...</span>            <span class="n">table</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">...</span>    <span class="k">else</span><span class="p">:</span>
+<span class="o">...</span>            <span class="n">table</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">out_img</span> <span class="o">=</span> <span class="n">gray_img</span><span class="o">.</span><span class="n">point</span><span class="p">(</span><span class="n">lut</span><span class="o">=</span><span class="n">table</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">'1'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">out_img</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<p>the output picture:</p>
+
+<p><img src="/blog/public/img/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-c.jpg" alt="Alt" /></p>
+
+<h1 id="pull-the-text-out-of-image">Pull The Text Out Of Image</h1>
+<p>There are a lot of OCR engines. Here I use the Tesseract Ocr Engine that development by google.</p>
+
+<p>save the image with noise deducted</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">out_img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">'out_img.jpg'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="command-prompt">Command Prompt</h2>
+<p>tesseract can be installed in many ways via binary package or build from source. <a href="https://github.com/tesseract-ocr/tesseract">Tesseract Ocr Github address</a>.</p>
+
+<p>my operation system is windows 10. I download the <code class="highlighter-rouge">tesseract-Ocr-win64-setup-v5.0.0</code> version.</p>
+
+<p>After installed, open the Command Prompt. input</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tesseract.exe out_img.jpg stdout --psm 7
+</code></pre></div></div>
+<p>the use <code class="highlighter-rouge">--psm</code> specify the page segmentation mode. <code class="highlighter-rouge">7</code> represent treat the image as a single text line.
+Here is the recognition result</p>
+
+<p><img src="/blog/public/img/2019-12-08-Verification-Code-Recognition-With-Tesseract-OCR-d.png" alt="Alt" /></p>
+
+<p>the output is perfect, It can recognition perfectly. There is a little strange symbol in the last line. It’s an error substitution symbol. we can ignore it.</p>
+
+<h2 id="pytesseract">Pytesseract</h2>
+<p>Python-tesseract is a python wrapper for Google’s tesseract-OCR. Tesseract is a third party library package. the installation and other usages see <a href="https://pypi.org/project/pytesseract/">pytesseract</a>.</p>
+
+<p>check the version</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pytesseract</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">pytesseract</span><span class="o">.</span><span class="n">get_tesseract_version</span><span class="p">())</span>
+<span class="mf">5.0.0</span><span class="o">-</span><span class="n">alpha</span><span class="mf">.20191030</span>
+</code></pre></div></div>
+<p>After checked the version. can find more helpful information if you don’t clear on something. or input <code class="highlighter-rouge">tesseract --help</code> after installing the same version executable.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pytesseract</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># If you don't have tesseract executable in your PATH, include the following
+</span><span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pytesseract</span><span class="o">.</span><span class="n">pytesseract</span><span class="o">.</span><span class="n">tesseract_cmd</span> <span class="o">=</span> <span class="s">r'your tesseract executable location</span><span class="err">
+</span><span class="s">&gt;&gt;&gt;</span><span class="err">
+</span><span class="s">&gt;&gt;&gt; custom_oem_psm_config = r'</span><span class="o">--</span><span class="n">oem</span> <span class="mi">3</span> <span class="o">--</span><span class="n">psm</span> <span class="mi">7</span><span class="s">'</span><span class="err">
+</span><span class="s">&gt;&gt;&gt; image = Image.open('</span><span class="n">out_img</span><span class="o">.</span><span class="n">jpg</span><span class="s">')</span><span class="err">
+</span><span class="s">&gt;&gt;&gt; pytesseract.image_to_string(image, config=custom_oem_psm_config)</span><span class="err">
+</span><span class="s">56538</span><span class="err">
+</span></code></pre></div></div>
+<p>As we write before, the <code class="highlighter-rouge">--psm 7</code> represent treat the image as a single text line. the <code class="highlighter-rouge">--oem</code> specify the OCR Engine mode(such as Legacy or LSTM), the <code class="highlighter-rouge">3</code> is the default value, based on what mode is available.</p>
+
+<p>The Verification Code recognize successfully.</p>
+
+:ET

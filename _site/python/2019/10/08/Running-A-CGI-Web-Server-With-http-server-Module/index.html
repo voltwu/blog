@@ -254,8 +254,8 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
 
 <p>All of the above snippets are not relative to the Common Gateway Interface. By default, a lot of web servers do not boot the CGI functionality. the programmer must configure manually it to start. the python has provided the  <code class="highlighter-rouge">http.server.CGIHTTPRequestHandler</code>  class to handle only the CGI functionality.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#use the above run method</span>
-<span class="n">run</span><span class="p">(</span><span class="n">server_class</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">HTTPServer</span><span class="p">,</span> <span class="n">handler_class</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">CGIHTTPRequestHandler</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#use the above run method
+</span><span class="n">run</span><span class="p">(</span><span class="n">server_class</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">HTTPServer</span><span class="p">,</span> <span class="n">handler_class</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">CGIHTTPRequestHandler</span><span class="p">)</span>
 </code></pre></div></div>
 <p>And the <code class="highlighter-rouge">CGIHTTPRequestHandler</code> can be enabled in the command line with <code class="highlighter-rouge">--cgi</code> option.</p>
 
@@ -271,16 +271,16 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
 
 <p><strong>Second: create a python script</strong></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/python</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/python
+</span>
+<span class="c1"># Import modules for CGI handling 
+</span><span class="kn">import</span> <span class="nn">cgi</span><span class="p">,</span> <span class="n">cgitb</span> 
 
-<span class="c"># Import modules for CGI handling </span>
-<span class="kn">import</span> <span class="nn">cgi</span><span class="p">,</span> <span class="n">cgitb</span> 
+<span class="c1"># Create instance of FieldStorage 
+</span><span class="n">form</span> <span class="o">=</span> <span class="n">cgi</span><span class="o">.</span><span class="n">FieldStorage</span><span class="p">()</span> 
 
-<span class="c"># Create instance of FieldStorage </span>
-<span class="n">form</span> <span class="o">=</span> <span class="n">cgi</span><span class="o">.</span><span class="n">FieldStorage</span><span class="p">()</span> 
-
-<span class="c"># Get data from fields</span>
-<span class="n">first_name</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">getvalue</span><span class="p">(</span><span class="s">'first_name'</span><span class="p">)</span>
+<span class="c1"># Get data from fields
+</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">getvalue</span><span class="p">(</span><span class="s">'first_name'</span><span class="p">)</span>
 <span class="n">last_name</span>  <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">getvalue</span><span class="p">(</span><span class="s">'last_name'</span><span class="p">)</span>
 
 <span class="k">print</span> <span class="p">(</span><span class="s">"Content-type:text/html</span><span class="se">\r\n\r\n</span><span class="s">"</span><span class="p">)</span>
@@ -321,6 +321,15 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
     
       <li>
         <h3>
+          <a href="/blog/csharp/2020/03/03/EF-Core-Explicit-Loading/">
+            EF Core Explicit Loading
+            <small>03 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
           <a href="/blog/csharp/2020/03/03/EF-Core-Eager-Loading/">
             EF Core Eager Loading
             <small>03 Mar 2020</small>
@@ -332,15 +341,6 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
         <h3>
           <a href="/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/">
             Entity Framework Tutorial
-            <small>28 Feb 2020</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/">
-            EF Core Load Related Entities
             <small>28 Feb 2020</small>
           </a>
         </h3>

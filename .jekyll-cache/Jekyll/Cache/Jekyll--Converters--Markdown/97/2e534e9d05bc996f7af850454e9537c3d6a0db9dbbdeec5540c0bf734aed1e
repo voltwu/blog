@@ -1,0 +1,64 @@
+I"Ö<p><span style="font-size: 0.75em;">
+&gt;
+<a href="/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/" style="cursor: pointer;text-decoration: none;">main</a>
+&gt;
+<a href="/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/" style="cursor: pointer;text-decoration: none;">query</a>
+<span></span></span></p>
+
+<p><strong>Eager Loading</strong> means that related entities are explicitly loaded from the database at a later time.</p>
+
+<p>This project can be found in <a href="https://github.com/voltwu/C-Sharp-Console-Application-EF-Core-Example/tree/b2d33ad3f6f19e06b20afeb68218798c7f2f9f08">Github</a></p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SchoolContext</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">lake_team</span> <span class="p">=</span>  <span class="k">await</span> <span class="n">context</span><span class="p">.</span><span class="n">teams</span><span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">Name</span> <span class="p">==</span> <span class="s">"lake"</span><span class="p">).</span><span class="nf">FirstOrDefaultAsync</span><span class="p">();</span>
+
+    <span class="c1">//The lake.Players is a collection navigation property, which using the Collection method.</span>
+    <span class="k">await</span> <span class="n">context</span><span class="p">.</span><span class="nf">Entry</span><span class="p">(</span><span class="n">lake_team</span><span class="p">).</span><span class="nf">Collection</span><span class="p">(</span><span class="n">lake</span> <span class="p">=&gt;</span> <span class="n">lake</span><span class="p">.</span><span class="n">Players</span><span class="p">).</span><span class="nf">LoadAsync</span><span class="p">();</span>
+
+    <span class="c1">//load collection navigation property Address for each player </span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="n">Player</span> <span class="n">player</span> <span class="k">in</span> <span class="n">lake_team</span><span class="p">.</span><span class="n">Players</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">await</span> <span class="n">context</span><span class="p">.</span><span class="nf">Entry</span><span class="p">(</span><span class="n">player</span><span class="p">).</span><span class="nf">Collection</span><span class="p">(</span><span class="n">p</span> <span class="p">=&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">Addresses</span><span class="p">).</span><span class="nf">LoadAsync</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">lake_team</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>In the above example, the  <code class="highlighter-rouge">await context.Entry(lake_team).Collection(lake=&gt;lake.Players).LoadAsync()</code> loads the  <code class="highlighter-rouge">Player</code> entities, the  <code class="highlighter-rouge">Collection</code> method provides access to tracking and loading information for a collection navigation property that associates this entity to a collection of another entites. The <code class="highlighter-rouge">LoadAsync</code> method executes the SQL query and fill up the specified reference property or collection property in the memory, all of these complete asynchronously.</p>
+
+<p>As we have known. The  <code class="highlighter-rouge">Player</code> and <code class="highlighter-rouge">Addresses</code> are all collection property. one Team has many players, and one player has many homes. their structures defined as below:</p>
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Team</span><span class="p">{</span>
+<span class="p">...</span>
+<span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Player</span><span class="p">&gt;</span> <span class="n">Players</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">class</span> <span class="nc">Player</span><span class="p">{</span>
+<span class="p">...</span>
+<span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">HomeAddress</span><span class="p">&gt;</span> <span class="n">Addresses</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>The opposite of the collection property is the reference property. The collection property is the to-many relationship, but the reference property is the to-one relationship.</p>
+
+<p>for example:</p>
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//class School{</span>
+<span class="c1">//   public string SchoolName{set;get;}</span>
+<span class="c1">//   public string loc{set;get;}</span>
+<span class="c1">//}</span>
+<span class="k">class</span> <span class="nc">Team</span><span class="p">{</span>
+<span class="k">public</span> <span class="n">School</span> <span class="n">shool</span><span class="p">{</span><span class="k">set</span><span class="p">;</span><span class="k">get</span><span class="p">;}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>The <code class="highlighter-rouge">Team</code> only belongs to one school, so the <code class="highlighter-rouge">school</code> is a reference property.</p>
+<pre><code class="language-C#">context.Entry(team).Reference(t=&gt;t.school).Load()
+</code></pre>
+
+<h1 id="query">Query()</h1>
+<p>The both <code class="highlighter-rouge">Collection()</code> and <code class="highlighter-rouge">Referece()</code> methods return a <code class="highlighter-rouge">ChangeTracking</code> an object that exposes change tracking information. So we canâ€™t continue to write further LINQ queries to filter out related data after this object.</p>
+
+<p>How we can do it? luckily, we have <code class="highlighter-rouge">Query()</code> method which can offer us to write further queries.</p>
+<pre><code class="language-C#">context.Entry(lake_team).Collection(lake =&gt; lake.Players).
+        Query().
+        Where(p=&gt;p.Name== "Kobe Bean Bryant").
+        Load();
+</code></pre>
+
+:ET

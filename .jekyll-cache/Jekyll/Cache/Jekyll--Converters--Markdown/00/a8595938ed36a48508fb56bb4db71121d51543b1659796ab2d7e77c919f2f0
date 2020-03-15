@@ -1,0 +1,19 @@
+I"–
+<ul>
+  <li><a href="#urllib-and-urllib2-in-python2">urllib and urllib2 in python2</a>
+    <ul>
+      <li><a href="#urllib-module">urllib module</a></li>
+      <li><a href="#urllib2-module">urllib2 module</a></li>
+    </ul>
+  </li>
+  <li><a href="#urllib-in-python3">urllib in python3</a>
+    <ul>
+      <li><a href="#urllibrequest-module">urllib.request module</a></li>
+      <li><a href="#urlliberror-module">urllib.error module</a></li>
+      <li><a href="#urllibparse-module">urllib.parse module</a></li>
+      <li><a href="#urllibrobotparser-module">urllib.robotparser module</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+:EF

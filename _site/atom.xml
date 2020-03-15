@@ -4,7 +4,7 @@
  <title>A Dream Chaser</title>
  <link href="http://localhost:4000/blog/atom.xml" rel="self"/>
  <link href="http://localhost:4000/blog/"/>
- <updated>2020-03-05T00:54:09+08:00</updated>
+ <updated>2020-03-15T09:32:00+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>A Dream Chaser</name>
@@ -13,9 +13,80 @@
 
  
  <entry>
+   <title>EF Core Explicit Loading</title>
+   <link href="http://localhost:4000/csharp/2020/03/03/EF-Core-Explicit-Loading/"/>
+   <updated>2020-03-03T02:01:01+00:00</updated>
+   <id>http://localhost:4000/blog/csharp/2020/03/03/EF-Core-Explicit-Loading</id>
+   <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
+&amp;gt;
+&lt;a href=&quot;/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;main&lt;/a&gt;
+&amp;gt;
+&lt;a href=&quot;/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;query&lt;/a&gt;
+&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Eager Loading&lt;/strong&gt; means that related entities are explicitly loaded from the database at a later time.&lt;/p&gt;
+
+&lt;p&gt;This project can be found in &lt;a href=&quot;https://github.com/voltwu/C-Sharp-Console-Application-EF-Core-Example/tree/b2d33ad3f6f19e06b20afeb68218798c7f2f9f08&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;SchoolContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lake_team&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;teams&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;lake&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;FirstOrDefaultAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//The lake.Players is a collection navigation property, which should use the Collection method.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lake_team&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Collection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lake&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lake&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Players&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;LoadAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//load collection navigation property Address for each player &lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Player&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;player&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lake_team&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Players&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;player&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Collection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Addresses&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;LoadAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lake_team&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In the above example, the  &lt;code class=&quot;highlighter-rouge&quot;&gt;await context.Entry(lake_team).Collection(lake=&amp;gt;lake.Players).LoadAsync()&lt;/code&gt; loads the  &lt;code class=&quot;highlighter-rouge&quot;&gt;Player&lt;/code&gt; entities, the  &lt;code class=&quot;highlighter-rouge&quot;&gt;Collection&lt;/code&gt; method provides access to tracking and loading information for a collection navigation property that associates this entity to a collection of another entites. The &lt;code class=&quot;highlighter-rouge&quot;&gt;LoadAsync&lt;/code&gt; method executes the SQL query and fill up the specified reference property or collection property in the memory, all of these complete asynchronously.&lt;/p&gt;
+
+&lt;p&gt;As we have known. The  &lt;code class=&quot;highlighter-rouge&quot;&gt;Player&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Addresses&lt;/code&gt; are all collection property. one Team has many players, and one player has many homes. their structures defined as below:&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Team&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Player&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Players&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Player&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HomeAddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Addresses&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The opposite of the collection property is the reference property. The collection property is the to-many relationship, but the reference property is the to-one relationship.&lt;/p&gt;
+
+&lt;p&gt;for example:&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//class School{&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   public string SchoolName{set;get;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   public string loc{set;get;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Team&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;School&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Team&lt;/code&gt; only belongs to one school, so the &lt;code class=&quot;highlighter-rouge&quot;&gt;school&lt;/code&gt; is a reference property.&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;team&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Reference&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;school&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;query&quot;&gt;Query()&lt;/h1&gt;
+&lt;p&gt;The both &lt;code class=&quot;highlighter-rouge&quot;&gt;Collection()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Referece()&lt;/code&gt; methods return a &lt;code class=&quot;highlighter-rouge&quot;&gt;ChangeTracking&lt;/code&gt; an object that exposes change tracking information. So we can’t continue to write further LINQ queries to filter out related data after this object.&lt;/p&gt;
+
+&lt;p&gt;How we can do it? luckily, we have &lt;code class=&quot;highlighter-rouge&quot;&gt;Query()&lt;/code&gt; method which can offer us to write further queries.&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lake_team&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Collection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lake&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lake&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Players&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;Query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Kobe Bean Bryant&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;Load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
    <title>EF Core Eager Loading</title>
    <link href="http://localhost:4000/csharp/2020/03/03/EF-Core-Eager-Loading/"/>
-   <updated>2020-03-03T01:01:01+08:00</updated>
+   <updated>2020-03-03T02:01:01+00:00</updated>
    <id>http://localhost:4000/blog/csharp/2020/03/03/EF-Core-Eager-Loading</id>
    <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
 &amp;gt;
@@ -54,7 +125,7 @@
  <entry>
    <title>Entity Framework Tutorial</title>
    <link href="http://localhost:4000/csharp/2020/02/28/Entitiy-Framework-Tutorial/"/>
-   <updated>2020-02-28T01:01:01+08:00</updated>
+   <updated>2020-02-28T02:01:01+00:00</updated>
    <id>http://localhost:4000/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial</id>
    <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
 &lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
@@ -78,7 +149,7 @@
  <entry>
    <title>EF Core Load Related Entities</title>
    <link href="http://localhost:4000/csharp/2020/02/28/EF-Core-Load-Related-Entities/"/>
-   <updated>2020-02-28T01:01:01+08:00</updated>
+   <updated>2020-02-28T02:01:01+00:00</updated>
    <id>http://localhost:4000/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities</id>
    <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
 &amp;gt;
@@ -95,7 +166,7 @@
 &lt;span style=&quot;color: green;&quot;&gt;In this article:&lt;/span&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/03/03/EF-Core-Eager-Loading/&quot; style=&quot;cursor: pointer;text-decoration: none;font-size: 0.85em;&quot;&gt;Eager Loading&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;&quot; style=&quot;cursor: pointer;text-decoration: none;font-size: 0.85em;&quot;&gt;Explicit Loading&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/03/03/EF-Core-Explicit-Loading/&quot; style=&quot;cursor: pointer;text-decoration: none;font-size: 0.85em;&quot;&gt;Explicit Loading&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;&quot; style=&quot;cursor: pointer;text-decoration: none;font-size: 0.85em;&quot;&gt;Lazy Loading&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -105,7 +176,7 @@
  <entry>
    <title>Tutorial: Explore EF Core Console Application</title>
    <link href="http://localhost:4000/csharp/2020/02/25/Tutorial-Explore-EF-Core-Console-Application/"/>
-   <updated>2020-02-25T01:01:01+08:00</updated>
+   <updated>2020-02-25T02:01:01+00:00</updated>
    <id>http://localhost:4000/blog/csharp/2020/02/25/Tutorial-Explore-EF-Core-Console-Application</id>
    <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
 &amp;gt;
@@ -286,7 +357,7 @@
  <entry>
    <title>Verification Code Recognition With Tesseract OCR</title>
    <link href="http://localhost:4000/python/2019/12/08/Verification-Code-Recognition-With-Tesseract-OCR/"/>
-   <updated>2019-12-08T01:01:01+08:00</updated>
+   <updated>2019-12-08T02:01:01+00:00</updated>
    <id>http://localhost:4000/blog/python/2019/12/08/Verification-Code-Recognition-With-Tesseract-OCR</id>
    <content type="html">&lt;p&gt;Optical character recognition or optical character reader(OCR) is very popular today. OCR is the electrical or mechanical conversion of images of typed, handwritten or printed text into machine_encoded text. And OCR is the field of pattern recognition, artificial intelligence, and computer vision.&lt;/p&gt;
 
@@ -367,13 +438,13 @@ Here is the recognition result&lt;/p&gt;
 &lt;p&gt;check the version&lt;/p&gt;
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pytesseract&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pytesseract&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_tesseract_version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;span class=&quot;mf&quot;&gt;5.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alpha&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20191030&lt;/span&gt;
+&lt;span class=&quot;mf&quot;&gt;5.0.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alpha&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.20191030&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;After checked the version. can find more helpful information if you don’t clear on something. or input &lt;code class=&quot;highlighter-rouge&quot;&gt;tesseract --help&lt;/code&gt; after installing the same version executable.&lt;/p&gt;
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;PIL&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Image&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pytesseract&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# If you don't have tesseract executable in your PATH, include the following&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# If you don't have tesseract executable in your PATH, include the following
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pytesseract&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pytesseract&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tesseract_cmd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;r'your tesseract executable location&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;gt;&amp;gt;&amp;gt; custom_oem_psm_config = r'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;oem&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;psm&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
@@ -391,7 +462,7 @@ Here is the recognition result&lt;/p&gt;
  <entry>
    <title>Running A CGI Web Server With http.server Module</title>
    <link href="http://localhost:4000/python/2019/10/08/Running-A-CGI-Web-Server-With-http-server-Module/"/>
-   <updated>2019-10-08T01:01:01+08:00</updated>
+   <updated>2019-10-08T02:01:01+00:00</updated>
    <id>http://localhost:4000/blog/python/2019/10/08/Running-A-CGI-Web-Server-With-http-server-Module</id>
    <content type="html">&lt;p&gt;In this article, I will use &lt;code class=&quot;highlighter-rouge&quot;&gt;http.server&lt;/code&gt; that python’s build-in server module to demonstrate how to use cgi and explain what is cig. my environment is python3. Have a pleasant reading.&lt;/p&gt;
 &lt;h1 id=&quot;what-is-cgi&quot;&gt;What is CGI&lt;/h1&gt;
@@ -437,8 +508,8 @@ Here is the recognition result&lt;/p&gt;
 
 &lt;p&gt;All of the above snippets are not relative to the Common Gateway Interface. By default, a lot of web servers do not boot the CGI functionality. the programmer must configure manually it to start. the python has provided the  &lt;code class=&quot;highlighter-rouge&quot;&gt;http.server.CGIHTTPRequestHandler&lt;/code&gt;  class to handle only the CGI functionality.&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#use the above run method&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;server_class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HTTPServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;handler_class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CGIHTTPRequestHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#use the above run method
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;server_class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HTTPServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;handler_class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CGIHTTPRequestHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;And the &lt;code class=&quot;highlighter-rouge&quot;&gt;CGIHTTPRequestHandler&lt;/code&gt; can be enabled in the command line with &lt;code class=&quot;highlighter-rouge&quot;&gt;--cgi&lt;/code&gt; option.&lt;/p&gt;
 
@@ -454,16 +525,16 @@ Here is the recognition result&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Second: create a python script&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/python
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Import modules for CGI handling 
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;cgi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cgitb&lt;/span&gt; 
 
-&lt;span class=&quot;c&quot;&gt;# Import modules for CGI handling &lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;cgi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cgitb&lt;/span&gt; 
+&lt;span class=&quot;c1&quot;&gt;# Create instance of FieldStorage 
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;form&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cgi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FieldStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; 
 
-&lt;span class=&quot;c&quot;&gt;# Create instance of FieldStorage &lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;form&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cgi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FieldStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; 
-
-&lt;span class=&quot;c&quot;&gt;# Get data from fields&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getvalue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'first_name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Get data from fields
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getvalue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'first_name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;last_name&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getvalue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'last_name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Content-type:text/html&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\r\n\r\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -500,7 +571,7 @@ Here is the recognition result&lt;/p&gt;
  <entry>
    <title>Everything You Need To Know Fetching Internet Resource With Python</title>
    <link href="http://localhost:4000/python/2019/09/08/Everything-You-Need-To-Know-Fetching-Internet-Resource-With-Python/"/>
-   <updated>2019-09-08T01:01:01+08:00</updated>
+   <updated>2019-09-08T02:01:01+00:00</updated>
    <id>http://localhost:4000/blog/python/2019/09/08/Everything-You-Need-To-Know-Fetching-Internet-Resource-With-Python</id>
    <content type="html">&lt;p&gt;Just like many other languages, Python also has built-in support for internet resource access, far more than. you can fetch internet resource easily with python.&lt;/p&gt;
 
@@ -520,7 +591,7 @@ Here is the recognition result&lt;/p&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;geturl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;www&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;google&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mo&quot;&gt;07&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sep&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2019&lt;/span&gt; &lt;span class=&quot;mo&quot;&gt;06&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;35&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GMT&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;07&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sep&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2019&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;06&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;35&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GMT&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;Cache&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Control&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;Content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;charset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ISO&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8859&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
@@ -590,9 +661,9 @@ The &lt;code class=&quot;highlighter-rouge&quot;&gt;urllib.request.urlopen()&lt;
 &lt;p&gt;the Request object has a method called &lt;code class=&quot;highlighter-rouge&quot;&gt;set_proxy(host,type)&lt;/code&gt;, which prepare the request by connecting to a proxy server. Programmers can use it like:&lt;/p&gt;
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;urllib.request&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;req&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'http://www.httpbin.org/ip'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#req.set_proxy('ip:port','scheme')&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#example:&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_proxy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'183.128.223.120:8118'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'http'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#req.set_proxy('ip:port','scheme')
+#example:
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_proxy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'183.128.223.120:8118'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'http'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urlopen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'utf8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -603,17 +674,17 @@ The &lt;code class=&quot;highlighter-rouge&quot;&gt;urllib.request.urlopen()&lt;
 &lt;p&gt;however, if you don’t want to change your computer environment, then maybe you can register a new &lt;code class=&quot;highlighter-rouge&quot;&gt;ProxyHandler&lt;/code&gt; to the default &lt;code class=&quot;highlighter-rouge&quot;&gt;OpenerDirector&lt;/code&gt;, and disable the default proxy settings.&lt;/p&gt;
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;urllib.request&lt;/span&gt;
 
-&lt;span class=&quot;c&quot;&gt;# disable proxy by passing an empty&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;proxy_handler&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ProxyHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({})&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#alertnatively you could set a proxy for http with&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#proxy_handler = urllib.request.ProxyHandler({'http': 'http://ip:port/'})&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#example&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;proxy_handler&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ProxyHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'http'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'http://183.128.223.120:8118/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# disable proxy by passing an empty
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;proxy_handler&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ProxyHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({})&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#alertnatively you could set a proxy for http with
+#proxy_handler = urllib.request.ProxyHandler({'http': 'http://ip:port/'})
+#example
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;proxy_handler&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ProxyHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'http'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'http://183.128.223.120:8118/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;opener&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;build_opener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;proxy_handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'http://www.httpbin.org/ip'&lt;/span&gt;
 
-&lt;span class=&quot;c&quot;&gt;# open the website with the opener&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;opener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# open the website with the opener
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;opener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'utf8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -650,20 +721,20 @@ The &lt;code class=&quot;highlighter-rouge&quot;&gt;urllib.request.urlopen()&lt;
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;urllib.request&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;urllib.error&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;urllib.parse&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#contruct Request with url and method&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'http://locahost'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;POST&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#contruct Request with url and method
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'http://locahost'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;POST&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#the data that needs to send&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Gorge&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#the data that needs to send
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Gorge&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
              &lt;span class=&quot;s&quot;&gt;&quot;age&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
              &lt;span class=&quot;s&quot;&gt;&quot;carrer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;truck driver&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#the encoded str, it format is key1=value1&amp;amp;key2=value2&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;param&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urlencode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#convert to bytes&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;bparam&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#request&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urlopen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bparam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#the encoded str, it format is key1=value1&amp;amp;key2=value2
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;param&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urlencode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#convert to bytes
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;bparam&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#request
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urlopen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bparam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;URLError&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reason&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
@@ -688,7 +759,7 @@ The &lt;code class=&quot;highlighter-rouge&quot;&gt;urllib.request.urlopen()&lt;
  <entry>
    <title>Python JSON Example</title>
    <link href="http://localhost:4000/python/2019/09/01/Python-JSON-Example/"/>
-   <updated>2019-09-01T01:01:01+08:00</updated>
+   <updated>2019-09-01T02:01:01+00:00</updated>
    <id>http://localhost:4000/blog/python/2019/09/01/Python-JSON-Example</id>
    <content type="html">&lt;p&gt;JSON (JavaScript Object Notation) is a lightweight data-interchange format. Python builds very powerful build-in functionality support JSON. This article will discuss the encoding and decoding of JSON in Python. make sure you have already known JSON syntax before starting if you aren’t, please check it first.&lt;/p&gt;
 
@@ -700,32 +771,32 @@ The &lt;code class=&quot;highlighter-rouge&quot;&gt;urllib.request.urlopen()&lt;
 
 &lt;h1 id=&quot;decoding-json&quot;&gt;Decoding JSON&lt;/h1&gt;
 &lt;p&gt;json library package provides two methods for deserializing from a string(json format) to a Python Object.&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#Decode the json string&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fileobj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#Decode while JSON file read&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#Decode the json string
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fileobj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#Decode while JSON file read
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;load()&lt;/code&gt; accepted a file_object parameter, deserializing from a file contents. however &lt;code class=&quot;highlighter-rouge&quot;&gt;loads()&lt;/code&gt; accepted string parameter, deserializing from a string.&lt;/p&gt;
 
 &lt;p&gt;if the string data or the file contents being deserialized is not a valid JSON document, then a &lt;code class=&quot;highlighter-rouge&quot;&gt;JSONDecodeError&lt;/code&gt; will be raised.&lt;/p&gt;
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;json&lt;/span&gt;
 
-&lt;span class=&quot;c&quot;&gt;# some JSON:&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;s&quot;&gt;'{ &quot;school&quot;:&quot;oxford&quot;,&quot;type&quot;:&quot;university&quot;,&quot;location&quot;:&quot;England&quot;}'&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# some JSON:
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;s&quot;&gt;'{ &quot;school&quot;:&quot;oxford&quot;,&quot;type&quot;:&quot;university&quot;,&quot;location&quot;:&quot;England&quot;}'&lt;/span&gt;
 
-&lt;span class=&quot;c&quot;&gt;# parse x:&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# parse x:
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;c&quot;&gt;# the result y is a Python dictionary:&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;school&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; is a &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; in &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;location&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# the result y is a Python dictionary:
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;school&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; is a &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; in &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;location&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 
-&lt;span class=&quot;c&quot;&gt;# Output: oxford is a university in England&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Output: oxford is a university in England
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;encoding-json&quot;&gt;Encoding JSON&lt;/h1&gt;
 &lt;p&gt;json package also provides two methods for serializing Python Object as a JSON formatted string. they are:&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dumps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#encoding to JSON objects&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dump&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#encoded string writing on file&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dumps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#encoding to JSON objects
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dump&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#encoded string writing on file
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;the &lt;code class=&quot;highlighter-rouge&quot;&gt;dump()&lt;/code&gt; method will write the encoded string into a file. &lt;code class=&quot;highlighter-rouge&quot;&gt;dumps()&lt;/code&gt; method produces only a JSON form string.&lt;/p&gt;
 
 &lt;p&gt;They both accept a &lt;code class=&quot;highlighter-rouge&quot;&gt;default&lt;/code&gt; parameter that should be a function that gets called for objects that can’t otherwise be serialized. it should return a JSON encoded version of the object or raise &lt;code class=&quot;highlighter-rouge&quot;&gt;TypeError&lt;/code&gt;.&lt;/p&gt;
@@ -733,8 +804,8 @@ The &lt;code class=&quot;highlighter-rouge&quot;&gt;urllib.request.urlopen()&lt;
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;TypeError&lt;/code&gt; will be raised, if not specified the &lt;code class=&quot;highlighter-rouge&quot;&gt;default&lt;/code&gt; parameter while meeting unable to handled types.&lt;/p&gt;
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;json&lt;/span&gt;
 
-&lt;span class=&quot;c&quot;&gt;# a Python object (dict):&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# a Python object (dict):
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;s&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Jay gatsby&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;s&quot;&gt;&quot;gender&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;male&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;s&quot;&gt;&quot;career&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;thief&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gambler&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bootlegger&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
@@ -743,12 +814,12 @@ The &lt;code class=&quot;highlighter-rouge&quot;&gt;urllib.request.urlopen()&lt;
     &lt;span class=&quot;s&quot;&gt;&quot;great&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;yes&quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;c&quot;&gt;# convert into JSON:&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# the result y is a JSON string:&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dumps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# convert into JSON:
+# the result y is a JSON string:
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dumps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;c&quot;&gt;# Output: {&quot;name&quot;: &quot;Jay gatsby&quot;, &quot;gender&quot;: &quot;male&quot;, &quot;career&quot;: [&quot;thief&quot;, &quot;gambler&quot;, &quot;bootlegger&quot;], &quot;beloved&quot;: &quot;daisy&quot;, &quot;friends&quot;: &quot;nick carraway&quot;, &quot;great&quot;: &quot;yes&quot;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Output: {&quot;name&quot;: &quot;Jay gatsby&quot;, &quot;gender&quot;: &quot;male&quot;, &quot;career&quot;: [&quot;thief&quot;, &quot;gambler&quot;, &quot;bootlegger&quot;], &quot;beloved&quot;: &quot;daisy&quot;, &quot;friends&quot;: &quot;nick carraway&quot;, &quot;great&quot;: &quot;yes&quot;}
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;you have already know how to deserializing and serializing till here. in the next chapter, we will discuss the variable conversion table between JSON and Python.&lt;/p&gt;
@@ -864,7 +935,7 @@ write it in the comment area we will discuss it together.&lt;/p&gt;
  <entry>
    <title>How to use Jetty build simple Http Server</title>
    <link href="http://localhost:4000/java/2019/08/29/How-to-use-Jetty-build-simple-Http-Server/"/>
-   <updated>2019-08-29T01:01:01+08:00</updated>
+   <updated>2019-08-29T02:01:01+00:00</updated>
    <id>http://localhost:4000/blog/java/2019/08/29/How-to-use-Jetty-build-simple-Http-Server</id>
    <content type="html">&lt;p&gt;Hello guys. I would like to explain how to use Jetty to build HTTP server in this blog. Welcome to leave comments if you have any troubles or thoughts about it.&lt;/p&gt;
 
@@ -874,7 +945,7 @@ write it in the comment area we will discuss it together.&lt;/p&gt;
 
 &lt;h1 id=&quot;build-http-jetty-server&quot;&gt;Build HTTP Jetty server&lt;/h1&gt;
 &lt;p&gt;The first step, create a server instance&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Server&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Server&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8081&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;Server&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Server&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8081&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Create a basic jetty server object that will listen on port 8081. Note that if you set this to port 0 then a randomly available port will be assigned that you can either look in the logs for the port or programmatically obtain it for use in test cases.&lt;/p&gt;
 
@@ -888,32 +959,32 @@ write it in the comment area we will discuss it together.&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;org.eclipse.jetty.server.Handler&lt;/code&gt; interface has lots of derived class, this chapter will demonstrate &lt;code class=&quot;highlighter-rouge&quot;&gt;ServletContextHandler&lt;/code&gt; usage.&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;handler&lt;/code&gt; has a relevance with &lt;code class=&quot;highlighter-rouge&quot;&gt;Servlet&lt;/code&gt; Instance by function &lt;code class=&quot;highlighter-rouge&quot;&gt;handler.addServlet()&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;ServletContextHandler&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;handler&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ServletContextHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
-  	&lt;span class=&quot;n&quot;&gt;ServletContextHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;SESSIONS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ServletContextHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;NO_SECURITY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nc&quot;&gt;ServletContextHandler&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;handler&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContextHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+  	&lt;span class=&quot;nc&quot;&gt;ServletContextHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;SESSIONS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletContextHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;NO_SECURITY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setContextPath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/hello&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;ServletHolder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myserverletholder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ServerletHolder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myserverlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;ServletHolder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myserverletholder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServerletHolder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myserverlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addServlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myserverletholder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pathSpec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;myservletholder&lt;/code&gt; is an instance of &lt;code class=&quot;highlighter-rouge&quot;&gt;org.eclipse.jetty.servlet.ServletHolder&lt;/code&gt;. it’s a servlet instance and context holder. Holds the name, params and some state of a &lt;code class=&quot;highlighter-rouge&quot;&gt;javax.servlet.Servlet&lt;/code&gt; instance. It implements the &lt;code class=&quot;highlighter-rouge&quot;&gt;ServletConfig&lt;/code&gt; interface. This class will organize the loading of servlets when needed or requested.&lt;/p&gt;
 
 &lt;p&gt;Each &lt;code class=&quot;highlighter-rouge&quot;&gt;ServletHolder&lt;/code&gt; instance normally interests a &lt;code class=&quot;highlighter-rouge&quot;&gt;javax.servlet.Servlet&lt;/code&gt; interface. servlet is a small Java program that runs within a Web server. servlets receive and respond to requests from Web clients, usually across HTTP(HyperText Transfer Protocol). To implement this interface,  you can write an HTTP servlet that extends to &lt;code class=&quot;highlighter-rouge&quot;&gt;javax.servlet.http.HttpServlet&lt;/code&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;myservlet&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpServlet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;myservlet&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServlet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;cm&quot;&gt;/**
          * handle get request
          */&lt;/span&gt;
         &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;doGet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;HttpServletResponse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ServletException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;doGet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;HttpServletResponse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;c1&quot;&gt;//somecode&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;cm&quot;&gt;/**
          * handle post request
          */&lt;/span&gt;
         &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;doPost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpServletResponse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-          &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ServletException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;doPost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServletResponse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
          &lt;span class=&quot;c1&quot;&gt;//somecode&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;

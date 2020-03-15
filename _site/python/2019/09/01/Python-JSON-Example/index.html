@@ -226,32 +226,32 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
 
 <h1 id="decoding-json">Decoding JSON</h1>
 <p>json library package provides two methods for deserializing from a string(json format) to a Python Object.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="c">#Decode the json string</span>
-<span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fileobj</span><span class="p">)</span> <span class="c">#Decode while JSON file read</span>
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="c1">#Decode the json string
+</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fileobj</span><span class="p">)</span> <span class="c1">#Decode while JSON file read
+</span></code></pre></div></div>
 <p><code class="highlighter-rouge">load()</code> accepted a file_object parameter, deserializing from a file contents. however <code class="highlighter-rouge">loads()</code> accepted string parameter, deserializing from a string.</p>
 
 <p>if the string data or the file contents being deserialized is not a valid JSON document, then a <code class="highlighter-rouge">JSONDecodeError</code> will be raised.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
 
-<span class="c"># some JSON:</span>
-<span class="n">x</span> <span class="o">=</span>  <span class="s">'{ "school":"oxford","type":"university","location":"England"}'</span>
+<span class="c1"># some JSON:
+</span><span class="n">x</span> <span class="o">=</span>  <span class="s">'{ "school":"oxford","type":"university","location":"England"}'</span>
 
-<span class="c"># parse x:</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># parse x:
+</span><span class="n">y</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="c"># the result y is a Python dictionary:</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="s">"school"</span><span class="p">]</span> <span class="o">+</span> <span class="s">" is a "</span><span class="o">+</span><span class="n">y</span><span class="p">[</span><span class="s">"type"</span><span class="p">]</span><span class="o">+</span><span class="s">" in "</span><span class="o">+</span><span class="n">y</span><span class="p">[</span><span class="s">"location"</span><span class="p">]</span>
+<span class="c1"># the result y is a Python dictionary:
+</span><span class="n">res</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="s">"school"</span><span class="p">]</span> <span class="o">+</span> <span class="s">" is a "</span><span class="o">+</span><span class="n">y</span><span class="p">[</span><span class="s">"type"</span><span class="p">]</span><span class="o">+</span><span class="s">" in "</span><span class="o">+</span><span class="n">y</span><span class="p">[</span><span class="s">"location"</span><span class="p">]</span>
 
-<span class="c"># Output: oxford is a university in England</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="c1"># Output: oxford is a university in England
+</span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h1 id="encoding-json">Encoding JSON</h1>
 <p>json package also provides two methods for serializing Python Object as a JSON formatted string. they are:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">()</span> <span class="c">#encoding to JSON objects</span>
-<span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span> <span class="c">#encoded string writing on file</span>
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">()</span> <span class="c1">#encoding to JSON objects
+</span><span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span> <span class="c1">#encoded string writing on file
+</span></code></pre></div></div>
 <p>the <code class="highlighter-rouge">dump()</code> method will write the encoded string into a file. <code class="highlighter-rouge">dumps()</code> method produces only a JSON form string.</p>
 
 <p>They both accept a <code class="highlighter-rouge">default</code> parameter that should be a function that gets called for objects that can’t otherwise be serialized. it should return a JSON encoded version of the object or raise <code class="highlighter-rouge">TypeError</code>.</p>
@@ -259,8 +259,8 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
 <p><code class="highlighter-rouge">TypeError</code> will be raised, if not specified the <code class="highlighter-rouge">default</code> parameter while meeting unable to handled types.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
 
-<span class="c"># a Python object (dict):</span>
-<span class="n">x</span> <span class="o">=</span> <span class="p">{</span>
+<span class="c1"># a Python object (dict):
+</span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">"name"</span><span class="p">:</span><span class="s">"Jay gatsby"</span><span class="p">,</span>
     <span class="s">"gender"</span><span class="p">:</span><span class="s">"male"</span><span class="p">,</span>
     <span class="s">"career"</span><span class="p">:[</span><span class="s">"thief"</span><span class="p">,</span><span class="s">"gambler"</span><span class="p">,</span><span class="s">"bootlegger"</span><span class="p">],</span>
@@ -269,12 +269,12 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
     <span class="s">"great"</span><span class="p">:</span><span class="s">"yes"</span>
 <span class="p">}</span>
 
-<span class="c"># convert into JSON:</span>
-<span class="c"># the result y is a JSON string:</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># convert into JSON:
+# the result y is a JSON string:
+</span><span class="n">y</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="c"># Output: {"name": "Jay gatsby", "gender": "male", "career": ["thief", "gambler", "bootlegger"], "beloved": "daisy", "friends": "nick carraway", "great": "yes"}</span>
-<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="c1"># Output: {"name": "Jay gatsby", "gender": "male", "career": ["thief", "gambler", "bootlegger"], "beloved": "daisy", "friends": "nick carraway", "great": "yes"}
+</span><span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>you have already know how to deserializing and serializing till here. in the next chapter, we will discuss the variable conversion table between JSON and Python.</p>
@@ -394,6 +394,15 @@ write it in the comment area we will discuss it together.</p>
     
       <li>
         <h3>
+          <a href="/blog/csharp/2020/03/03/EF-Core-Explicit-Loading/">
+            EF Core Explicit Loading
+            <small>03 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
           <a href="/blog/csharp/2020/03/03/EF-Core-Eager-Loading/">
             EF Core Eager Loading
             <small>03 Mar 2020</small>
@@ -405,15 +414,6 @@ write it in the comment area we will discuss it together.</p>
         <h3>
           <a href="/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/">
             Entity Framework Tutorial
-            <small>28 Feb 2020</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/">
-            EF Core Load Related Entities
             <small>28 Feb 2020</small>
           </a>
         </h3>

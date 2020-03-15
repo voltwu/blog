@@ -1,0 +1,181 @@
+I"�k<p>Just like many other languages, Python also has built-in support for internet resource access, far more than. you can fetch internet resource easily with python.</p>
+
+<p>python mainly version divides into python2.x and python3.x until now. the python2.7 and python3.7 is the most stable version. python3 has been assembled the URL modules from python2, so there are some little differences in URL fetching operation between python2 and python3.</p>
+
+<p>Don’t worry about complications, take patience. I will do my best to make that as clear as possible.</p>
+
+<h1 id="urllib-and-urllib2-in-python2">urllib and urllib2 in python2</h1>
+<p>python2 has two modules for fetching internet source. one of them is <code class="highlighter-rouge">urllib</code>,the another is <code class="highlighter-rouge">urllib2</code>.</p>
+
+<h2 id="urllib-module">urllib module</h2>
+<p><code class="highlighter-rouge">urllib</code> provides a high-level interface for fetching data across the World Wide Web. One of the most common methods is <code class="highlighter-rouge">urlopen</code> that will return a file-like object that supports the following methods: <code class="highlighter-rouge">read()</code>, <code class="highlighter-rouge">readline()</code>, <code class="highlighter-rouge">readlines()</code>, <code class="highlighter-rouge">fileno()</code>, <code class="highlighter-rouge">close()</code>, <code class="highlighter-rouge">info()</code>, <code class="highlighter-rouge">getcode()</code>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s">'http://www.google.com'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">getcode</span><span class="p">()</span>
+<span class="mi">200</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">geturl</span><span class="p">()</span>
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">Date</span><span class="p">:</span> <span class="n">Sat</span><span class="p">,</span> <span class="mi">07</span> <span class="n">Sep</span> <span class="mi">2019</span> <span class="mi">06</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mi">45</span> <span class="n">GMT</span><span class="err">`</span>
+<span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="p">:</span> <span class="n">private</span><span class="p">,</span> <span class="nb">max</span><span class="o">-</span><span class="n">age</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="o">&lt;</span><span class="err">!</span><span class="n">doctype</span> <span class="n">html</span><span class="o">&gt;&lt;</span><span class="n">html</span> <span class="n">itemscope</span><span class="o">=</span><span class="s">""</span> <span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="urllib2-module">urllib2 module</h2>
+<p><code class="highlighter-rouge">urllib2</code> is also python2’s module, as <code class="highlighter-rouge">urllib</code> has many restrictions, check <a href="https://docs.python.org/2.7/library/urllib.html#urllib-restrictions">urllib restrictions</a>. The <code class="highlighter-rouge">urllib2</code> module defines functions and classes which help in opening URLs(mostly HTTP) in a complex world - basic and digest authentications, redirections, cookies and more.</p>
+
+<p><code class="highlighter-rouge">urllib2</code> use an <code class="highlighter-rouge">OpenerDirector</code> instance to manage handlers that can be either instance of <code class="highlighter-rouge">BaseHandler</code> or subclass of <code class="highlighter-rouge">BaseHandler</code>. the default <code class="highlighter-rouge">OpenerDirector</code> will contain the following classes(except chains explicitly them or extends from them by <code class="highlighter-rouge">urllib2.build_opener([handler, ...])</code>). them are  <code class="highlighter-rouge">ProxyHandler</code> (if proxy settings are detected), <code class="highlighter-rouge">UnknownHandler</code>, <code class="highlighter-rouge">HTTPHandler</code>, <code class="highlighter-rouge">HTTPDefaultErrorHandler</code>, <code class="highlighter-rouge">HTTPRedirectHandler</code>, <code class="highlighter-rouge">FTPHandler</code>, <code class="highlighter-rouge">FileHandler</code>, <code class="highlighter-rouge">HTTPErrorProcessor</code>.</p>
+
+<p>The bellow is a simple HTTP request case with <code class="highlighter-rouge">urllib2</code>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">'http://www.google.com'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="o">&lt;</span><span class="err">!</span><span class="n">doctype</span> <span class="n">html</span><span class="o">&gt;&lt;</span><span class="n">html</span> <span class="n">itemscope</span><span class="o">=</span><span class="s">""</span> <span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">urlopen</code> accepts a <code class="highlighter-rouge">url</code> parameter which can be either a string or a <code class="highlighter-rouge">Request</code> object. when we pass a string into, it will create a default <code class="highlighter-rouge">Request</code> object. bellow I pass a <code class="highlighter-rouge">Request</code> object instead.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">req</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="s">'http://www.google.com'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">req</span><span class="o">.</span><span class="n">get_method</span><span class="p">()</span>
+<span class="n">GET</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="o">&lt;</span><span class="err">!</span><span class="n">doctype</span> <span class="n">html</span><span class="o">&gt;&lt;</span><span class="n">html</span> <span class="n">itemscope</span><span class="o">=</span><span class="s">""</span> <span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+<p><code class="highlighter-rouge">Request</code> object has a lot of public interfaces. programmer can add request headers by <code class="highlighter-rouge">Request.add_header(key, val)</code> , set proxy info by <code class="highlighter-rouge">Request.set_proxy(host, type)</code>, get current method of request by <code class="highlighter-rouge">Request.get_method()</code>. <a href="https://docs.python.org/2.7/library/urllib2.html#urllib2.Request">urllib2 official document</a> demonstrate it clearly.</p>
+
+<h1 id="urllib-in-python3">urllib in python3</h1>
+<p>The <code class="highlighter-rouge">urllib</code> module in python2 has been split into parts and renamed in python3 to <code class="highlighter-rouge">urllib.request</code>, <code class="highlighter-rouge">urllib.parse</code>, and <code class="highlighter-rouge">urllib.error</code>. Also note that the <code class="highlighter-rouge">urllib.request.urlopen()</code>  function in python3 is equivalent to <code class="highlighter-rouge">urllib2.urlopen()</code> , and <code class="highlighter-rouge">urllib.urlopen()</code> has been removed.</p>
+
+<p>Also, the <code class="highlighter-rouge">urllib2</code> module in python2 has been split into parts and renamed in python3 to <code class="highlighter-rouge">urllib.request</code>, <code class="highlighter-rouge">urllib.error</code>.</p>
+
+<p>The python3 has been assembled from <code class="highlighter-rouge">urllib</code> and <code class="highlighter-rouge">urllib2</code> of python2. and the <code class="highlighter-rouge">urllib</code> in python3 is no longer a module, it’s a package instead. the <code class="highlighter-rouge">urllib</code> is a package which collects several modules for working with URLs:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">urllib.request</code> for opening and reading URLs</li>
+  <li><code class="highlighter-rouge">urllib.error</code> containing the exceptions raised by <code class="highlighter-rouge">urllib.request</code></li>
+  <li><code class="highlighter-rouge">urllib.parse</code> for parsing URLs</li>
+  <li><code class="highlighter-rouge">urllib.robotparser</code> for parsing robots.txt files</li>
+</ul>
+
+<h2 id="urllibrequest-module">urllib.request module</h2>
+<p>The <code class="highlighter-rouge">urllib.request</code> module assembled the opening and reading parts of the module of the <code class="highlighter-rouge">urllib</code> and <code class="highlighter-rouge">urllib2</code> of python2. it’s a lot of futures are same with <code class="highlighter-rouge">urllib2</code> of python2. it also uses <code class="highlighter-rouge">OpenerDirector</code> to manage <code class="highlighter-rouge">Handler</code>s which can a <code class="highlighter-rouge">BaseHandler</code> or a subclass of <code class="highlighter-rouge">BaseHandler</code> which deals with corresponding tasks.
+The <code class="highlighter-rouge">urllib.request.urlopen()</code> can accept a URL string or a <code class="highlighter-rouge">Request</code> instance.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">'http://www.google.com'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">b</span><span class="s">'&lt;!DOCTYPE html PUBLIC "-//W3C//D.....</span><span class="err">
+</span></code></pre></div></div>
+<p>the <code class="highlighter-rouge">urllib.request.urlopen()</code> always returns a file-like object that has methods,such as <code class="highlighter-rouge">getcode()</code>,<code class="highlighter-rouge">geturl()</code>,<code class="highlighter-rouge">info()</code>.</p>
+
+<p>The <code class="highlighter-rouge">urllib.request.Request</code> class is an abstraction of URL requests. the prototype is:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{},</span> <span class="n">origin_req_host</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">unverifiable</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</code></pre></div></div>
+<p>the <em>url</em> should be a string containing a valid Uniform Resource Locators. the <em>method</em> can be POST, GET, PUT, etc…</p>
+
+<p>For an HTTP POST request method, <em>data</em> should be a buffer in the standard <em>application/x-www-form-urlencoded</em> format. The <code class="highlighter-rouge">urllib.parse.urlencode()</code> function can take a mapping or sequence of 2-tuples and return that format string.</p>
+
+<p>the <em>headers</em> should be a directory, it is the request header when fetching internet source. the programmer also can be allowed to add cookies into.</p>
+
+<p>the Request object has a method called <code class="highlighter-rouge">set_proxy(host,type)</code>, which prepare the request by connecting to a proxy server. Programmers can use it like:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="s">'http://www.httpbin.org/ip'</span><span class="p">)</span>
+<span class="c1">#req.set_proxy('ip:port','scheme')
+#example:
+</span><span class="n">req</span><span class="o">.</span><span class="n">set_proxy</span><span class="p">(</span><span class="s">'183.128.223.120:8118'</span><span class="p">,</span><span class="s">'http'</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div></div>
+<p>if you are in win7 environment, then make sure your <em>automatically detect settings</em> at <em>LAN setting</em> dialog  have been clicked on.
+<img src="/blog/public/img/2019-09-0-Everythings-You-Need-To-Know-Fetching-Internet-Resource-With-Python-a.jpg" alt="Alt" /></p>
+
+<p>however, if you don’t want to change your computer environment, then maybe you can register a new <code class="highlighter-rouge">ProxyHandler</code> to the default <code class="highlighter-rouge">OpenerDirector</code>, and disable the default proxy settings.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="c1"># disable proxy by passing an empty
+</span><span class="n">proxy_handler</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">ProxyHandler</span><span class="p">({})</span>
+<span class="c1">#alertnatively you could set a proxy for http with
+#proxy_handler = urllib.request.ProxyHandler({'http': 'http://ip:port/'})
+#example
+</span><span class="n">proxy_handler</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">ProxyHandler</span><span class="p">({</span><span class="s">'http'</span><span class="p">:</span> <span class="s">'http://183.128.223.120:8118/'</span><span class="p">})</span>
+<span class="n">opener</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">proxy_handler</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'http://www.httpbin.org/ip'</span>
+
+<span class="c1"># open the website with the opener
+</span><span class="n">f</span> <span class="o">=</span> <span class="n">opener</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>the next is a simple <code class="highlighter-rouge">GET</code> example</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="s">'http://www.google.com'</span><span class="p">,</span><span class="n">method</span> <span class="o">=</span> <span class="s">'GET'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">b</span><span class="s">'&lt;!doctype html&gt;&lt;html itemsco...</span><span class="err">
+</span><span class="s">&gt;&gt;&gt; f.close()</span><span class="err">
+</span></code></pre></div></div>
+
+<h2 id="urlliberror-module">urllib.error module</h2>
+<p>The <code class="highlighter-rouge">urllib.error</code> module defines exception classes for exceptions raised by <code class="highlighter-rouge">urllib.request</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">urllib.error</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="s">'http://locahost:8080'</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="s">''</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">urllib</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">URLError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="urllibparse-module">urllib.parse module</h2>
+<p>the <code class="highlighter-rouge">urllib.parse</code> defines a standard interface to break Uniform Resource Locator up to components, to combine the components to a  URL string, to convert a “Relative URL” to absolute URL given a “base URL”, to mapping a dictionary or sequence of 2-tuples to a valid POST data format.</p>
+
+<p>one of the most common methods used is <code class="highlighter-rouge">urllib.parse.urlencode</code>, which will return a percent-encoded ASCII text string, which used in POST request. the result string is serials of <code class="highlighter-rouge">key=value</code> pairs separated by <code class="highlighter-rouge">&amp;</code> notation, which follows the standard format of <em>application/x-www-form-urlencoded</em>.</p>
+
+<p>next is a simple POST case.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">urllib.error</span>
+<span class="kn">import</span> <span class="nn">urllib.parse</span>
+<span class="c1">#contruct Request with url and method
+</span><span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="s">'http://locahost'</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s">"POST"</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="s">''</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1">#the data that needs to send
+</span>    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">"name"</span><span class="p">:</span><span class="s">"Gorge"</span><span class="p">,</span>
+             <span class="s">"age"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span>
+             <span class="s">"carrer"</span><span class="p">:</span><span class="s">"truck driver"</span><span class="p">};</span>
+    <span class="c1">#the encoded str, it format is key1=value1&amp;key2=value2
+</span>    <span class="n">param</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="c1">#convert to bytes
+</span>    <span class="n">bparam</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">)</span>
+    <span class="c1">#request
+</span>    <span class="n">f</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="n">req</span><span class="p">,</span><span class="n">data</span> <span class="o">=</span> <span class="n">bparam</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">urllib</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">URLError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="urllibrobotparser-module">urllib.robotparser module</h2>
+<p><code class="highlighter-rouge">urllib.robotparser</code>, which used to manage Uniform Resource Locator of WWW Robots (also called wanderers or spiders) visits. this is outside of the scope of this document.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+<p>congratulations, you have been learned the part of internet fetching resource. I hope I wrote it clear.</p>
+
+<p>let me recap. In python2, which have two modules use for fetching internet resource, they are <code class="highlighter-rouge">urllib</code> and <code class="highlighter-rouge">urllib2</code>. the <code class="highlighter-rouge">urllib2</code> is the enhanced edition of the <code class="highlighter-rouge">urllib</code>,  the mechanism of <code class="highlighter-rouge">urllib2</code> use an <code class="highlighter-rouge">OpenerDirector</code> to manage serial of <code class="highlighter-rouge">Handler</code>s.</p>
+
+<p>python3 assembled the future of <code class="highlighter-rouge">urllib</code> and <code class="highlighter-rouge">urllib2</code> of python2 into <code class="highlighter-rouge">urllib.request</code>, <code class="highlighter-rouge">urllib.error</code>, <code class="highlighter-rouge">urllib.parse</code>. Be careful that the <code class="highlighter-rouge">urllib.request.urlopen</code> corresponding of <code class="highlighter-rouge">urllib2.urlopen()</code>.</p>
+
+<p>Alright! we have arrived at the bottom of this document. I hope you absorb this well. The Mid-Autumn festive is coming, Have a good Mid-Autumn Festive. bye buds!</p>
+
+:ET

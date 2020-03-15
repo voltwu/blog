@@ -299,13 +299,13 @@ Here is the recognition result</p>
 <p>check the version</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pytesseract</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">pytesseract</span><span class="o">.</span><span class="n">get_tesseract_version</span><span class="p">())</span>
-<span class="mf">5.0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">alpha</span><span class="o">.</span><span class="mi">20191030</span>
+<span class="mf">5.0.0</span><span class="o">-</span><span class="n">alpha</span><span class="mf">.20191030</span>
 </code></pre></div></div>
 <p>After checked the version. can find more helpful information if you don’t clear on something. or input <code class="highlighter-rouge">tesseract --help</code> after installing the same version executable.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pytesseract</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="c"># If you don't have tesseract executable in your PATH, include the following</span>
-<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># If you don't have tesseract executable in your PATH, include the following
+</span><span class="o">...</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">pytesseract</span><span class="o">.</span><span class="n">pytesseract</span><span class="o">.</span><span class="n">tesseract_cmd</span> <span class="o">=</span> <span class="s">r'your tesseract executable location</span><span class="err">
 </span><span class="s">&gt;&gt;&gt;</span><span class="err">
 </span><span class="s">&gt;&gt;&gt; custom_oem_psm_config = r'</span><span class="o">--</span><span class="n">oem</span> <span class="mi">3</span> <span class="o">--</span><span class="n">psm</span> <span class="mi">7</span><span class="s">'</span><span class="err">
@@ -327,6 +327,15 @@ Here is the recognition result</p>
     
       <li>
         <h3>
+          <a href="/blog/csharp/2020/03/03/EF-Core-Explicit-Loading/">
+            EF Core Explicit Loading
+            <small>03 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
           <a href="/blog/csharp/2020/03/03/EF-Core-Eager-Loading/">
             EF Core Eager Loading
             <small>03 Mar 2020</small>
@@ -338,15 +347,6 @@ Here is the recognition result</p>
         <h3>
           <a href="/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/">
             Entity Framework Tutorial
-            <small>28 Feb 2020</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/">
-            EF Core Load Related Entities
             <small>28 Feb 2020</small>
           </a>
         </h3>
