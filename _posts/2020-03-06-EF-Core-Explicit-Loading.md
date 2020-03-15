@@ -73,7 +73,7 @@ context.Entry(team).Reference(t=>t.school).Load()
 ```
 
 #  Query()
-The both `Collection()` and `Referece()` methods return a `ChangeTracking` an object that exposes change tracking information. So we can't continue to write further LINQ queries to filter out related data after this object.
+The `Collection()` or `Referece()` methods return a `CollectionEntry` object or a `ReferenceEntry` object, both objects expose change tracking information. and they are not `IQueryable` instances, So we can't continue to write further LINQ queries to filter out related data after these methods.
 
 How we can do it? luckily, we have `Query()` method which can offer us to write further queries.
 ```c#
