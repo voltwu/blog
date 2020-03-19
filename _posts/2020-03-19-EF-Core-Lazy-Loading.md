@@ -20,7 +20,7 @@ excerpt: Lazy loadings that the related data transparently loaded from the datab
 <a href="/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/" style="cursor: pointer;text-decoration: none;">query</a>
 <span>
 
-**Eager Loading** means that the related data is transparently loaded from the database when the navigation property is accessed.
+**Lazy Loading** means that the related data is transparently loaded from the database when the navigation property is accessed.
 
 This project can be found in [Github][1]
 
