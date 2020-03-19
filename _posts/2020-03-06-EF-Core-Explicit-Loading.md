@@ -20,7 +20,7 @@ excerpt: Explicit Loading means that related entities are explicitly loaded from
 <a href="/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/" style="cursor: pointer;text-decoration: none;">query</a>
 <span>
 
-**Eager Loading** means that related entities are explicitly loaded from the database at a later time.
+**Explicit Loading** means that related entities are explicitly loaded from the database at a later time.
 
 This project can be found in [Github][1]
 

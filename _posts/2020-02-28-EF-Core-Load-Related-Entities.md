@@ -29,6 +29,7 @@ Entity Framework Core allows you to use navigation properties in your model to l
 <ul>
 <li><a href="/blog/csharp/2020/03/03/EF-Core-Eager-Loading/" style="cursor: pointer;text-decoration: none;font-size: 0.85em;">Eager Loading</a></li>
 <li><a href="/blog/csharp/2020/03/06/EF-Core-Explicit-Loading/" style="cursor: pointer;text-decoration: none;font-size: 0.85em;">Explicit Loading</a></li>
-<li><a href="" style="cursor: pointer;text-decoration: none;font-size: 0.85em;">Lazy Loading</a></li>
+<li><a href="/blog/csharp/2020/03/19/EF-Core-Lazy-Loading/" style="cursor: pointer;text-decoration: none;font-size: 0.85em;">Lazy Loading</a></li>
+<li><a href="" style="cursor: pointer;text-decoration: none;font-size: 0.85em;">How To Choose To Use Which One</a></li>
 </ul>
 </div>

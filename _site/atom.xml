@@ -4,7 +4,7 @@
  <title>A Dream Chaser</title>
  <link href="http://localhost:4000/blog/atom.xml" rel="self"/>
  <link href="http://localhost:4000/blog/"/>
- <updated>2020-03-15T09:32:00+00:00</updated>
+ <updated>2020-03-19T13:38:24+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>A Dream Chaser</name>
@@ -13,10 +13,10 @@
 
  
  <entry>
-   <title>EF Core Explicit Loading</title>
-   <link href="http://localhost:4000/csharp/2020/03/03/EF-Core-Explicit-Loading/"/>
-   <updated>2020-03-03T02:01:01+00:00</updated>
-   <id>http://localhost:4000/blog/csharp/2020/03/03/EF-Core-Explicit-Loading</id>
+   <title>EF Core Lazy Loading</title>
+   <link href="http://localhost:4000/csharp/2020/03/19/EF-Core-Lazy-Loading/"/>
+   <updated>2020-03-19T02:01:01+00:00</updated>
+   <id>http://localhost:4000/blog/csharp/2020/03/19/EF-Core-Lazy-Loading</id>
    <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
 &amp;gt;
 &lt;a href=&quot;/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;main&lt;/a&gt;
@@ -24,9 +24,92 @@
 &lt;a href=&quot;/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;query&lt;/a&gt;
 &lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Eager Loading&lt;/strong&gt; means that related entities are explicitly loaded from the database at a later time.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Eager Loading&lt;/strong&gt; means that the related data is transparently loaded from the database when the navigation property is accessed.&lt;/p&gt;
 
-&lt;p&gt;This project can be found in &lt;a href=&quot;https://github.com/voltwu/C-Sharp-Console-Application-EF-Core-Example/tree/b2d33ad3f6f19e06b20afeb68218798c7f2f9f08&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This project can be found in &lt;a href=&quot;www:asd&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;how-to-implement-lazy-loading&quot;&gt;How to implement lazy loading&lt;/h1&gt;
+&lt;p&gt;There have several ways to implement lazy loading. the simplest way is to use &lt;code class=&quot;highlighter-rouge&quot;&gt;Microsoft.EntityFrameworkCore.Proxies&lt;/code&gt; package.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;First&lt;/strong&gt;, need to install &lt;code class=&quot;highlighter-rouge&quot;&gt;Microsoft.EntityFrameworkCore.Proxies&lt;/code&gt; on &lt;em&gt;Nuget Package Manager&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;PM&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;Install-Package Microsoft.EntityFrameworkCore.Proxies
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Second&lt;/strong&gt;, enable lazy loading with a call to &lt;code class=&quot;highlighter-rouge&quot;&gt;UseLazyLoadingProxies&lt;/code&gt; in your &lt;code class=&quot;highlighter-rouge&quot;&gt;OnConfiguring&lt;/code&gt; method&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;OnConfiguring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DbContextOptionsBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;optionsBuilder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;optionsBuilder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;UseLazyLoadingProxies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;UseSqlServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Server=.;Database=SchoolDb;Trusted_Connection=True;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Third&lt;/strong&gt;, make sure all entities are public, can be inherited from, the navigation property must be virtual, contractors are forbidden that all are private.&lt;/p&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Team&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;virtual&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Player&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Players&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Player&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;virtual&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HomeAddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Addresses&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Fourth&lt;/strong&gt;, the conceptual of lazy loading is that the related entities will be transparently loaded from the database, so it is a separate SQL query operation. don’t release your &lt;code class=&quot;highlighter-rouge&quot;&gt;DbContext&lt;/code&gt; instance, unless you make sure you don’t need it anymore.&lt;/p&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;SchoolContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//the lake has a Players navigation property&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//player is not loaded yet&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lake&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;teams&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;FirstOrDefault&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//Access the Player navigation property&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//Player is loaded during the access&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//but the Addresses is still not loaded , because we haven't accessed it yet.&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;player&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lake&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Players&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;FirstOrDefault&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//The Addresses navigation property is loaded, because  we have accessed it.&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;address&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;player&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Addresses&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note:&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;UseLazyLoadingProxies&lt;/code&gt; requires all entity types to be public, unsealed, have virtual navigation properties, and have a public or protected constructor&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;we have known that use the &lt;code class=&quot;highlighter-rouge&quot;&gt;Microsoft.EntityFrameworkCore.Proxies&lt;/code&gt; can complete the lazy loading easily.&lt;/p&gt;
+
+&lt;p&gt;But, if we do not want to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;Microsoft.EntityFrameworkCore.Proxies&lt;/code&gt; package or any other packages. Does there exist a way to complete this? The answer is yes absolutely. The &lt;code class=&quot;highlighter-rouge&quot;&gt;proxies&lt;/code&gt; package works by injecting the &lt;code class=&quot;highlighter-rouge&quot;&gt;ILazyLoading&lt;/code&gt; service into an entity. so we can define our &lt;code class=&quot;highlighter-rouge&quot;&gt;ILazyLoading&lt;/code&gt; service in our entities by ourself.&lt;/p&gt;
+
+&lt;p&gt;Writing ourselves &lt;code class=&quot;highlighter-rouge&quot;&gt;ILazyLoading&lt;/code&gt; is still depending on the &lt;code class=&quot;highlighter-rouge&quot;&gt;Microsoft.EntityFrameworkCore.Abstractions&lt;/code&gt; package.  However, if you don’t want to depend on any other packages, it’s possible to avoid any depending packages by using a delegate. Here I won’t go into it.&lt;/p&gt;
+
+&lt;h1 id=&quot;visual-studio-debugger-itsel-access-the-navigation-property&quot;&gt;Visual Studio Debugger itsel access the navigation property&lt;/h1&gt;
+&lt;p&gt;if you are using Visual Studio, and trying to debug the program, you may found out the related entities have been loaded automatically. This is because the &lt;strong&gt;Visual Studio Debugger&lt;/strong&gt; will try to access the navigation property, so it will trigger the automatic loading mechanism.&lt;/p&gt;
+
+&lt;p&gt;So, Even though the code is not run to the navigation access place, but you still can find the related entities have loaded from the debug window.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>EF Core Explicit Loading</title>
+   <link href="http://localhost:4000/csharp/2020/03/06/EF-Core-Explicit-Loading/"/>
+   <updated>2020-03-06T02:01:01+00:00</updated>
+   <id>http://localhost:4000/blog/csharp/2020/03/06/EF-Core-Explicit-Loading</id>
+   <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
+&amp;gt;
+&lt;a href=&quot;/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;main&lt;/a&gt;
+&amp;gt;
+&lt;a href=&quot;/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;query&lt;/a&gt;
+&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Explicit Loading&lt;/strong&gt; means that related entities are explicitly loaded from the database at a later time.&lt;/p&gt;
+
+&lt;p&gt;This project can be found in &lt;a href=&quot;https://github.com/voltwu/C-Sharp-Console-Application-EF-Core-Example/tree/921b247932ec61bf7a10d4392413e4f377652c97&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;SchoolContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -71,7 +154,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;query&quot;&gt;Query()&lt;/h1&gt;
-&lt;p&gt;The both &lt;code class=&quot;highlighter-rouge&quot;&gt;Collection()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Referece()&lt;/code&gt; methods return a &lt;code class=&quot;highlighter-rouge&quot;&gt;ChangeTracking&lt;/code&gt; an object that exposes change tracking information. So we can’t continue to write further LINQ queries to filter out related data after this object.&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Collection()&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;Referece()&lt;/code&gt; methods return a &lt;code class=&quot;highlighter-rouge&quot;&gt;CollectionEntry&lt;/code&gt; object or a &lt;code class=&quot;highlighter-rouge&quot;&gt;ReferenceEntry&lt;/code&gt; object, both objects expose change tracking information. and they are not &lt;code class=&quot;highlighter-rouge&quot;&gt;IQueryable&lt;/code&gt; instances, So we can’t continue to write further LINQ queries to filter out related data after these methods.&lt;/p&gt;
 
 &lt;p&gt;How we can do it? luckily, we have &lt;code class=&quot;highlighter-rouge&quot;&gt;Query()&lt;/code&gt; method which can offer us to write further queries.&lt;/p&gt;
 &lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lake_team&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Collection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lake&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lake&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Players&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
@@ -166,8 +249,9 @@
 &lt;span style=&quot;color: green;&quot;&gt;In this article:&lt;/span&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/03/03/EF-Core-Eager-Loading/&quot; style=&quot;cursor: pointer;text-decoration: none;font-size: 0.85em;&quot;&gt;Eager Loading&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/03/03/EF-Core-Explicit-Loading/&quot; style=&quot;cursor: pointer;text-decoration: none;font-size: 0.85em;&quot;&gt;Explicit Loading&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;&quot; style=&quot;cursor: pointer;text-decoration: none;font-size: 0.85em;&quot;&gt;Lazy Loading&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/03/06/EF-Core-Explicit-Loading/&quot; style=&quot;cursor: pointer;text-decoration: none;font-size: 0.85em;&quot;&gt;Explicit Loading&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/03/19/EF-Core-Lazy-Loading/&quot; style=&quot;cursor: pointer;text-decoration: none;font-size: 0.85em;&quot;&gt;Lazy Loading&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;&quot; style=&quot;cursor: pointer;text-decoration: none;font-size: 0.85em;&quot;&gt;How To Choose To Use Which One&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 </content>
