@@ -91,4 +91,4 @@ if you are using Visual Studio, and trying to debug the program, you may found o
 
 So, Even though the code is not run to the navigation access place, but you still can find the related entities have loaded from the debug window.
 
-[1]: www:asd
+[1]:https://github.com/voltwu/C-Sharp-Console-Application-EF-Core-Example/tree/e889e3cfebe34bf823b0a69e942a629491611fde
