@@ -1,11 +1,11 @@
-I" <p><span style="font-size: 0.75em;">
+I" <p><span style="font-size: 0.75em;">
 &gt;
 <a href="/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/" style="cursor: pointer;text-decoration: none;">main</a>
 &gt;
 <a href="/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/" style="cursor: pointer;text-decoration: none;">query</a>
 <span></span></span></p>
 
-<p><strong>Eager Loading</strong> means that related entities are explicitly loaded from the database at a later time.</p>
+<p><strong>Explicit Loading</strong> means that related entities are explicitly loaded from the database at a later time.</p>
 
 <p>This project can be found in <a href="https://github.com/voltwu/C-Sharp-Console-Application-EF-Core-Example/tree/921b247932ec61bf7a10d4392413e4f377652c97">Github</a></p>
 

@@ -4,13 +4,54 @@
  <title>A Dream Chaser</title>
  <link href="http://localhost:4000/blog/atom.xml" rel="self"/>
  <link href="http://localhost:4000/blog/"/>
- <updated>2020-03-19T13:38:24+00:00</updated>
+ <updated>2020-03-21T05:28:30+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>A Dream Chaser</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Analysis of advantage and disadvantage of Eager Loading, Explicit Loading, Lazy Loading</title>
+   <link href="http://localhost:4000/csharp/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading/"/>
+   <updated>2020-03-21T02:01:01+00:00</updated>
+   <id>http://localhost:4000/blog/csharp/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading</id>
+   <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
+&amp;gt;
+&lt;a href=&quot;/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;main&lt;/a&gt;
+&amp;gt;
+&lt;a href=&quot;/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;query&lt;/a&gt;
+&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;we have known how to use Eager Loading, Explicit Loading and Lazy Loading in the previous three posts. I am going to dig into what’s the advantages and disadvantages of those methods.&lt;/p&gt;
+
+&lt;h1 id=&quot;eager-loading&quot;&gt;Eager Loading&lt;/h1&gt;
+
+&lt;p&gt;Eager Loading means that the related data will load from the database as the initial query.  in other words, Eager Loading can save your time from avoid executing additional SQL queries.&lt;/p&gt;
+
+&lt;p&gt;both Entity Framework 6 and Entity Framework Core support eager loading of entities. if you are operating some lightweight data or fast-queries, then the eager loading would be suited for you.&lt;/p&gt;
+
+&lt;p&gt;Most of the scenarios can fit this Eager Loading strategy.&lt;/p&gt;
+
+&lt;h1 id=&quot;lazy-loading&quot;&gt;Lazy Loading&lt;/h1&gt;
+
+&lt;p&gt;the Lazy Loading is the opposite of the Eager Loading, the Lazy Loading means the related entities are loaded transparently when the navigation property is accessed. in other words, in the underlying of Entity Framework, the Lazy Loading would run separate SQL queries.&lt;/p&gt;
+
+&lt;p&gt;In the blowing scenario, the Lazy Loading would be a no sense option.  you have many books, each book has navigation properties like author, reviewer, editor. you are iterating books to access these navigation properties. Lazy Loading is going to degrade the performance because books are small lightweight data. for example, if you have 5 thousand books, each iteration will access 3 navigation properties, then you are going to execute 15 thousand separate SQL queries. it would be a disaster!&lt;/p&gt;
+
+&lt;p&gt;Actually. The Lazy Loading was added on .NET Core 2.1, it’s not a wise choice for most scenarios. but if you have a member that could be costly to load, and this member is infrequently visited, for scenarios like this, it would be a good choice to use Lazy Loading.&lt;/p&gt;
+
+&lt;h1 id=&quot;explicit-loading&quot;&gt;Explicit Loading&lt;/h1&gt;
+
+&lt;p&gt;Explicit loading is valid in EF 6 and EF Core both.  Explicit loading is similar to lazy loading, except that: you explicitly retrieve the related data in code; it doesn’t happen automatically when you access a navigation property.  in other words, Related entities are only loaded when you say “Load!”,&lt;/p&gt;
+
+&lt;p&gt;So, if you are figuring how to avoid relation entities instantly load in Lazy Loading, you can disable Lazy Loading as an option, or you can use Explicit Loading.&lt;/p&gt;
+
+&lt;p&gt;The Explicit Loading is typically more efficient when you need the related data for all retrieved rows of the primary table. Explicit Loading would be a good practice to reduce further SQL queries.&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>EF Core Lazy Loading</title>

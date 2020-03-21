@@ -1,4 +1,4 @@
-I"<p><span style="font-size: 0.75em;">
+I" <p><span style="font-size: 0.75em;">
 &gt;
 <a href="/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/" style="cursor: pointer;text-decoration: none;">main</a>
 &gt;
@@ -64,7 +64,7 @@
 
 <p>we have known that use the <code class="highlighter-rouge">Microsoft.EntityFrameworkCore.Proxies</code> can complete the lazy loading easily.</p>
 
-<p>But, if we do not want to use <code class="highlighter-rouge">Microsoft.EntityFrameworkCore.Proxies</code> package or any other packages. Does there exist a way to complete this? The answer is yes absolutely. The <code class="highlighter-rouge">proxies</code> package works by injecting the <code class="highlighter-rouge">ILazyLoading</code> service into an entity. so we can define our <code class="highlighter-rouge">ILazyLoading</code> service in our entities by ourself.</p>
+<p>But, if we do not want to use the <code class="highlighter-rouge">Microsoft.EntityFrameworkCore.Proxies</code> package or any other packages. Does there exist a way to complete this? The answer is yes absolutely. The <code class="highlighter-rouge">proxies</code> package works by injecting the <code class="highlighter-rouge">ILazyLoading</code> service into an entity. so we can define our <code class="highlighter-rouge">ILazyLoading</code> service in our entities by ourself.</p>
 
 <p>Writing ourselves <code class="highlighter-rouge">ILazyLoading</code> is still depending on the <code class="highlighter-rouge">Microsoft.EntityFrameworkCore.Abstractions</code> package.  However, if you don’t want to depend on any other packages, it’s possible to avoid any depending packages by using a delegate. Here I won’t go into it.</p>
 
