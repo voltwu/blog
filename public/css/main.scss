@@ -29,3 +29,17 @@ max-width:16rem;
   position:inherit;
  }
 }
+.navi-link{
+    cursor: pointer;
+    text-decoration: none;
+}
+.navi-link::before{
+    content: ">";
+}
+.navi-link-container{
+    font-size: 0.75em;
+}
+.item-link{
+    cursor: pointer;
+    text-decoration: none;
+}

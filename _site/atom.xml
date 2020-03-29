@@ -4,7 +4,7 @@
  <title>A Dream Chaser</title>
  <link href="http://localhost:4000/blog/atom.xml" rel="self"/>
  <link href="http://localhost:4000/blog/"/>
- <updated>2020-03-21T05:28:30+00:00</updated>
+ <updated>2020-03-29T13:23:25+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>A Dream Chaser</name>
@@ -13,16 +13,251 @@
 
  
  <entry>
-   <title>Analysis of advantage and disadvantage of Eager Loading, Explicit Loading, Lazy Loading</title>
-   <link href="http://localhost:4000/csharp/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading/"/>
+   <title>Data Annotations Attributes</title>
+   <link href="http://localhost:4000/csharp-ef/2020/03/29/Data-Annotations-Attributes/"/>
+   <updated>2020-03-29T02:01:01+00:00</updated>
+   <id>http://localhost:4000/blog/csharp-ef/2020/03/29/Data-Annotations-Attributes</id>
+   <content type="html">&lt;!--navigation bar--&gt;
+&lt;div class=&quot;navi-link-container&quot;&gt;
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+        &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+&lt;/div&gt;
+&lt;!--navigation bar--&gt;
+
+&lt;p&gt;Entity Framework Core and Entity Framework both provide attributes for help programmers conveniently specify database-related information.&lt;/p&gt;
+
+&lt;p&gt;Entities have their own conventions between entities and database tables. However, you can change it with extra data annotations attributes.&lt;/p&gt;
+
+&lt;p&gt;you can independently point out the name of the database, the name of the field, the name of the constraint, etc…  instead of using the default conventions.&lt;/p&gt;
+
+&lt;p&gt;These annotations are included in the &lt;code class=&quot;highlighter-rouge&quot;&gt;System.ComponentModel.DataAnnotations&lt;/code&gt; namespace and the &lt;code class=&quot;highlighter-rouge&quot;&gt;System.ComponentModel.DataAnnotations.Schema&lt;/code&gt; namespace. both are not framework depending namespaces. In other words, it is valid in EF 6 as well as valid in EF Core.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Annotations&lt;/code&gt; only give you a subset of configuration options. and &lt;code class=&quot;highlighter-rouge&quot;&gt;Fluent API&lt;/code&gt; provides full configuration options.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I am going to list out partial common attributes for reference purposes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;System.ComponentModel.DataAnnotations&lt;/code&gt;&lt;/strong&gt; namespace&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Attribute&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Key&lt;/td&gt;
+      &lt;td&gt;Denotes one or more properties that uniquely identify an entity&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Required&lt;/td&gt;
+      &lt;td&gt;Specifies that a data field value is required&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MaxLength&lt;/td&gt;
+      &lt;td&gt;Specifies the maximum length of array or string data allowed in a property&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MinLength&lt;/td&gt;
+      &lt;td&gt;Specifies the minimum length of array or string data allowed in a property&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;StringLength&lt;/td&gt;
+      &lt;td&gt;Specifies the minimum and maximum length of characters that allowed in a data field&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;System.ComponentModel.DataAnnotations.Schema&lt;/code&gt;&lt;/strong&gt; namespace&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Attribute&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Table&lt;/td&gt;
+      &lt;td&gt;Can be applied to an entity class to configure the corresponding table name and schema in the database&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Column&lt;/td&gt;
+      &lt;td&gt;Specifies the database column that a property is mapped to&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ForeignKey&lt;/td&gt;
+      &lt;td&gt;Denotes a property used as a foreign key in a relationship&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;NotMapped&lt;/td&gt;
+      &lt;td&gt;Denotes a property or a class should be excluded from the database mapping&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;InverseProperty&lt;/td&gt;
+      &lt;td&gt;Can be applied to a property to specify the inverse of a navigation property that represents the other end of the same relationship.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;!--items--&gt;
+&lt;div&gt;
+&lt;span style=&quot;color: green;&quot;&gt;In this article:&lt;/span&gt;
+&lt;ul&gt;
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--items--&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Dependency Injection</title>
+   <link href="http://localhost:4000/csharp-asp.net%20core/2020/03/21/asp-dot-net-core-dependency-injection/"/>
    <updated>2020-03-21T02:01:01+00:00</updated>
-   <id>http://localhost:4000/blog/csharp/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading</id>
-   <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
-&amp;gt;
-&lt;a href=&quot;/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;main&lt;/a&gt;
-&amp;gt;
-&lt;a href=&quot;/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;query&lt;/a&gt;
-&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+   <id>http://localhost:4000/blog/csharp-asp.net%20core/2020/03/21/asp-dot-net-core-dependency-injection</id>
+   <content type="html">&lt;p&gt;test&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Analysis of advantage and disadvantage of Eager Loading, Explicit Loading, Lazy Loading</title>
+   <link href="http://localhost:4000/csharp-ef/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading/"/>
+   <updated>2020-03-21T02:01:01+00:00</updated>
+   <id>http://localhost:4000/blog/csharp-ef/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading</id>
+   <content type="html">&lt;!--navigation bar--&gt;
+&lt;div class=&quot;navi-link-container&quot;&gt;
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/EF-Core-Load-Related-Entities/&quot; class=&quot;navi-link&quot;&gt;query&lt;/a&gt;
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
+    
+  
+&lt;/div&gt;
+&lt;!--navigation bar--&gt;
 
 &lt;p&gt;we have known how to use Eager Loading, Explicit Loading and Lazy Loading in the previous three posts. I am going to dig into what’s the advantages and disadvantages of those methods.&lt;/p&gt;
 
@@ -55,19 +290,67 @@
  
  <entry>
    <title>EF Core Lazy Loading</title>
-   <link href="http://localhost:4000/csharp/2020/03/19/EF-Core-Lazy-Loading/"/>
+   <link href="http://localhost:4000/csharp-ef/2020/03/19/EF-Core-Lazy-Loading/"/>
    <updated>2020-03-19T02:01:01+00:00</updated>
-   <id>http://localhost:4000/blog/csharp/2020/03/19/EF-Core-Lazy-Loading</id>
-   <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
-&amp;gt;
-&lt;a href=&quot;/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;main&lt;/a&gt;
-&amp;gt;
-&lt;a href=&quot;/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;query&lt;/a&gt;
-&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+   <id>http://localhost:4000/blog/csharp-ef/2020/03/19/EF-Core-Lazy-Loading</id>
+   <content type="html">&lt;!--navigation bar--&gt;
+&lt;div class=&quot;navi-link-container&quot;&gt;
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/EF-Core-Load-Related-Entities/&quot; class=&quot;navi-link&quot;&gt;query&lt;/a&gt;
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
+    
+  
+&lt;/div&gt;
+&lt;!--navigation bar--&gt;
 
-&lt;p&gt;&lt;strong&gt;Eager Loading&lt;/strong&gt; means that the related data is transparently loaded from the database when the navigation property is accessed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lazy Loading&lt;/strong&gt; means that the related data is transparently loaded from the database when the navigation property is accessed.&lt;/p&gt;
 
-&lt;p&gt;This project can be found in &lt;a href=&quot;www:asd&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This project can be found in &lt;a href=&quot;https://github.com/voltwu/C-Sharp-Console-Application-EF-Core-Example/tree/e889e3cfebe34bf823b0a69e942a629491611fde&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;how-to-implement-lazy-loading&quot;&gt;How to implement lazy loading&lt;/h1&gt;
 &lt;p&gt;There have several ways to implement lazy loading. the simplest way is to use &lt;code class=&quot;highlighter-rouge&quot;&gt;Microsoft.EntityFrameworkCore.Proxies&lt;/code&gt; package.&lt;/p&gt;
@@ -138,15 +421,63 @@
  
  <entry>
    <title>EF Core Explicit Loading</title>
-   <link href="http://localhost:4000/csharp/2020/03/06/EF-Core-Explicit-Loading/"/>
+   <link href="http://localhost:4000/csharp-ef/2020/03/06/EF-Core-Explicit-Loading/"/>
    <updated>2020-03-06T02:01:01+00:00</updated>
-   <id>http://localhost:4000/blog/csharp/2020/03/06/EF-Core-Explicit-Loading</id>
-   <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
-&amp;gt;
-&lt;a href=&quot;/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;main&lt;/a&gt;
-&amp;gt;
-&lt;a href=&quot;/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;query&lt;/a&gt;
-&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+   <id>http://localhost:4000/blog/csharp-ef/2020/03/06/EF-Core-Explicit-Loading</id>
+   <content type="html">&lt;!--navigation bar--&gt;
+&lt;div class=&quot;navi-link-container&quot;&gt;
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/EF-Core-Load-Related-Entities/&quot; class=&quot;navi-link&quot;&gt;query&lt;/a&gt;
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
+    
+  
+&lt;/div&gt;
+&lt;!--navigation bar--&gt;
 
 &lt;p&gt;&lt;strong&gt;Explicit Loading&lt;/strong&gt; means that related entities are explicitly loaded from the database at a later time.&lt;/p&gt;
 
@@ -209,15 +540,63 @@
  
  <entry>
    <title>EF Core Eager Loading</title>
-   <link href="http://localhost:4000/csharp/2020/03/03/EF-Core-Eager-Loading/"/>
+   <link href="http://localhost:4000/csharp-ef/2020/03/03/EF-Core-Eager-Loading/"/>
    <updated>2020-03-03T02:01:01+00:00</updated>
-   <id>http://localhost:4000/blog/csharp/2020/03/03/EF-Core-Eager-Loading</id>
-   <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
-&amp;gt;
-&lt;a href=&quot;/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;main&lt;/a&gt;
-&amp;gt;
-&lt;a href=&quot;/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;query&lt;/a&gt;
-&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+   <id>http://localhost:4000/blog/csharp-ef/2020/03/03/EF-Core-Eager-Loading</id>
+   <content type="html">&lt;!--navigation bar--&gt;
+&lt;div class=&quot;navi-link-container&quot;&gt;
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/EF-Core-Load-Related-Entities/&quot; class=&quot;navi-link&quot;&gt;query&lt;/a&gt;
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
+    
+  
+&lt;/div&gt;
+&lt;!--navigation bar--&gt;
 
 &lt;p&gt;I supposed that you had known &lt;strong&gt;Eager Loading&lt;/strong&gt; means that related entities are loaded as part of the initial query.&lt;/p&gt;
 
@@ -248,37 +627,132 @@
  
  <entry>
    <title>Entity Framework Tutorial</title>
-   <link href="http://localhost:4000/csharp/2020/02/28/Entitiy-Framework-Tutorial/"/>
+   <link href="http://localhost:4000/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/"/>
    <updated>2020-02-28T02:01:01+00:00</updated>
-   <id>http://localhost:4000/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial</id>
-   <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
-&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
+   <id>http://localhost:4000/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial</id>
+   <content type="html">&lt;blockquote&gt;
   &lt;p&gt;Entity Framework is an object-relational mapper (O/RM) that enables .NET developers to work with a database using .NET objects. It eliminates the need for most of the data-access code that developers usually need to write.&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;!--items--&gt;
 &lt;div&gt;
 &lt;span style=&quot;color: green;&quot;&gt;In this article:&lt;/span&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/02/25/Tutorial-Explore-EF-Core-Console-Application/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;Tutorial: Explore EF Core Console Application&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;Load Related Entities&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Conventions
-&lt;/li&gt;
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/02/25/Tutorial-Explore-EF-Core-Console-Application/&quot; class=&quot;item-link&quot;&gt;Tutorial: Explore EF Core Console Application&lt;/a&gt;&lt;/li&gt;
+      
+    
+  
+    
+      
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/02/28/EF-Core-Load-Related-Entities/&quot; class=&quot;item-link&quot;&gt;EF Core Load Related Entities&lt;/a&gt;&lt;/li&gt;
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/29/Data-Annotations-Attributes/&quot; class=&quot;item-link&quot;&gt;Data Annotations Attributes&lt;/a&gt;&lt;/li&gt;
+      
+    
+  
+    
+      
+    
+  
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;!--items--&gt;
 </content>
  </entry>
  
  <entry>
    <title>EF Core Load Related Entities</title>
-   <link href="http://localhost:4000/csharp/2020/02/28/EF-Core-Load-Related-Entities/"/>
+   <link href="http://localhost:4000/csharp-ef/2020/02/28/EF-Core-Load-Related-Entities/"/>
    <updated>2020-02-28T02:01:01+00:00</updated>
-   <id>http://localhost:4000/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities</id>
-   <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
-&amp;gt;
-&lt;a href=&quot;/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;main&lt;/a&gt;
-&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+   <id>http://localhost:4000/blog/csharp-ef/2020/02/28/EF-Core-Load-Related-Entities</id>
+   <content type="html">&lt;!--navigation bar--&gt;
+&lt;div class=&quot;navi-link-container&quot;&gt;
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
+    
+  
+&lt;/div&gt;
+&lt;!--navigation bar--&gt;
 
 &lt;p&gt;Entity Framework Core allows you to use navigation properties in your model to load related entities. There are three common ORM patterns used to load related entities. They are Eager Loader, Explicit Loading, Lazying Loading. Those loading methods have different performance. I am going to dig into it in this article.&lt;/p&gt;
 
@@ -286,27 +760,127 @@
 &lt;strong&gt;Explicit Loading&lt;/strong&gt; means that related entities are explicitly loaded from the database at a later time.
 &lt;strong&gt;Lazy Loading&lt;/strong&gt; means that related entities are transparently loaded from the database when the navigation property is accessed.  Lazy Loading was introduced in EF Core 2.1 as a new feature.&lt;/p&gt;
 
+&lt;!--items--&gt;
 &lt;div&gt;
 &lt;span style=&quot;color: green;&quot;&gt;In this article:&lt;/span&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/03/03/EF-Core-Eager-Loading/&quot; style=&quot;cursor: pointer;text-decoration: none;font-size: 0.85em;&quot;&gt;Eager Loading&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/03/06/EF-Core-Explicit-Loading/&quot; style=&quot;cursor: pointer;text-decoration: none;font-size: 0.85em;&quot;&gt;Explicit Loading&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/csharp/2020/03/19/EF-Core-Lazy-Loading/&quot; style=&quot;cursor: pointer;text-decoration: none;font-size: 0.85em;&quot;&gt;Lazy Loading&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;&quot; style=&quot;cursor: pointer;text-decoration: none;font-size: 0.85em;&quot;&gt;How To Choose To Use Which One&lt;/a&gt;&lt;/li&gt;
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/03/EF-Core-Eager-Loading/&quot; class=&quot;item-link&quot;&gt;EF Core Eager Loading&lt;/a&gt;&lt;/li&gt;
+      
+    
+  
+    
+      
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/06/EF-Core-Explicit-Loading/&quot; class=&quot;item-link&quot;&gt;EF Core Explicit Loading&lt;/a&gt;&lt;/li&gt;
+      
+    
+  
+    
+      
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/19/EF-Core-Lazy-Loading/&quot; class=&quot;item-link&quot;&gt;EF Core Lazy Loading&lt;/a&gt;&lt;/li&gt;
+      
+    
+  
+    
+      
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading/&quot; class=&quot;item-link&quot;&gt;Analysis of advantage and disadvantage of Eager Loading, Explicit Loading, Lazy Loading&lt;/a&gt;&lt;/li&gt;
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;!--items--&gt;
+
 </content>
  </entry>
  
  <entry>
    <title>Tutorial: Explore EF Core Console Application</title>
-   <link href="http://localhost:4000/csharp/2020/02/25/Tutorial-Explore-EF-Core-Console-Application/"/>
+   <link href="http://localhost:4000/csharp-ef/2020/02/25/Tutorial-Explore-EF-Core-Console-Application/"/>
    <updated>2020-02-25T02:01:01+00:00</updated>
-   <id>http://localhost:4000/blog/csharp/2020/02/25/Tutorial-Explore-EF-Core-Console-Application</id>
-   <content type="html">&lt;p&gt;&lt;span style=&quot;font-size: 0.75em;&quot;&gt;
-&amp;gt;
-&lt;a href=&quot;/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/&quot; style=&quot;cursor: pointer;text-decoration: none;&quot;&gt;main&lt;/a&gt;
-&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+   <id>http://localhost:4000/blog/csharp-ef/2020/02/25/Tutorial-Explore-EF-Core-Console-Application</id>
+   <content type="html">&lt;!--navigation bar--&gt;
+&lt;div class=&quot;navi-link-container&quot;&gt;
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+&lt;/div&gt;
+&lt;!--navigation bar--&gt;
 
 &lt;h1 id=&quot;whats-the-difference-between-ef6-and-ef-core&quot;&gt;What’s the difference between EF6 and EF Core?&lt;/h1&gt;
 &lt;p&gt;Both EF6(Entity Framework 6) and EF Core(Entity Framework Core) are object-relational mappers. EF Core is a more modern, lightweight and extensible version of Entity Framework that has very similar capabilities and benefits to EF6. EF Core is a complete rewrite and contains many new features that not include in EF6.  &lt;a href=&quot;https://docs.microsoft.com/en-us/ef/efcore-and-ef6/index&quot;&gt;Here&lt;/a&gt; examined the many differences.&lt;/p&gt;

@@ -3,22 +3,34 @@ layout: post
 title: "EF Core Eager Loading"
 date: 2020-03-03 10:01:01+0800
 categories:
-  - CSharp
+  - CSharp-EF
 tags:
-  - EF
+  - ORM
 toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: true
+navi-enable-ef: true
+navi-name: "query"
+navi-order: "1-2-1"
 description: Eager Loading means that data is loaded as part of initial query
 excerpt: Eager Loading means that data is loaded as part of initial query
 ---
-<span style="font-size: 0.75em;">
-\>
-<a href="/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/" style="cursor: pointer;text-decoration: none;">main</a>
-\>
-<a href="/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/" style="cursor: pointer;text-decoration: none;">query</a>
-<span>
+<!--navigation bar-->
+<div class='navi-link-container'>
+  {% assign posts =site.posts | sort: 'navi-order' %}
+  {% for post in posts %}
+    {% if post.navi-enable-ef %}
+      {%  if post.navi-order == "1" or
+             post.navi-order == "1-2" %}
+          <a href="{{ site.baseurl }}{{ post.url }}" class='navi-link'>{{post.navi-name}}</a>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</div>
+<!--navigation bar-->
+
+
 
 I supposed that you had known **Eager Loading** means that related entities are loaded as part of the initial query.
 

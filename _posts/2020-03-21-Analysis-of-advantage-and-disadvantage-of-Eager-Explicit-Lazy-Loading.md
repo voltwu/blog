@@ -3,22 +3,33 @@ layout: post
 title: "Analysis of advantage and disadvantage of Eager Loading, Explicit Loading, Lazy Loading"
 date: 2020-03-21 10:01:01+0800
 categories:
-  - CSharp
+  - CSharp-EF
 tags:
-  - EF
+  - ORM
 toc: true
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: true
-description: 
-excerpt: 
+navi-enable-ef: true
+navi-name: "query"
+navi-order: "1-2-4"
+description: what's the advantage and disadvantage of eager loading, explicit loading, lazy loading. c# entity framework(EF,ef)
+excerpt: what's the advantages and disadvantages of eager loading, explicit loading, lazy loading. most of scenarios can fit the eager loading strategy!
 ---
-<span style="font-size: 0.75em;">
-\>
-<a href="/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/" style="cursor: pointer;text-decoration: none;">main</a>
-\>
-<a href="/blog/csharp/2020/02/28/EF-Core-Load-Related-Entities/" style="cursor: pointer;text-decoration: none;">query</a>
-<span>
+<!--navigation bar-->
+<div class='navi-link-container'>
+  {% assign posts =site.posts | sort: 'navi-order' %}
+  {% for post in posts %}
+    {% if post.navi-enable-ef %}
+      {%  if post.navi-order == "1" or
+             post.navi-order == "1-2" %}
+          <a href="{{ site.baseurl }}{{ post.url }}" class='navi-link'>{{post.navi-name}}</a>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</div>
+<!--navigation bar-->
+
 
 
 we have known how to use Eager Loading, Explicit Loading and Lazy Loading in the previous three posts. I am going to dig into what's the advantages and disadvantages of those methods.

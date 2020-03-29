@@ -3,20 +3,30 @@ layout: post
 title: "Tutorial: Explore EF Core Console Application"
 date: 2020-02-25 10:01:01+0800
 categories:
-  - CSharp
+  - CSharp-EF
 tags:
-  - EF
+  - ORM
 toc: true
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: true
+navi-enable-ef: true
+navi-name: ""
+navi-order: "1-1"
 description: how to run an EF(entity framework) Core Console Application, with a simple, basic demonstration.
 excerpt: run an EF Core Console Application, with a simple basic demonstration.
 ---
-<span style="font-size: 0.75em;">
-\>
-<a href="/blog/csharp/2020/02/28/Entitiy-Framework-Tutorial/" style="cursor: pointer;text-decoration: none;">main</a>
-<span>
+<!--navigation bar-->
+<div class='navi-link-container'>
+  {% for post in site.posts %}
+    {% if post.navi-enable-ef %}
+      {%  if post.navi-order == "1" %}
+          <a href="{{ site.baseurl }}{{ post.url }}" class='navi-link'>{{post.navi-name}}</a>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</div>
+<!--navigation bar-->
 
 # What's the difference between EF6 and EF Core?
 Both EF6(Entity Framework 6) and EF Core(Entity Framework Core) are object-relational mappers. EF Core is a more modern, lightweight and extensible version of Entity Framework that has very similar capabilities and benefits to EF6. EF Core is a complete rewrite and contains many new features that not include in EF6.  [Here][1] examined the many differences.
