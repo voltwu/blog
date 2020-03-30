@@ -13,4 +13,4 @@ comments: true
 description: C# Asp.net core, what's the Dependence Injection? how to use dependence injection?
 excerpt:  C# Asp.net core, dependence injection overview.
 ---
-test
+How to use dependence injection? and what's the advantages it included. let's find out it together.
