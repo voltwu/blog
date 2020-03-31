@@ -30,7 +30,7 @@ excerpt: Data annotations attributes help programmers easly specify database-rel
 
 Entity Framework Core and Entity Framework both provide attributes for help programmers conveniently specify database-related information.
 
-Entities have their own conventions between entities and database tables. However, you can change it with extra data annotations attributes.
+Entities have their conventions between entities and database tables. However, you can change it with extra data annotations attributes.
 
 you can independently point out the name of the database, the name of the field, the name of the constraint, etc...  instead of using the default conventions.
 
@@ -62,7 +62,46 @@ I am going to list out partial common attributes for reference purposes.
 |NotMapped   	|Denotes a property or a class should be excluded from the database mapping   	|
 |InverseProperty   	|Can be applied to a property to specify the inverse of a navigation property that represents the other end of the same relationship.   	|
 
+Below is an example for illustrating.
+```c#
+public class Classroom { 
+    public int id { set; get; }
 
+    [Required(ErrorMessage = "class name is required")]
+    [MaxLength(20)]
+    public string classname { set; get; }
+}
+[Table("student_table")]
+public class Student { 
+    [Key]
+    [Required]
+    public int id { set; get; }
+
+    [Required(ErrorMessage ="student name is required")]
+    [StringLength(maximumLength:20)]
+    [Column("student_name")]
+    public string studentname { set; get; }
+
+    public Classroom classroom { set; get; }
+}
+```
+
+The result:
+
+![Alt][1]
+
+The database's fields have shown the conversion clearly. If we don't use annotations, then Entity Framework Core will use the default convention to achieve conversions. 
+
+The ``Table`` attribute in this example hasn't specified the **schema** yet.  to complete this only needs to assign a value to the **schema** property in `Table` attribute.
+```c#
+[Table("student_table",Schema="dbo")]
+public class Student { 
+//...
+}
+```
+I assigned the **dbo** to the **schema**. However, the default **schema** would also be **dbo**, if you don't specify it.
+
+As you can see from the illustration, these basic attributes are easy to use. In the next episodes, I am going to dig into other attributes.
 
 
 <!--items-->
@@ -83,3 +122,5 @@ I am going to list out partial common attributes for reference purposes.
 </ul>
 </div>
 <!--items-->
+
+[1]: /blog/public/img/2020-03-29-Data-Annotations-Attributes-a.png
