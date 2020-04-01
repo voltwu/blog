@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Data Annotation Attribute ForeignKey"
+title: "Data Annotation - ForeignKey Attribute"
 date: 2020-04-01 10:01:01+0800
 categories:
   - CSharp-EF
@@ -12,7 +12,7 @@ toc_icon: "cog"
 comments: true
 navi-enable-ef: true
 navi-name: "foreignkey"
-navi-order: 'a1-3-1'
+navi-order: 'a1-3-2'
 description: denotes a property used as a foreign key in a relationship
 excerpt: denotes a property used as a foreign key in a relationship
 ---
