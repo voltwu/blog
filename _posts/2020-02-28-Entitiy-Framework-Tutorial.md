@@ -12,7 +12,7 @@ toc_icon: "cog"
 comments: true
 navi-enable-ef: true
 navi-name: "main"
-navi-order: "1"
+navi-order: '1'
 description: This is a tutorial for entity framework.
 excerpt: This is an Entity Framework Tutorial
 ---

@@ -12,13 +12,13 @@ toc_icon: "cog"
 comments: true
 navi-enable-ef: true
 navi-name: "query"
-navi-order: "1-2-4"
+navi-order: '1-2-4'
 description: what's the advantage and disadvantage of eager loading, explicit loading, lazy loading. c# entity framework(EF,ef)
 excerpt: what's the advantages and disadvantages of eager loading, explicit loading, lazy loading. most of scenarios can fit the eager loading strategy!
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>
-  {% assign posts = site.posts | sort: 'navi-order' | reverse  %}
+  {% assign posts = site.posts|sort:'navi-order' %}
   {% for post in posts %}
     {% if post.navi-enable-ef %}
       {%  if post.navi-order == "1" or

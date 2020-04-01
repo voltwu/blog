@@ -12,13 +12,13 @@ toc_icon: "cog"
 comments: true
 navi-enable-ef: true
 navi-name: "attributes"
-navi-order: "1-3"
+navi-order: '1-3'
 description: Data annotations attributes help programmers easly specify database-related information.
 excerpt: Data annotations attributes help programmers easly specify database-related information.
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>
-  {% assign posts = site.posts | sort: 'navi-order' | reverse  %}
+  {% assign posts = site.posts|sort:'navi-order' %}
   {% for post in posts %}
     {% if post.navi-enable-ef and 
           post.navi-order == "1" %}

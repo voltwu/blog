@@ -4,7 +4,7 @@
  <title>A Dream Chaser</title>
  <link href="http://localhost:4000/blog/atom.xml" rel="self"/>
  <link href="http://localhost:4000/blog/"/>
- <updated>2020-04-01T10:04:11+00:00</updated>
+ <updated>2020-04-01T10:25:15+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>A Dream Chaser</name>
@@ -14,16 +14,42 @@
  
  <entry>
    <title>Data Annotation Attribute ForeignKey</title>
-   <link href="http://localhost:4000/csharp-ef/2020/03/29/Data-Annotation-Attribute-Foreignkey/"/>
-   <updated>2020-03-29T02:01:01+00:00</updated>
-   <id>http://localhost:4000/blog/csharp-ef/2020/03/29/Data-Annotation-Attribute-Foreignkey</id>
+   <link href="http://localhost:4000/csharp-ef/2020/04/01/Data-Annotation-Attribute-Foreignkey/"/>
+   <updated>2020-04-01T02:01:01+00:00</updated>
+   <id>http://localhost:4000/blog/csharp-ef/2020/04/01/Data-Annotation-Attribute-Foreignkey</id>
    <content type="html">&lt;!--navigation bar--&gt;
 &lt;div class=&quot;navi-link-container&quot;&gt;
   
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
         
-            &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
         
     
   
@@ -43,34 +69,8 @@
   
     
         
-    
-  
-    
+            &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
         
-    
-  
-    
-        
-    
-  
-    
-        
-    
-  
-    
-        
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
     
   
 &lt;/div&gt;
@@ -89,35 +89,35 @@
   
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
         &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
     
   
 &lt;/div&gt;
@@ -291,7 +291,7 @@
   
     
       
-                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/29/Data-Annotation-Attribute-Foreignkey/&quot; class=&quot;item-link&quot;&gt;Data Annotation Attribute ForeignKey&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/04/01/Data-Annotation-Attribute-Foreignkey/&quot; class=&quot;item-link&quot;&gt;Data Annotation Attribute ForeignKey&lt;/a&gt;&lt;/li&gt;
       
     
   
@@ -325,29 +325,15 @@
   
   
     
-      
-          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
-      
+  
     
   
     
-      
+  
     
   
     
-      
-    
   
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
     
   
     
@@ -365,15 +351,29 @@
     
   
     
-  
+      
     
   
     
-  
+      
     
   
     
+      
+    
   
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
     
   
 &lt;/div&gt;
@@ -418,29 +418,15 @@
   
   
     
-      
-          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
-      
+  
     
   
     
-      
+  
     
   
     
-      
-    
   
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
     
   
     
@@ -458,15 +444,29 @@
     
   
     
-  
+      
     
   
     
-  
+      
     
   
     
+      
+    
   
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
     
   
 &lt;/div&gt;
@@ -553,29 +553,15 @@
   
   
     
-      
-          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
-      
+  
     
   
     
-      
+  
     
   
     
-      
-    
   
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
     
   
     
@@ -593,15 +579,29 @@
     
   
     
-  
+      
     
   
     
-  
+      
     
   
     
+      
+    
   
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
     
   
 &lt;/div&gt;
@@ -676,29 +676,15 @@
   
   
     
-      
-          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
-      
+  
     
   
     
-      
+  
     
   
     
-      
-    
   
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
     
   
     
@@ -716,15 +702,29 @@
     
   
     
-  
+      
     
   
     
-  
+      
     
   
     
+      
+    
   
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
     
   
 &lt;/div&gt;
@@ -907,7 +907,15 @@
   
   
     
-      
+  
+    
+  
+    
+  
+    
+  
+    
+  
     
   
     
@@ -915,24 +923,6 @@
     
   
     
-      
-    
-  
-    
-      
-                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading/&quot; class=&quot;item-link&quot;&gt;Analysis of advantage and disadvantage of Eager Loading, Explicit Loading, Lazy Loading&lt;/a&gt;&lt;/li&gt;
-      
-    
-  
-    
-      
-                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/19/EF-Core-Lazy-Loading/&quot; class=&quot;item-link&quot;&gt;EF Core Lazy Loading&lt;/a&gt;&lt;/li&gt;
-      
-    
-  
-    
-      
-                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/06/EF-Core-Explicit-Loading/&quot; class=&quot;item-link&quot;&gt;EF Core Explicit Loading&lt;/a&gt;&lt;/li&gt;
       
     
   
@@ -944,6 +934,20 @@
   
     
       
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/06/EF-Core-Explicit-Loading/&quot; class=&quot;item-link&quot;&gt;EF Core Explicit Loading&lt;/a&gt;&lt;/li&gt;
+      
+    
+  
+    
+      
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/19/EF-Core-Lazy-Loading/&quot; class=&quot;item-link&quot;&gt;EF Core Lazy Loading&lt;/a&gt;&lt;/li&gt;
+      
+    
+  
+    
+      
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading/&quot; class=&quot;item-link&quot;&gt;Analysis of advantage and disadvantage of Eager Loading, Explicit Loading, Lazy Loading&lt;/a&gt;&lt;/li&gt;
+      
     
   
     
@@ -951,15 +955,11 @@
     
   
     
-  
+      
     
   
     
-  
-    
-  
-    
-  
+      
     
   
 &lt;/ul&gt;
