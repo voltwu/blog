@@ -12,7 +12,7 @@ toc_icon: "cog"
 comments: true
 navi-enable-ef: true
 navi-name: "main"
-navi-order: '1'
+navi-order: 'a1'
 description: This is a tutorial for entity framework.
 excerpt: This is an Entity Framework Tutorial
 ---
@@ -26,9 +26,9 @@ excerpt: This is an Entity Framework Tutorial
   {% assign posts =site.posts | sort: 'navi-order' %}
   {% for post in posts %}
     {% if post.navi-enable-ef %}
-      {% if post.navi-order == "1-1" or
-            post.navi-order == "1-2" or 
-            post.navi-order == "1-3"%}
+      {% if post.navi-order == "a1-1" or
+            post.navi-order == "a1-2" or 
+            post.navi-order == "a1-3"%}
                 <li><a href="{{ site.baseurl }}{{ post.url }}" class="item-link">{{post.title}}</a></li>
       {% endif %}
     {% endif %}

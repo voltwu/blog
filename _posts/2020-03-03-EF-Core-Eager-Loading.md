@@ -12,7 +12,7 @@ toc_icon: "cog"
 comments: true
 navi-enable-ef: true
 navi-name: "query"
-navi-order: '1-2-1'
+navi-order: 'a1-2-1'
 description: Eager Loading means that data is loaded as part of initial query
 excerpt: Eager Loading means that data is loaded as part of initial query
 ---
@@ -21,8 +21,8 @@ excerpt: Eager Loading means that data is loaded as part of initial query
   {% assign posts = site.posts | sort: 'navi-order' %}
   {% for post in posts %}
     {% if post.navi-enable-ef %}
-      {%  if post.navi-order == "1" or
-             post.navi-order == "1-2" %}
+      {%  if post.navi-order == "a1" or
+             post.navi-order == "a1-2" %}
           <a href="{{ site.baseurl }}{{ post.url }}" class='navi-link'>{{post.navi-name}}</a>
       {% endif %}
     {% endif %}

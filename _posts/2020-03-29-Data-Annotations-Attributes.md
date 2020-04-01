@@ -12,7 +12,7 @@ toc_icon: "cog"
 comments: true
 navi-enable-ef: true
 navi-name: "attributes"
-navi-order: '1-3'
+navi-order: 'a1-3'
 description: Data annotations attributes help programmers easly specify database-related information.
 excerpt: Data annotations attributes help programmers easly specify database-related information.
 ---
@@ -21,7 +21,7 @@ excerpt: Data annotations attributes help programmers easly specify database-rel
   {% assign posts = site.posts|sort:'navi-order' %}
   {% for post in posts %}
     {% if post.navi-enable-ef and 
-          post.navi-order == "1" %}
+          post.navi-order == "a1" %}
         <a href="{{ site.baseurl }}{{ post.url }}" class='navi-link'>{{post.navi-name}}</a>
     {% endif %}
   {% endfor %}
@@ -112,10 +112,10 @@ As you can see from the illustration, these basic attributes are easy to use. In
   {% assign posts =site.posts | sort: 'navi-order' %}
   {% for post in posts %}
     {% if post.navi-enable-ef %}
-      {% if post.navi-order == "1-3-1" or
-            post.navi-order == "1-3-2" or 
-            post.navi-order == "1-3-3" or 
-            post.navi-order == "1-3-4"%}
+      {% if post.navi-order == "a1-3-1" or
+            post.navi-order == "a1-3-2" or 
+            post.navi-order == "a1-3-3" or 
+            post.navi-order == "a1-3-4"%}
                 <li><a href="{{ site.baseurl }}{{ post.url }}" class="item-link">{{post.title}}</a></li>
       {% endif %}
     {% endif %}

@@ -12,7 +12,7 @@ toc_icon: "cog"
 comments: false
 navi-enable-ef: true
 navi-name: "query"
-navi-order: '1-2'
+navi-order: 'a1-2'
 description: EF Core load related entities
 excerpt: Entity Framework Core allows you to use navigation propertities in your model to load related entities...
 ---
@@ -21,7 +21,7 @@ excerpt: Entity Framework Core allows you to use navigation propertities in your
   {% assign posts =site.posts | sort: 'navi-order' %}
   {% for post in posts %}
     {% if post.navi-enable-ef %}
-      {%  if post.navi-order == "1" %}
+      {%  if post.navi-order == "a1" %}
           <a href="{{ site.baseurl }}{{ post.url }}" class='navi-link'>{{post.navi-name}}</a>
       {% endif %}
     {% endif %}
@@ -44,10 +44,10 @@ Entity Framework Core allows you to use navigation properties in your model to l
   {% assign posts = site.posts | sort: 'navi-order'  %}
   {% for post in posts %}
     {% if post.navi-enable-ef %}
-      {% if post.navi-order == "1-2-1" or
-            post.navi-order == "1-2-2" or 
-            post.navi-order == "1-2-3" or 
-            post.navi-order == "1-2-4"%}
+      {% if post.navi-order == "a1-2-1" or
+            post.navi-order == "a1-2-2" or 
+            post.navi-order == "a1-2-3" or 
+            post.navi-order == "a1-2-4"%}
                 <li><a href="{{ site.baseurl }}{{ post.url }}" class="item-link">{{post.title}}</a></li>
       {% endif %}
     {% endif %}
