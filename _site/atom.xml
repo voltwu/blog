@@ -4,13 +4,80 @@
  <title>A Dream Chaser</title>
  <link href="http://localhost:4000/blog/atom.xml" rel="self"/>
  <link href="http://localhost:4000/blog/"/>
- <updated>2020-03-29T13:23:25+00:00</updated>
+ <updated>2020-04-01T10:04:11+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>A Dream Chaser</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Data Annotation Attribute ForeignKey</title>
+   <link href="http://localhost:4000/csharp-ef/2020/03/29/Data-Annotation-Attribute-Foreignkey/"/>
+   <updated>2020-03-29T02:01:01+00:00</updated>
+   <id>http://localhost:4000/blog/csharp-ef/2020/03/29/Data-Annotation-Attribute-Foreignkey</id>
+   <content type="html">&lt;!--navigation bar--&gt;
+&lt;div class=&quot;navi-link-container&quot;&gt;
+  
+  
+    
+        
+            &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+        
+    
+  
+    
+        
+    
+  
+    
+        
+            &lt;a href=&quot;/blog/csharp-ef/2020/03/29/Data-Annotations-Attributes/&quot; class=&quot;navi-link&quot;&gt;attributes&lt;/a&gt;
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+&lt;/div&gt;
+&lt;!--navigation bar--&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Data Annotations Attributes</title>
@@ -20,20 +87,23 @@
    <content type="html">&lt;!--navigation bar--&gt;
 &lt;div class=&quot;navi-link-container&quot;&gt;
   
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
   
     
         &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
     
   
     
@@ -55,7 +125,7 @@
 
 &lt;p&gt;Entity Framework Core and Entity Framework both provide attributes for help programmers conveniently specify database-related information.&lt;/p&gt;
 
-&lt;p&gt;Entities have their own conventions between entities and database tables. However, you can change it with extra data annotations attributes.&lt;/p&gt;
+&lt;p&gt;Entities have their conventions between entities and database tables. However, you can change it with extra data annotations attributes.&lt;/p&gt;
 
 &lt;p&gt;you can independently point out the name of the database, the name of the field, the name of the constraint, etc…  instead of using the default conventions.&lt;/p&gt;
 
@@ -134,6 +204,45 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;p&gt;Below is an example for illustrating.&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Classroom&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Required&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ErrorMessage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;class name is required&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;MaxLength&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;classname&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;student_table&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Student&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Required&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Required&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ErrorMessage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;student name is required&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;StringLength&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;maximumLength&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;student_name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;studentname&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Classroom&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;classroom&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The result:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2020-03-29-Data-Annotations-Attributes-a.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The database’s fields have shown the conversion clearly. If we don’t use annotations, then Entity Framework Core will use the default convention to achieve conversions.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Table&lt;/code&gt; attribute in this example hasn’t specified the &lt;strong&gt;schema&lt;/strong&gt; yet.  to complete this only needs to assign a value to the &lt;strong&gt;schema&lt;/strong&gt; property in &lt;code class=&quot;highlighter-rouge&quot;&gt;Table&lt;/code&gt; attribute.&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;student_table&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Schema&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dbo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Student&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+&lt;span class=&quot;c1&quot;&gt;//...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;I assigned the &lt;strong&gt;dbo&lt;/strong&gt; to the &lt;strong&gt;schema&lt;/strong&gt;. However, the default &lt;strong&gt;schema&lt;/strong&gt; would also be &lt;strong&gt;dbo&lt;/strong&gt;, if you don’t specify it.&lt;/p&gt;
+
+&lt;p&gt;As you can see from the illustration, these basic attributes are easy to use. In the next episodes, I am going to dig into other attributes.&lt;/p&gt;
+
 &lt;!--items--&gt;
 &lt;div&gt;
 &lt;span style=&quot;color: green;&quot;&gt;In this article:&lt;/span&gt;
@@ -182,11 +291,18 @@
   
     
       
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/29/Data-Annotation-Attribute-Foreignkey/&quot; class=&quot;item-link&quot;&gt;Data Annotation Attribute ForeignKey&lt;/a&gt;&lt;/li&gt;
+      
+    
+  
+    
+      
     
   
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;!--items--&gt;
+
 </content>
  </entry>
  
@@ -195,7 +311,7 @@
    <link href="http://localhost:4000/csharp-asp.net%20core/2020/03/21/asp-dot-net-core-dependency-injection/"/>
    <updated>2020-03-21T02:01:01+00:00</updated>
    <id>http://localhost:4000/blog/csharp-asp.net%20core/2020/03/21/asp-dot-net-core-dependency-injection</id>
-   <content type="html">&lt;p&gt;test&lt;/p&gt;
+   <content type="html">&lt;p&gt;How to use dependence injection? and what’s the advantages it included. let’s find out it together.&lt;/p&gt;
 </content>
  </entry>
  
@@ -209,15 +325,29 @@
   
   
     
-  
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
     
   
     
-  
+      
     
   
     
+      
+    
   
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
     
   
     
@@ -235,25 +365,15 @@
     
   
     
-      
+  
     
   
     
-      
+  
     
   
     
-      
-    
   
-    
-      
-    
-  
-    
-      
-          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
-      
     
   
 &lt;/div&gt;
@@ -298,15 +418,29 @@
   
   
     
-  
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
     
   
     
-  
+      
     
   
     
+      
+    
   
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
     
   
     
@@ -324,25 +458,15 @@
     
   
     
-      
+  
     
   
     
-      
+  
     
   
     
-      
-    
   
-    
-      
-    
-  
-    
-      
-          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
-      
     
   
 &lt;/div&gt;
@@ -429,15 +553,29 @@
   
   
     
-  
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
     
   
     
-  
+      
     
   
     
+      
+    
   
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
     
   
     
@@ -455,25 +593,15 @@
     
   
     
-      
+  
     
   
     
-      
+  
     
   
     
-      
-    
   
-    
-      
-    
-  
-    
-      
-          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
-      
     
   
 &lt;/div&gt;
@@ -548,15 +676,29 @@
   
   
     
-  
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
     
   
     
-  
+      
     
   
     
+      
+    
   
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
     
   
     
@@ -574,25 +716,15 @@
     
   
     
-      
+  
     
   
     
-      
+  
     
   
     
-      
-    
   
-    
-      
-    
-  
-    
-      
-          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
-      
     
   
 &lt;/div&gt;
@@ -690,6 +822,10 @@
       
     
   
+    
+      
+    
+  
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;!--items--&gt;
@@ -747,6 +883,10 @@
   
     
       
+    
+  
+    
+      
           &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
       
     
@@ -767,18 +907,6 @@
   
   
     
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
       
     
   
@@ -787,20 +915,6 @@
     
   
     
-      
-                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/03/EF-Core-Eager-Loading/&quot; class=&quot;item-link&quot;&gt;EF Core Eager Loading&lt;/a&gt;&lt;/li&gt;
-      
-    
-  
-    
-      
-                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/06/EF-Core-Explicit-Loading/&quot; class=&quot;item-link&quot;&gt;EF Core Explicit Loading&lt;/a&gt;&lt;/li&gt;
-      
-    
-  
-    
-      
-                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/19/EF-Core-Lazy-Loading/&quot; class=&quot;item-link&quot;&gt;EF Core Lazy Loading&lt;/a&gt;&lt;/li&gt;
       
     
   
@@ -812,10 +926,40 @@
   
     
       
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/19/EF-Core-Lazy-Loading/&quot; class=&quot;item-link&quot;&gt;EF Core Lazy Loading&lt;/a&gt;&lt;/li&gt;
+      
     
   
     
       
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/06/EF-Core-Explicit-Loading/&quot; class=&quot;item-link&quot;&gt;EF Core Explicit Loading&lt;/a&gt;&lt;/li&gt;
+      
+    
+  
+    
+      
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/03/03/EF-Core-Eager-Loading/&quot; class=&quot;item-link&quot;&gt;EF Core Eager Loading&lt;/a&gt;&lt;/li&gt;
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
     
   
 &lt;/ul&gt;
@@ -832,6 +976,10 @@
    <id>http://localhost:4000/blog/csharp-ef/2020/02/25/Tutorial-Explore-EF-Core-Console-Application</id>
    <content type="html">&lt;!--navigation bar--&gt;
 &lt;div class=&quot;navi-link-container&quot;&gt;
+  
+    
+      
+    
   
     
       

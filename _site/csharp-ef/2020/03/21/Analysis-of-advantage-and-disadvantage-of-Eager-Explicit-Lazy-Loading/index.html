@@ -11,7 +11,7 @@
 
   <title>
     
-      Blog &middot; A Dream Chaser
+      Analysis of advantage and disadvantage of Eager Loading, Explicit Loading, Lazy Loading &middot; A Dream Chaser
     
   </title>
 
@@ -114,7 +114,7 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
       
 
       <span class="foldable">
-        <a class="sidebar-nav-item active" href="/blog/blog/">
+        <a class="sidebar-nav-item " href="/blog/blog/">
           Blog
         </a>
 
@@ -187,147 +187,168 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
       </div>
 
       <div class="container content">
-        <div class="posts">
+        <div class="post">
+  <h1 class="post-title">Analysis of advantage and disadvantage of Eager Loading, Explicit Loading, Lazy Loading</h1>
+  <span class="post-date">21 Mar 2020</span>
+   | 
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/blog/csharp-ef/2020/03/29/Data-Annotation-Attribute-Foreignkey/">
-        Data Annotation Attribute ForeignKey
-      </a>
-    </h1>
-
-    <span class="post-date">29 Mar 2020</span>
-     | 
-    
     <a href="/blog/blog/tags/#orm" class="post-tag">ORM</a>
-    
-    
-
-    <article>
-      <p>denotes a property used as a foreign key in a relationship</p>
-
-    <article>
-    <div class="post-more">
-      
-      <a href="/blog/csharp-ef/2020/03/29/Data-Annotation-Attribute-Foreignkey/#disqus_thread"> <i class="fa fa-comments" aria-hidden="true"></i>Comment</a>&nbsp;
-      
-      <a href="/blog/csharp-ef/2020/03/29/Data-Annotation-Attribute-Foreignkey/"><i class="fa fa-plus-circle" aria-hidden="true"></i>Read more</a>
-    </div>
-  </div>
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/blog/csharp-ef/2020/03/29/Data-Annotations-Attributes/">
-        Data Annotations Attributes
-      </a>
-    </h1>
-
-    <span class="post-date">29 Mar 2020</span>
-     | 
-    
-    <a href="/blog/blog/tags/#orm" class="post-tag">ORM</a>
-    
-    
-
-    <article>
-      <p>Data annotations attributes help programmers easly specify database-related information.</p>
-
-    <article>
-    <div class="post-more">
-      
-      <a href="/blog/csharp-ef/2020/03/29/Data-Annotations-Attributes/#disqus_thread"> <i class="fa fa-comments" aria-hidden="true"></i>Comment</a>&nbsp;
-      
-      <a href="/blog/csharp-ef/2020/03/29/Data-Annotations-Attributes/"><i class="fa fa-plus-circle" aria-hidden="true"></i>Read more</a>
-    </div>
-  </div>
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/blog/csharp-asp.net%20core/2020/03/21/asp-dot-net-core-dependency-injection/">
-        Dependency Injection
-      </a>
-    </h1>
-
-    <span class="post-date">21 Mar 2020</span>
-     | 
-    
-    <a href="/blog/blog/tags/#di" class="post-tag">DI</a>
-    
-    
-
-    <article>
-      <p>C# Asp.net core, dependence injection overview.</p>
-
-    <article>
-    <div class="post-more">
-      
-      <a href="/blog/csharp-asp.net%20core/2020/03/21/asp-dot-net-core-dependency-injection/#disqus_thread"> <i class="fa fa-comments" aria-hidden="true"></i>Comment</a>&nbsp;
-      
-      <a href="/blog/csharp-asp.net%20core/2020/03/21/asp-dot-net-core-dependency-injection/"><i class="fa fa-plus-circle" aria-hidden="true"></i>Read more</a>
-    </div>
-  </div>
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/blog/csharp-ef/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading/">
-        Analysis of advantage and disadvantage of Eager Loading, Explicit Loading, Lazy Loading
-      </a>
-    </h1>
-
-    <span class="post-date">21 Mar 2020</span>
-     | 
-    
-    <a href="/blog/blog/tags/#orm" class="post-tag">ORM</a>
-    
-    
-
-    <article>
-      <p>what’s the advantages and disadvantages of eager loading, explicit loading, lazy loading. most of scenarios can fit the eager loading strategy!</p>
-
-    <article>
-    <div class="post-more">
-      
-      <a href="/blog/csharp-ef/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading/#disqus_thread"> <i class="fa fa-comments" aria-hidden="true"></i>Comment</a>&nbsp;
-      
-      <a href="/blog/csharp-ef/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading/"><i class="fa fa-plus-circle" aria-hidden="true"></i>Read more</a>
-    </div>
-  </div>
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/blog/csharp-ef/2020/03/19/EF-Core-Lazy-Loading/">
-        EF Core Lazy Loading
-      </a>
-    </h1>
+	<div class="toc-side">
+	<div>TABLE OF CONTENTS</div>
+	    <ul>
+  <li><a href="#eager-loading">Eager Loading</a></li>
+  <li><a href="#lazy-loading">Lazy Loading</a></li>
+  <li><a href="#explicit-loading">Explicit Loading</a></li>
+</ul>
 
-    <span class="post-date">19 Mar 2020</span>
-     | 
-    
-    <a href="/blog/blog/tags/#orm" class="post-tag">ORM</a>
-    
-    
+	</div>
+  
 
-    <article>
-      <p>Lazy loadings that the related data transparently loaded from the database when the navigation property accessed.</p>
-
-    <article>
-    <div class="post-more">
+  <article>
+    <!--navigation bar-->
+<div class="navi-link-container">
+  
+  
+    
       
-      <a href="/blog/csharp-ef/2020/03/19/EF-Core-Lazy-Loading/#disqus_thread"> <i class="fa fa-comments" aria-hidden="true"></i>Comment</a>&nbsp;
+          <a href="/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/" class="navi-link">main</a>
       
-      <a href="/blog/csharp-ef/2020/03/19/EF-Core-Lazy-Loading/"><i class="fa fa-plus-circle" aria-hidden="true"></i>Read more</a>
-    </div>
-  </div>
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+          <a href="/blog/csharp-ef/2020/02/28/EF-Core-Load-Related-Entities/" class="navi-link">query</a>
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
   
 </div>
+<!--navigation bar-->
 
-<div class="pagination">
-  
-    <a class="pagination-item older" href="/blog/blog/page2">Older</a>
-  
-  
-    <span class="pagination-item newer">Newer</span>
-  
+<p>we have known how to use Eager Loading, Explicit Loading and Lazy Loading in the previous three posts. I am going to dig into what’s the advantages and disadvantages of those methods.</p>
+
+<h1 id="eager-loading">Eager Loading</h1>
+
+<p>Eager Loading means that the related data will load from the database as the initial query.  in other words, Eager Loading can save your time from avoid executing additional SQL queries.</p>
+
+<p>both Entity Framework 6 and Entity Framework Core support eager loading of entities. if you are operating some lightweight data or fast-queries, then the eager loading would be suited for you.</p>
+
+<p>Most of the scenarios can fit this Eager Loading strategy.</p>
+
+<h1 id="lazy-loading">Lazy Loading</h1>
+
+<p>the Lazy Loading is the opposite of the Eager Loading, the Lazy Loading means the related entities are loaded transparently when the navigation property is accessed. in other words, in the underlying of Entity Framework, the Lazy Loading would run separate SQL queries.</p>
+
+<p>In the blowing scenario, the Lazy Loading would be a no sense option.  you have many books, each book has navigation properties like author, reviewer, editor. you are iterating books to access these navigation properties. Lazy Loading is going to degrade the performance because books are small lightweight data. for example, if you have 5 thousand books, each iteration will access 3 navigation properties, then you are going to execute 15 thousand separate SQL queries. it would be a disaster!</p>
+
+<p>Actually. The Lazy Loading was added on .NET Core 2.1, it’s not a wise choice for most scenarios. but if you have a member that could be costly to load, and this member is infrequently visited, for scenarios like this, it would be a good choice to use Lazy Loading.</p>
+
+<h1 id="explicit-loading">Explicit Loading</h1>
+
+<p>Explicit loading is valid in EF 6 and EF Core both.  Explicit loading is similar to lazy loading, except that: you explicitly retrieve the related data in code; it doesn’t happen automatically when you access a navigation property.  in other words, Related entities are only loaded when you say “Load!”,</p>
+
+<p>So, if you are figuring how to avoid relation entities instantly load in Lazy Loading, you can disable Lazy Loading as an option, or you can use Explicit Loading.</p>
+
+<p>The Explicit Loading is typically more efficient when you need the related data for all retrieved rows of the primary table. Explicit Loading would be a good practice to reduce further SQL queries.</p>
+
+
+  </article>
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/blog/csharp-ef/2020/03/29/Data-Annotation-Attribute-Foreignkey/">
+            Data Annotation Attribute ForeignKey
+            <small>29 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/blog/csharp-ef/2020/03/29/Data-Annotations-Attributes/">
+            Data Annotations Attributes
+            <small>29 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/blog/csharp-asp.net%20core/2020/03/21/asp-dot-net-core-dependency-injection/">
+            Dependency Injection
+            <small>21 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+<div class="comments">
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+  <script>
+var disqus_config = function () {
+  this.page.url = 'http://localhost:4000/csharp-ef/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading/'; // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = '/csharp-ef/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() {
+  var d = document, s = d.createElement('script');
+  s.src = '//https-github-com-voltwu-blog.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 </div>
 
 

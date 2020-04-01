@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Tutorial: Explore EF Core Console Application &middot; A Dream Chaser
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/main.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"> </script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], processEscapes: true } });
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="sidebar-personal-info">
+      <div class="sidebar-personal-info-section">
+        <a href="http://gravatar.com/a2590617c567e9568d51e2ded184d225">
+          <img src="http://www.gravatar.com/avatar/a2590617c567e9568d51e2ded184d225?s=350" title="View on Gravatar" alt="View on Gravatar" />
+        </a>
+      </div>
+      <div class="sidebar-personal-info-section">
+        <p>A passionate <strong>developer and researcher</strong>, learning to be a giant.</p>
+      </div>
+      
+      
+      
+      <div class="sidebar-personal-info-section">
+        <p> Follow me: 
+        
+        
+        
+        <a href="https://www.linkedin.com/in/%E5%85%B4%E5%9B%BD-%E5%90%B4-b4296b195/">
+          <i class="fa fa-linkedin" aria-hidden="true"></i>
+        </a>
+        
+        |
+        
+        
+        
+        <a href="https://github.com/voltwu">
+          <i class="fa fa-github" aria-hidden="true"></i>
+        </a>
+        
+        |
+        
+        
+        
+        <a href="https://twitter.com/chaserwu">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        
+        
+        
+        </p>
+      </div>
+      
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    
+      
+      
+      
+
+      
+
+      <span class="">
+        <a class="sidebar-nav-item " href="/blog/">
+          Home
+        </a>
+
+        
+      </span>
+
+    
+      
+      
+      
+
+      
+
+      <span class="foldable">
+        <a class="sidebar-nav-item " href="/blog/blog/">
+          Blog
+        </a>
+
+        
+          
+            
+            
+            
+              <a class="sidebar-nav-item sidebar-nav-item-sub " href="/blog/blog/categories/">
+                Categories
+              </a>
+          
+        
+          
+            
+            
+            
+              <a class="sidebar-nav-item sidebar-nav-item-sub " href="/blog/blog/tags/">
+                Tags
+              </a>
+          
+        
+      </span>
+
+    
+      
+      
+      
+
+      
+
+      <span class="">
+        <a class="sidebar-nav-item " href="/blog/about/">
+          About
+        </a>
+
+        
+      </span>
+
+    
+
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+    &copy; 2020 A Dream Chaser. This work is liscensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+    </p>
+  </div>
+
+  <div class="sidebar-item">
+    <p>
+    Powered by <a href="http://jekyllrb.com">jekyll</a> and <a href="https://github.com/poole/lanyon">lanyon</a>
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/blog/" title="Home" title="A Dream Chaser">
+              <img class="masthead-logo" src="/blog/public/logo.png"/>
+            </a>
+            <small>An Enthusiastic Programmer</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Tutorial: Explore EF Core Console Application</h1>
+  <span class="post-date">25 Feb 2020</span>
+   | 
+  
+    <a href="/blog/blog/tags/#orm" class="post-tag">ORM</a>
+  
+  
+  
+  
+	<div class="toc-side">
+	<div>TABLE OF CONTENTS</div>
+	    <ul>
+  <li><a href="#whats-the-difference-between-ef6-and-ef-core">What’s the difference between EF6 and EF Core?</a></li>
+  <li><a href="#install-entity-framework-core">Install Entity Framework Core</a></li>
+  <li><a href="#create-the-model">Create The Model</a></li>
+  <li><a href="#adding-a-migration">Adding A Migration</a></li>
+  <li><a href="#crud-create-read-update-delete">CRUD (Create, Read, Update, Delete)</a></li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+
+	</div>
+  
+
+  <article>
+    <!--navigation bar-->
+<div class="navi-link-container">
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+          <a href="/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/" class="navi-link">main</a>
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+<!--navigation bar-->
+
+<h1 id="whats-the-difference-between-ef6-and-ef-core">What’s the difference between EF6 and EF Core?</h1>
+<p>Both EF6(Entity Framework 6) and EF Core(Entity Framework Core) are object-relational mappers. EF Core is a more modern, lightweight and extensible version of Entity Framework that has very similar capabilities and benefits to EF6. EF Core is a complete rewrite and contains many new features that not include in EF6.  <a href="https://docs.microsoft.com/en-us/ef/efcore-and-ef6/index">Here</a> examined the many differences.</p>
+
+<h1 id="install-entity-framework-core">Install Entity Framework Core</h1>
+<p>Here you will learn how to use EF Core with .NET Core Console Application step by step. To demonstrate this, we will create a .NET Core Console Application using Visual Studio 2017 (or greater).</p>
+
+<p>it’s very convenient to create a .NET Core Console Application. I had already created a .NET Core Console Application.</p>
+
+<p><img src="/blog/public/img/2020-02-25-Tutorial-Explore-EF-Core-Console-Application-a.png" alt="Alt" /></p>
+
+<p>Open <code class="highlighter-rouge">Tools</code> -&gt; <code class="highlighter-rouge">NuGet Package Manager</code> -&gt; <code class="highlighter-rouge">Manage Nuget Package For Solution</code></p>
+
+<p><img src="/blog/public/img/2020-02-25-Tutorial-Explore-EF-Core-Console-Application-b.png" alt="Alt" /></p>
+
+<p>Search for <code class="highlighter-rouge">Microsoft.EntityFrameworkCore.SqlServer</code>, then install it.</p>
+
+<p>The EF Core supports many database engines. see <a href="https://docs.microsoft.com/en-us/ef/core/providers/index?tabs=vs">Database Provider</a> for details. I am using SQL Server as my database, So I installed the <code class="highlighter-rouge">Microsoft.EntityFrameworkCore.SqlServer</code> package. And I also need to install the <em>Entity Framework Core Tools</em> for the NuGet Package Console in Visual Studio. Search for <code class="highlighter-rouge">Microsoft.EntityFrameworkCore.Tools</code> in <em>NuGet Package For Solution</em> dialogue and install it.</p>
+
+<h1 id="create-the-model">Create The Model</h1>
+<p>Entity Framework Core needs to have a model(Entity Data Model) to communicate with the underlying database.</p>
+
+<p>The EF model has three parts: conceptual model, storage model and mappings between the conceptual and storage model. EF Core builds the conceptual model based on your domain classes(entity classes), configurations, annotations.  EF Core builds the storage model and mappings based on the provider you use.</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="nn">EFCoreProject.Model</span>
+<span class="p">{</span>
+    <span class="c1">//context class SchoolContext</span>
+    <span class="k">class</span> <span class="nc">SchoolContext</span> <span class="p">:</span> <span class="n">DbContext</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="n">DbSet</span><span class="p">&lt;</span><span class="n">Team</span><span class="p">&gt;</span> <span class="n">teams</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="n">DbSet</span><span class="p">&lt;</span><span class="n">Player</span><span class="p">&gt;</span> <span class="n">players</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnConfiguring</span><span class="p">(</span><span class="n">DbContextOptionsBuilder</span> <span class="n">optionsBuilder</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">optionsBuilder</span><span class="p">.</span><span class="nf">UseSqlServer</span><span class="p">(</span><span class="s">"Server=.;Database=EFCoreDb;Trusted_Connection=True;"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">//entity class Team</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Team</span>
+    <span class="p">{</span>
+        <span class="p">[</span><span class="n">Key</span><span class="p">]</span>
+        <span class="p">[</span><span class="n">Required</span><span class="p">]</span>
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">id</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="p">[</span><span class="nf">Required</span><span class="p">(</span><span class="n">ErrorMessage</span> <span class="p">=</span> <span class="s">"name is required"</span><span class="p">)]</span>
+        <span class="p">[</span><span class="nf">MaxLength</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="n">ErrorMessage</span> <span class="p">=</span> <span class="s">"name is too long"</span><span class="p">)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">name</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Player</span><span class="p">&gt;</span> <span class="n">players</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">//entity class Player</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Player</span> 
+    <span class="p">{</span>
+        <span class="p">[</span><span class="n">Key</span><span class="p">]</span>
+        <span class="p">[</span><span class="n">Required</span><span class="p">]</span>
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">id</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="p">[</span><span class="nf">Required</span><span class="p">(</span><span class="n">ErrorMessage</span> <span class="p">=</span> <span class="s">"name is required"</span><span class="p">)]</span>
+        <span class="p">[</span><span class="nf">MaxLength</span><span class="p">(</span><span class="m">20</span><span class="p">,</span> <span class="n">ErrorMessage</span> <span class="p">=</span> <span class="s">"name is too long"</span><span class="p">)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">name</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>As you can see in the snippet. I created two entity classes (domain classes): <code class="highlighter-rouge">Player</code> and <code class="highlighter-rouge">Team</code>. the <code class="highlighter-rouge">[Key]</code> annotation represents to denote this property uniquely identifies this entity. the <code class="highlighter-rouge">[Required]</code> annotation represents this field is required. the <code class="highlighter-rouge">[MaxLength]</code> annotation specifies the maximum length of array or string data. these annotations come from 
+<a href="https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?redirectedfrom=MSDN&amp;view=netframework-4.8">System.ComponentModel.DataAnnotations</a> namespace.</p>
+
+<p>we also created a <code class="highlighter-rouge">SchoolContext</code> class, which is driving from <code class="highlighter-rouge">DbContext</code>. <code class="highlighter-rouge">SchoolContext</code> has two <code class="highlighter-rouge">DbSet&lt;TEntity&gt;</code> properties, for <code class="highlighter-rouge">Team</code> and <code class="highlighter-rouge">Player</code> type, which will be mapped to <code class="highlighter-rouge">teams</code> and <code class="highlighter-rouge">players</code> tables in the underlying database. the <code class="highlighter-rouge">SchoolContext</code> also overrides the <code class="highlighter-rouge">OnConfiguring</code> method. the <code class="highlighter-rouge">OnConfiguring</code> method used to specify which database to use.</p>
+
+<h1 id="adding-a-migration">Adding A Migration</h1>
+<p>EF Core includes different methods to update or create migrations. we can execute migration command on <em>NuGet Package Manage Console</em> or <em>CLI(command-line interface)</em>.</p>
+
+<p>my environment is Visual Studio, open <code class="highlighter-rouge">Tools</code> -&gt; <code class="highlighter-rouge">NuGet Package Manager</code> -&gt; <code class="highlighter-rouge">Package Manager Console</code>. enter the following command:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PM&gt; add-migration CreateSchoolDB
+</code></pre></div></div>
+
+<p>This will create a <code class="highlighter-rouge">Migrations</code> folder in the project and create the <code class="highlighter-rouge">ModelSnapshot</code> file.</p>
+
+<p><img src="/blog/public/img/2020-02-25-Tutorial-Explore-EF-Core-Console-Application-c.png" alt="Alt" /></p>
+
+<p>if want to undo this action, use command <code class="highlighter-rouge">Remove-Migration</code></p>
+
+<p>After creating a migration, we still need to sync the effects to the database with an <code class="highlighter-rouge">update-migration</code> command, as below.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PM&gt; update-database
+</code></pre></div></div>
+
+<p>Each time when we made changes to the entity class, we also need to sync the effect to the database using <code class="highlighter-rouge">add-migration</code> and <code class="highlighter-rouge">update-database</code>.</p>
+
+<h1 id="crud-create-read-update-delete">CRUD (Create, Read, Update, Delete)</h1>
+<p>Now we can use the context class to save, retrieve, modify and remove data, as shown below:</p>
+
+<p><strong>Insert data:</strong></p>
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span><span class="p">(</span><span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SchoolContext</span><span class="p">())</span>
+<span class="p">{</span>
+        <span class="n">Team</span> <span class="n">team_lake</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Team</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">name</span> <span class="p">=</span> <span class="s">"lake"</span><span class="p">,</span>
+            <span class="n">players</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Player</span><span class="p">&gt;()</span>
+            <span class="p">{</span>
+                <span class="k">new</span> <span class="nf">Player</span><span class="p">(){</span> <span class="n">name</span><span class="p">=</span><span class="s">"Kobe"</span><span class="p">},</span>
+                <span class="k">new</span> <span class="nf">Player</span><span class="p">(){</span> <span class="n">name</span><span class="p">=</span><span class="s">"O`Neal"</span><span class="p">},</span>
+                <span class="k">new</span> <span class="nf">Player</span><span class="p">(){</span> <span class="n">name</span><span class="p">=</span><span class="s">"Nash"</span><span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">};</span>
+        <span class="n">Team</span> <span class="n">team_warrior</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Team</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">name</span> <span class="p">=</span> <span class="s">"warrior"</span><span class="p">,</span>
+            <span class="n">players</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Player</span><span class="p">&gt;</span>
+            <span class="p">{</span>
+                <span class="k">new</span> <span class="nf">Player</span><span class="p">(){</span><span class="n">name</span><span class="p">=</span><span class="s">"Curry"</span><span class="p">},</span>
+                <span class="k">new</span> <span class="nf">Player</span><span class="p">(){</span><span class="n">name</span><span class="p">=</span><span class="s">"Thompson"</span><span class="p">},</span>
+                <span class="k">new</span> <span class="nf">Player</span><span class="p">(){</span><span class="n">name</span><span class="p">=</span><span class="s">"Green"</span><span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">};</span>
+        <span class="n">context</span><span class="p">.</span><span class="n">teams</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">team_lake</span><span class="p">);</span>
+        <span class="n">context</span><span class="p">.</span><span class="n">teams</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">team_warrior</span><span class="p">);</span>
+        <span class="n">context</span><span class="p">.</span><span class="nf">SaveChanges</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Update data:</strong></p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span><span class="p">(</span><span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SchoolContext</span><span class="p">())</span>
+<span class="p">{</span>                
+         <span class="kt">var</span> <span class="n">Kobe</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">players</span><span class="p">.</span>
+            <span class="n">Where</span><span class="p">&lt;</span><span class="n">Player</span><span class="p">&gt;(</span><span class="n">p</span> <span class="p">=&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">name</span> <span class="p">==</span> <span class="s">"Kobe"</span><span class="p">).</span>
+            <span class="n">First</span><span class="p">&lt;</span><span class="n">Player</span><span class="p">&gt;();</span>
+        <span class="n">Kobe</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">"Kobe Bean Bryant"</span><span class="p">;</span>
+        <span class="n">context</span><span class="p">.</span><span class="nf">SaveChanges</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Delete data:</strong></p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span><span class="p">(</span><span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SchoolContext</span><span class="p">())</span>
+<span class="p">{</span>
+        <span class="kt">var</span> <span class="n">green</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">players</span><span class="p">.</span>
+            <span class="n">Where</span><span class="p">&lt;</span><span class="n">Player</span><span class="p">&gt;(</span><span class="n">p</span><span class="p">=&gt;</span><span class="n">p</span><span class="p">.</span><span class="n">name</span><span class="p">==</span><span class="s">"Green"</span><span class="p">).</span>
+            <span class="nf">FirstOrDefault</span><span class="p">();</span>
+        <span class="n">context</span><span class="p">.</span><span class="n">players</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="n">green</span><span class="p">);</span>
+        <span class="n">context</span><span class="p">.</span><span class="nf">SaveChanges</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Query data:</strong></p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span><span class="p">(</span><span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SchoolContext</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="c1">//with an eager loading by using Microsoft.EntityFrameworkCore.Include,it's not wise.</span>
+    <span class="c1">//but we only use it to demonstrate this demo.</span>
+    <span class="kt">var</span> <span class="n">teams</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">teams</span><span class="p">.</span>
+        <span class="nf">Include</span><span class="p">(</span><span class="n">team</span><span class="p">=&gt;</span><span class="n">team</span><span class="p">.</span><span class="n">players</span><span class="p">).</span>
+        <span class="nf">ToList</span><span class="p">();</span>
+
+    <span class="k">foreach</span><span class="p">(</span><span class="kt">var</span> <span class="n">team</span> <span class="k">in</span> <span class="n">teams</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"team name:{0}"</span><span class="p">,</span> <span class="n">team</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">player</span> <span class="k">in</span> <span class="n">team</span><span class="p">.</span><span class="n">players</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"players name:{0}"</span><span class="p">,</span> <span class="n">player</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>You had learned how to run a basic EF Core program.I had put those code in Github <a href="https://github.com/voltwu/C-Sharp-Console-Application-EF-Core-Example/tree/b1e4c8a75245f4bd569b8c0b7cca586523db96f4">C# EF Core Console Application</a>. In the next chapter, I will get deeper. Because of the Coronavirus, I have much more time to write articles.^^ Have a good day! See you in the next chapter.</p>
+
+
+  </article>
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/blog/csharp-ef/2020/03/29/Data-Annotation-Attribute-Foreignkey/">
+            Data Annotation Attribute ForeignKey
+            <small>29 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/blog/csharp-ef/2020/03/29/Data-Annotations-Attributes/">
+            Data Annotations Attributes
+            <small>29 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/blog/csharp-asp.net%20core/2020/03/21/asp-dot-net-core-dependency-injection/">
+            Dependency Injection
+            <small>21 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+<div class="comments">
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+  <script>
+var disqus_config = function () {
+  this.page.url = 'http://localhost:4000/csharp-ef/2020/02/25/Tutorial-Explore-EF-Core-Console-Application/'; // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = '/csharp-ef/2020/02/25/Tutorial-Explore-EF-Core-Console-Application'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() {
+  var d = document, s = d.createElement('script');
+  s.src = '//https-github-com-voltwu-blog.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if (target === toggle) {
+            checkbox.checked = !checkbox.checked;
+            e.preventDefault();
+          } else if (checkbox.checked && !sidebar.contains(target)) {
+            /* click outside the sidebar when sidebar is open */
+            checkbox.checked = false;
+          }
+        }, false);
+      })(document);
+    </script>
+    
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-00000000-1', 'auto');
+ga('send', 'pageview');
+    </script>
+    
+  </body>
+  
+  <script id="dsq-count-scr" src="//https-github-com-voltwu-blog.disqus.com/count.js" async></script>
+  
+</html>

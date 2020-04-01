@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      EF Core Explicit Loading &middot; A Dream Chaser
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/main.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"> </script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], processEscapes: true } });
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="sidebar-personal-info">
+      <div class="sidebar-personal-info-section">
+        <a href="http://gravatar.com/a2590617c567e9568d51e2ded184d225">
+          <img src="http://www.gravatar.com/avatar/a2590617c567e9568d51e2ded184d225?s=350" title="View on Gravatar" alt="View on Gravatar" />
+        </a>
+      </div>
+      <div class="sidebar-personal-info-section">
+        <p>A passionate <strong>developer and researcher</strong>, learning to be a giant.</p>
+      </div>
+      
+      
+      
+      <div class="sidebar-personal-info-section">
+        <p> Follow me: 
+        
+        
+        
+        <a href="https://www.linkedin.com/in/%E5%85%B4%E5%9B%BD-%E5%90%B4-b4296b195/">
+          <i class="fa fa-linkedin" aria-hidden="true"></i>
+        </a>
+        
+        |
+        
+        
+        
+        <a href="https://github.com/voltwu">
+          <i class="fa fa-github" aria-hidden="true"></i>
+        </a>
+        
+        |
+        
+        
+        
+        <a href="https://twitter.com/chaserwu">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        
+        
+        
+        </p>
+      </div>
+      
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    
+      
+      
+      
+
+      
+
+      <span class="">
+        <a class="sidebar-nav-item " href="/blog/">
+          Home
+        </a>
+
+        
+      </span>
+
+    
+      
+      
+      
+
+      
+
+      <span class="foldable">
+        <a class="sidebar-nav-item " href="/blog/blog/">
+          Blog
+        </a>
+
+        
+          
+            
+            
+            
+              <a class="sidebar-nav-item sidebar-nav-item-sub " href="/blog/blog/categories/">
+                Categories
+              </a>
+          
+        
+          
+            
+            
+            
+              <a class="sidebar-nav-item sidebar-nav-item-sub " href="/blog/blog/tags/">
+                Tags
+              </a>
+          
+        
+      </span>
+
+    
+      
+      
+      
+
+      
+
+      <span class="">
+        <a class="sidebar-nav-item " href="/blog/about/">
+          About
+        </a>
+
+        
+      </span>
+
+    
+
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+    &copy; 2020 A Dream Chaser. This work is liscensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+    </p>
+  </div>
+
+  <div class="sidebar-item">
+    <p>
+    Powered by <a href="http://jekyllrb.com">jekyll</a> and <a href="https://github.com/poole/lanyon">lanyon</a>
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/blog/" title="Home" title="A Dream Chaser">
+              <img class="masthead-logo" src="/blog/public/logo.png"/>
+            </a>
+            <small>An Enthusiastic Programmer</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">EF Core Explicit Loading</h1>
+  <span class="post-date">06 Mar 2020</span>
+   | 
+  
+    <a href="/blog/blog/tags/#orm" class="post-tag">ORM</a>
+  
+  
+  
+  
+
+  <article>
+    <!--navigation bar-->
+<div class="navi-link-container">
+  
+  
+    
+      
+          <a href="/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/" class="navi-link">main</a>
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+          <a href="/blog/csharp-ef/2020/02/28/EF-Core-Load-Related-Entities/" class="navi-link">query</a>
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+<!--navigation bar-->
+
+<p><strong>Explicit Loading</strong> means that related entities are explicitly loaded from the database at a later time.</p>
+
+<p>This project can be found in <a href="https://github.com/voltwu/C-Sharp-Console-Application-EF-Core-Example/tree/921b247932ec61bf7a10d4392413e4f377652c97">Github</a></p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SchoolContext</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">lake_team</span> <span class="p">=</span>  <span class="k">await</span> <span class="n">context</span><span class="p">.</span><span class="n">teams</span><span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">Name</span> <span class="p">==</span> <span class="s">"lake"</span><span class="p">).</span><span class="nf">FirstOrDefaultAsync</span><span class="p">();</span>
+
+    <span class="c1">//The lake.Players is a collection navigation property, which should use the Collection method.</span>
+    <span class="k">await</span> <span class="n">context</span><span class="p">.</span><span class="nf">Entry</span><span class="p">(</span><span class="n">lake_team</span><span class="p">).</span><span class="nf">Collection</span><span class="p">(</span><span class="n">lake</span> <span class="p">=&gt;</span> <span class="n">lake</span><span class="p">.</span><span class="n">Players</span><span class="p">).</span><span class="nf">LoadAsync</span><span class="p">();</span>
+
+    <span class="c1">//load collection navigation property Address for each player </span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="n">Player</span> <span class="n">player</span> <span class="k">in</span> <span class="n">lake_team</span><span class="p">.</span><span class="n">Players</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">await</span> <span class="n">context</span><span class="p">.</span><span class="nf">Entry</span><span class="p">(</span><span class="n">player</span><span class="p">).</span><span class="nf">Collection</span><span class="p">(</span><span class="n">p</span> <span class="p">=&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">Addresses</span><span class="p">).</span><span class="nf">LoadAsync</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">lake_team</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>In the above example, the  <code class="highlighter-rouge">await context.Entry(lake_team).Collection(lake=&gt;lake.Players).LoadAsync()</code> loads the  <code class="highlighter-rouge">Player</code> entities, the  <code class="highlighter-rouge">Collection</code> method provides access to tracking and loading information for a collection navigation property that associates this entity to a collection of another entites. The <code class="highlighter-rouge">LoadAsync</code> method executes the SQL query and fill up the specified reference property or collection property in the memory, all of these complete asynchronously.</p>
+
+<p>As we have known. The  <code class="highlighter-rouge">Player</code> and <code class="highlighter-rouge">Addresses</code> are all collection property. one Team has many players, and one player has many homes. their structures defined as below:</p>
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Team</span><span class="p">{</span>
+<span class="p">...</span>
+<span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Player</span><span class="p">&gt;</span> <span class="n">Players</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">class</span> <span class="nc">Player</span><span class="p">{</span>
+<span class="p">...</span>
+<span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">HomeAddress</span><span class="p">&gt;</span> <span class="n">Addresses</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>The opposite of the collection property is the reference property. The collection property is the to-many relationship, but the reference property is the to-one relationship.</p>
+
+<p>for example:</p>
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//class School{</span>
+<span class="c1">//   public string SchoolName{set;get;}</span>
+<span class="c1">//   public string loc{set;get;}</span>
+<span class="c1">//}</span>
+<span class="k">class</span> <span class="nc">Team</span><span class="p">{</span>
+<span class="k">public</span> <span class="n">School</span> <span class="n">shool</span><span class="p">{</span><span class="k">set</span><span class="p">;</span><span class="k">get</span><span class="p">;}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>The <code class="highlighter-rouge">Team</code> only belongs to one school, so the <code class="highlighter-rouge">school</code> is a reference property.</p>
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">context</span><span class="p">.</span><span class="nf">Entry</span><span class="p">(</span><span class="n">team</span><span class="p">).</span><span class="nf">Reference</span><span class="p">(</span><span class="n">t</span><span class="p">=&gt;</span><span class="n">t</span><span class="p">.</span><span class="n">school</span><span class="p">).</span><span class="nf">Load</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h1 id="query">Query()</h1>
+<p>The <code class="highlighter-rouge">Collection()</code> or <code class="highlighter-rouge">Referece()</code> methods return a <code class="highlighter-rouge">CollectionEntry</code> object or a <code class="highlighter-rouge">ReferenceEntry</code> object, both objects expose change tracking information. and they are not <code class="highlighter-rouge">IQueryable</code> instances, So we can’t continue to write further LINQ queries to filter out related data after these methods.</p>
+
+<p>How we can do it? luckily, we have <code class="highlighter-rouge">Query()</code> method which can offer us to write further queries.</p>
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">context</span><span class="p">.</span><span class="nf">Entry</span><span class="p">(</span><span class="n">lake_team</span><span class="p">).</span><span class="nf">Collection</span><span class="p">(</span><span class="n">lake</span> <span class="p">=&gt;</span> <span class="n">lake</span><span class="p">.</span><span class="n">Players</span><span class="p">).</span>
+        <span class="nf">Query</span><span class="p">().</span>
+        <span class="nf">Where</span><span class="p">(</span><span class="n">p</span><span class="p">=&gt;</span><span class="n">p</span><span class="p">.</span><span class="n">Name</span><span class="p">==</span> <span class="s">"Kobe Bean Bryant"</span><span class="p">).</span>
+        <span class="nf">Load</span><span class="p">();</span>
+</code></pre></div></div>
+
+
+  </article>
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/blog/csharp-ef/2020/03/29/Data-Annotation-Attribute-Foreignkey/">
+            Data Annotation Attribute ForeignKey
+            <small>29 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/blog/csharp-ef/2020/03/29/Data-Annotations-Attributes/">
+            Data Annotations Attributes
+            <small>29 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/blog/csharp-asp.net%20core/2020/03/21/asp-dot-net-core-dependency-injection/">
+            Dependency Injection
+            <small>21 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+<div class="comments">
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+  <script>
+var disqus_config = function () {
+  this.page.url = 'http://localhost:4000/csharp-ef/2020/03/06/EF-Core-Explicit-Loading/'; // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = '/csharp-ef/2020/03/06/EF-Core-Explicit-Loading'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() {
+  var d = document, s = d.createElement('script');
+  s.src = '//https-github-com-voltwu-blog.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if (target === toggle) {
+            checkbox.checked = !checkbox.checked;
+            e.preventDefault();
+          } else if (checkbox.checked && !sidebar.contains(target)) {
+            /* click outside the sidebar when sidebar is open */
+            checkbox.checked = false;
+          }
+        }, false);
+      })(document);
+    </script>
+    
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-00000000-1', 'auto');
+ga('send', 'pageview');
+    </script>
+    
+  </body>
+  
+  <script id="dsq-count-scr" src="//https-github-com-voltwu-blog.disqus.com/count.js" async></script>
+  
+</html>

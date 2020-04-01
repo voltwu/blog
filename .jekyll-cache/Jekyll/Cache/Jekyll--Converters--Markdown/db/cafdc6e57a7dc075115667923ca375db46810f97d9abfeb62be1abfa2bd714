@@ -1,0 +1,84 @@
+I"Å<!--navigation bar-->
+<div class="navi-link-container">
+  
+  
+    
+      
+          <a href="/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/" class="navi-link">main</a>
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+          <a href="/blog/csharp-ef/2020/02/28/EF-Core-Load-Related-Entities/" class="navi-link">query</a>
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+<!--navigation bar-->
+
+<p>I supposed that you had known <strong>Eager Loading</strong> means that related entities are loaded as part of the initial query.</p>
+
+<p>This project can be found in <a href="https://github.com/voltwu/C-Sharp-Console-Application-EF-Core-Example/tree/b2d33ad3f6f19e06b20afeb68218798c7f2f9f08">Github</a></p>
+
+<p>use <code class="highlighter-rouge">Include</code> method or <code class="highlighter-rouge">ThenInclude</code> method to complete an eager loading. the <code class="highlighter-rouge">Include</code> method can specify what navigation property you want to include.  the <code class="highlighter-rouge">ThenInclude</code> can allow you to continue including further levels of related entities.</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">List</span><span class="p">&lt;</span><span class="n">Team</span><span class="p">&gt;&gt;</span> <span class="nf">loadTeamsAsync</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SchoolContext</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">context</span><span class="p">.</span><span class="n">teams</span><span class="p">.</span>
+            <span class="nf">Include</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">players</span><span class="p">).</span>
+                <span class="nf">ThenInclude</span><span class="p">(</span><span class="n">p</span> <span class="p">=&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">addresses</span><span class="p">).</span>
+            <span class="nf">ToListAsync</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>Caution</strong>:</p>
+
+  <p>Since version 3.0.0(.net core 3.0.0), each Include will cause an additional JOIN to be added to SQL queries produced by relational providers, whereas previous versions generated additional SQL queries. This can significantly change the performance of your queries, for better or worse. In particular, LINQ queries with an exceedingly high number of Include operators may need to be broken down into multiple separate LINQ queries in order to avoid the cartesian explosion problem.</p>
+</blockquote>
+
+:ET

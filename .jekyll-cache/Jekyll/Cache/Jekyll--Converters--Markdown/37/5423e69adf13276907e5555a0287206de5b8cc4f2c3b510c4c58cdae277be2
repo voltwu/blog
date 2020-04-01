@@ -1,0 +1,130 @@
+I"ž<!--navigation bar-->
+<div class="navi-link-container">
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+          <a href="/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/" class="navi-link">main</a>
+      
+    
+  
+</div>
+<!--navigation bar-->
+
+<p>Entity Framework Core allows you to use navigation properties in your model to load related entities. There are three common ORM patterns used to load related entities. They are Eager Loader, Explicit Loading, Lazying Loading. Those loading methods have different performance. I am going to dig into it in this article.</p>
+
+<p><strong>Eager Loading</strong> means that related entities are loaded from the database as part of the initial query.
+<strong>Explicit Loading</strong> means that related entities are explicitly loaded from the database at a later time.
+<strong>Lazy Loading</strong> means that related entities are transparently loaded from the database when the navigation property is accessed.  Lazy Loading was introduced in EF Core 2.1 as a new feature.</p>
+
+<!--items-->
+<div>
+<span style="color: green;">In this article:</span>
+<ul>
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+                <li><a href="/blog/csharp-ef/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading/" class="item-link">Analysis of advantage and disadvantage of Eager Loading, Explicit Loading, Lazy Loading</a></li>
+      
+    
+  
+    
+      
+                <li><a href="/blog/csharp-ef/2020/03/19/EF-Core-Lazy-Loading/" class="item-link">EF Core Lazy Loading</a></li>
+      
+    
+  
+    
+      
+                <li><a href="/blog/csharp-ef/2020/03/06/EF-Core-Explicit-Loading/" class="item-link">EF Core Explicit Loading</a></li>
+      
+    
+  
+    
+      
+                <li><a href="/blog/csharp-ef/2020/03/03/EF-Core-Eager-Loading/" class="item-link">EF Core Eager Loading</a></li>
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</ul>
+</div>
+<!--items-->
+
+:ET
