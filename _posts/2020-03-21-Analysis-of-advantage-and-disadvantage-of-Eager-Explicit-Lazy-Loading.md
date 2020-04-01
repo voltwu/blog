@@ -18,7 +18,7 @@ excerpt: what's the advantages and disadvantages of eager loading, explicit load
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>
-  {% assign posts =site.posts | sort: 'navi-order' %}
+  {% assign posts = site.posts | sort: 'navi-order' | reverse  %}
   {% for post in posts %}
     {% if post.navi-enable-ef %}
       {%  if post.navi-order == "1" or

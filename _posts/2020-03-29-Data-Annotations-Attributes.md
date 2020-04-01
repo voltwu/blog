@@ -11,14 +11,15 @@ toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: true
 navi-enable-ef: true
-navi-name: "annotations"
+navi-name: "attributes"
 navi-order: "1-3"
 description: Data annotations attributes help programmers easly specify database-related information.
 excerpt: Data annotations attributes help programmers easly specify database-related information.
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>
-  {% for post in site.posts %}
+  {% assign posts = site.posts | sort: 'navi-order' | reverse  %}
+  {% for post in posts %}
     {% if post.navi-enable-ef and 
           post.navi-order == "1" %}
         <a href="{{ site.baseurl }}{{ post.url }}" class='navi-link'>{{post.navi-name}}</a>
