@@ -48,5 +48,3 @@ Configuration enables you to override EF Core's default behaviour. Configuration
 </ul>
 </div>
 <!--items-->
-
-[1]: /blog/public/img/2020-03-29-Data-Annotations-Attributes-a.png

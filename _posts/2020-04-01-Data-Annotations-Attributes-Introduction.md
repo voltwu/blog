@@ -103,7 +103,9 @@ public class Student {
 ```
 I assigned the **dbo** to the **schema**. However, the default **schema** would also be **dbo**, if you don't specify it.
 
-As you can see from the illustration, these basic attributes are easy to use. In the next episodes, I am going to dig into other attributes.
+As you can see from the illustration, these basic attributes are easy to use. 
+
+In the next episodes, I am going to dig into other attributes.
 
 
 [1]: /blog/public/img/2020-03-29-Data-Annotations-Attributes-a.png

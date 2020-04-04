@@ -12,7 +12,7 @@ toc_icon: "cog"
 comments: true
 navi-enable-ef: true
 navi-name: ""
-navi-order: "1-1"
+navi-order: "a1-1"
 description: how to run an EF(entity framework) Core Console Application, with a simple, basic demonstration.
 excerpt: run an EF Core Console Application, with a simple basic demonstration.
 ---
