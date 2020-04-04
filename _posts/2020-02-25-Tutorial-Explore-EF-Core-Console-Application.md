@@ -20,7 +20,7 @@ excerpt: run an EF Core Console Application, with a simple basic demonstration.
 <div class='navi-link-container'>
   {% for post in site.posts %}
     {% if post.navi-enable-ef %}
-      {%  if post.navi-order == "1" %}
+      {%  if post.navi-order == "a1" %}
           <a href="{{ site.baseurl }}{{ post.url }}" class='navi-link'>{{post.navi-name}}</a>
       {% endif %}
     {% endif %}
