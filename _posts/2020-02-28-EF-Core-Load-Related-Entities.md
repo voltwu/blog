@@ -26,7 +26,7 @@ excerpt: Entity Framework Core allows you to use navigation propertities in your
       {% endif %}
     {% endif %}
   {% endfor %}
-</div>
+<a class='navi-link'></a></div>
 <!--navigation bar-->
 
 

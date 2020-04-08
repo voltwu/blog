@@ -25,7 +25,7 @@ excerpt: Data annotations attributes help programmers easly specify database-rel
         <a href="{{ site.baseurl }}{{ post.url }}" class='navi-link'>{{post.navi-name}}</a>
     {% endif %}
   {% endfor %}
-</div>
+<a class='navi-link'></a></div>
 <!--navigation bar-->
 
 Configuration enables you to override EF Core's default behaviour. Configuration can be applied in two ways, using the **Fluent API**, and through **DataAnnotation attributes**.  we are going to dig into **Data Annotations** in the next few articles.

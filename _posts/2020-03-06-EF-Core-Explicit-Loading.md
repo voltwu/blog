@@ -27,7 +27,7 @@ excerpt: Explicit Loading means that related entities are explicitly loaded from
       {% endif %}
     {% endif %}
   {% endfor %}
-</div>
+<a class='navi-link'></a></div>
 <!--navigation bar-->
 
 

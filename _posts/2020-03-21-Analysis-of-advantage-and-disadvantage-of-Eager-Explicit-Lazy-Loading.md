@@ -27,7 +27,7 @@ excerpt: what's the advantages and disadvantages of eager loading, explicit load
       {% endif %}
     {% endif %}
   {% endfor %}
-</div>
+<a class='navi-link'></a></div>
 <!--navigation bar-->
 
 

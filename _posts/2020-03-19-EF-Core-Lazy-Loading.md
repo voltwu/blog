@@ -27,7 +27,7 @@ excerpt: Lazy loadings that the related data transparently loaded from the datab
       {% endif %}
     {% endif %}
   {% endfor %}
-</div>
+<a class='navi-link'></a></div>
 <!--navigation bar-->
 
 

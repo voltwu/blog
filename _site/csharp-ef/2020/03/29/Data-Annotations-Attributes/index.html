@@ -216,147 +216,35 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
         <a href="/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/" class="navi-link">main</a>
     
   
-</div>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+<a class="navi-link"></a></div>
 <!--navigation bar-->
 
-<p>Entity Framework Core and Entity Framework both provide attributes for help programmers conveniently specify database-related information.</p>
-
-<p>Entities have their conventions between entities and database tables. However, you can change it with extra data annotations attributes.</p>
-
-<p>you can independently point out the name of the database, the name of the field, the name of the constraint, etc…  instead of using the default conventions.</p>
-
-<p>These annotations are included in the <code class="highlighter-rouge">System.ComponentModel.DataAnnotations</code> namespace and the <code class="highlighter-rouge">System.ComponentModel.DataAnnotations.Schema</code> namespace. both are not framework depending namespaces. In other words, it is valid in EF 6 as well as valid in EF Core.</p>
-
-<blockquote>
-  <p>Note: 
-<code class="highlighter-rouge">Annotations</code> only give you a subset of configuration options. and <code class="highlighter-rouge">Fluent API</code> provides full configuration options.</p>
-</blockquote>
-
-<p>I am going to list out partial common attributes for reference purposes.</p>
-
-<p><strong><code class="highlighter-rouge">System.ComponentModel.DataAnnotations</code></strong> namespace</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Attribute</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Key</td>
-      <td>Denotes one or more properties that uniquely identify an entity</td>
-    </tr>
-    <tr>
-      <td>Required</td>
-      <td>Specifies that a data field value is required</td>
-    </tr>
-    <tr>
-      <td>MaxLength</td>
-      <td>Specifies the maximum length of array or string data allowed in a property</td>
-    </tr>
-    <tr>
-      <td>MinLength</td>
-      <td>Specifies the minimum length of array or string data allowed in a property</td>
-    </tr>
-    <tr>
-      <td>StringLength</td>
-      <td>Specifies the minimum and maximum length of characters that allowed in a data field</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong><code class="highlighter-rouge">System.ComponentModel.DataAnnotations.Schema</code></strong> namespace</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Attribute</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Table</td>
-      <td>Can be applied to an entity class to configure the corresponding table name and schema in the database</td>
-    </tr>
-    <tr>
-      <td>Column</td>
-      <td>Specifies the database column that a property is mapped to</td>
-    </tr>
-    <tr>
-      <td>ForeignKey</td>
-      <td>Denotes a property used as a foreign key in a relationship</td>
-    </tr>
-    <tr>
-      <td>NotMapped</td>
-      <td>Denotes a property or a class should be excluded from the database mapping</td>
-    </tr>
-    <tr>
-      <td>InverseProperty</td>
-      <td>Can be applied to a property to specify the inverse of a navigation property that represents the other end of the same relationship.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Below is an example for illustrating.</p>
-<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Classroom</span> <span class="p">{</span> 
-    <span class="k">public</span> <span class="kt">int</span> <span class="n">id</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
-
-    <span class="p">[</span><span class="nf">Required</span><span class="p">(</span><span class="n">ErrorMessage</span> <span class="p">=</span> <span class="s">"class name is required"</span><span class="p">)]</span>
-    <span class="p">[</span><span class="nf">MaxLength</span><span class="p">(</span><span class="m">20</span><span class="p">)]</span>
-    <span class="k">public</span> <span class="kt">string</span> <span class="n">classname</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
-<span class="p">}</span>
-<span class="p">[</span><span class="nf">Table</span><span class="p">(</span><span class="s">"student_table"</span><span class="p">)]</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span> 
-    <span class="p">[</span><span class="n">Key</span><span class="p">]</span>
-    <span class="p">[</span><span class="n">Required</span><span class="p">]</span>
-    <span class="k">public</span> <span class="kt">int</span> <span class="n">id</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
-
-    <span class="p">[</span><span class="nf">Required</span><span class="p">(</span><span class="n">ErrorMessage</span> <span class="p">=</span><span class="s">"student name is required"</span><span class="p">)]</span>
-    <span class="p">[</span><span class="nf">StringLength</span><span class="p">(</span><span class="n">maximumLength</span><span class="p">:</span><span class="m">20</span><span class="p">)]</span>
-    <span class="p">[</span><span class="nf">Column</span><span class="p">(</span><span class="s">"student_name"</span><span class="p">)]</span>
-    <span class="k">public</span> <span class="kt">string</span> <span class="n">studentname</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
-
-    <span class="k">public</span> <span class="n">Classroom</span> <span class="n">classroom</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>The result:</p>
-
-<p><img src="/blog/public/img/2020-03-29-Data-Annotations-Attributes-a.png" alt="Alt" /></p>
-
-<p>The database’s fields have shown the conversion clearly. If we don’t use annotations, then Entity Framework Core will use the default convention to achieve conversions.</p>
-
-<p>The <code class="highlighter-rouge">Table</code> attribute in this example hasn’t specified the <strong>schema</strong> yet.  to complete this only needs to assign a value to the <strong>schema</strong> property in <code class="highlighter-rouge">Table</code> attribute.</p>
-<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nf">Table</span><span class="p">(</span><span class="s">"student_table"</span><span class="p">,</span><span class="n">Schema</span><span class="p">=</span><span class="s">"dbo"</span><span class="p">)]</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span> 
-<span class="c1">//...</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>I assigned the <strong>dbo</strong> to the <strong>schema</strong>. However, the default <strong>schema</strong> would also be <strong>dbo</strong>, if you don’t specify it.</p>
-
-<p>As you can see from the illustration, these basic attributes are easy to use. In the next episodes, I am going to dig into other attributes.</p>
+<p>Configuration enables you to override EF Core’s default behaviour. Configuration can be applied in two ways, using the <strong>Fluent API</strong>, and through <strong>DataAnnotation attributes</strong>.  we are going to dig into <strong>Data Annotations</strong> in the next few articles.</p>
 
 <!--items-->
 <div>
@@ -406,18 +294,35 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
   
     
       
-                <li><a href="/blog/csharp-ef/2020/04/01/Data-Annotation-Attribute-Foreignkey/" class="item-link">Data Annotation Attribute ForeignKey</a></li>
+    
+  
+    
+      
+                <li><a href="/blog/csharp-ef/2020/04/01/Data-Annotations-Attributes-Introduction/" class="item-link">Data Annotations Attributes Overview</a></li>
       
     
   
     
+      
+                <li><a href="/blog/csharp-ef/2020/04/01/Data-Annotation-Attribute-Foreignkey/" class="item-link">Data Annotation - ForeignKey Attribute</a></li>
+      
+    
+  
+    
+      
+                <li><a href="/blog/csharp-ef/2020/04/07/Data-Annotation-Attribute-Notmapped/" class="item-link">Data Annotation - NotMapped Attribute</a></li>
+      
+    
+  
+    
+      
+                <li><a href="/blog/csharp-ef/2020/04/07/Data-Annotation-Attribute-Inverse/" class="item-link">Data Annotation - Inverse Attribute</a></li>
       
     
   
 </ul>
 </div>
 <!--items-->
-
 
   </article>
 </div>
@@ -428,27 +333,27 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
     
       <li>
         <h3>
-          <a href="/blog/csharp-ef/2020/04/01/Data-Annotation-Attribute-Foreignkey/">
-            Data Annotation Attribute ForeignKey
+          <a href="/blog/csharp-ef/2020/04/07/Data-Annotation-Attribute-Inverse/">
+            Data Annotation - Inverse Attribute
+            <small>07 Apr 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/blog/csharp-ef/2020/04/07/Data-Annotation-Attribute-Notmapped/">
+            Data Annotation - NotMapped Attribute
+            <small>07 Apr 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/blog/csharp-ef/2020/04/01/Data-Annotations-Attributes-Introduction/">
+            Data Annotations Attributes Overview
             <small>01 Apr 2020</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/blog/csharp-asp.net%20core/2020/03/21/asp-dot-net-core-dependency-injection/">
-            Dependency Injection
-            <small>21 Mar 2020</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/blog/csharp-ef/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading/">
-            Analysis of advantage and disadvantage of Eager Loading, Explicit Loading, Lazy Loading
-            <small>21 Mar 2020</small>
           </a>
         </h3>
       </li>

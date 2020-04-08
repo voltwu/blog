@@ -25,7 +25,7 @@ excerpt: run an EF Core Console Application, with a simple basic demonstration.
       {% endif %}
     {% endif %}
   {% endfor %}
-</div>
+<a class='navi-link'></a></div>
 <!--navigation bar-->
 
 # What's the difference between EF6 and EF Core?

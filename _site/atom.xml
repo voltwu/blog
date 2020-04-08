@@ -4,7 +4,7 @@
  <title>A Dream Chaser</title>
  <link href="http://localhost:4000/blog/atom.xml" rel="self"/>
  <link href="http://localhost:4000/blog/"/>
- <updated>2020-04-01T10:25:15+00:00</updated>
+ <updated>2020-04-08T07:45:24+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>A Dream Chaser</name>
@@ -13,10 +13,10 @@
 
  
  <entry>
-   <title>Data Annotation Attribute ForeignKey</title>
-   <link href="http://localhost:4000/csharp-ef/2020/04/01/Data-Annotation-Attribute-Foreignkey/"/>
-   <updated>2020-04-01T02:01:01+00:00</updated>
-   <id>http://localhost:4000/blog/csharp-ef/2020/04/01/Data-Annotation-Attribute-Foreignkey</id>
+   <title>Data Annotation - Inverse Attribute</title>
+   <link href="http://localhost:4000/csharp-ef/2020/04/07/Data-Annotation-Attribute-Inverse/"/>
+   <updated>2020-04-07T02:01:01+00:00</updated>
+   <id>http://localhost:4000/blog/csharp-ef/2020/04/07/Data-Annotation-Attribute-Inverse</id>
    <content type="html">&lt;!--navigation bar--&gt;
 &lt;div class=&quot;navi-link-container&quot;&gt;
   
@@ -31,6 +31,12 @@
   
     
   
+    
+  
+    
+        
+            &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+        
     
   
     
@@ -69,21 +75,78 @@
   
     
         
-            &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+    
+  
+    
         
     
   
-&lt;/div&gt;
+    
+        
+    
+  
+&lt;a class=&quot;navi-link&quot;&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;!--navigation bar--&gt;
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Inverse&lt;/code&gt; property attribute is used to denote the inverse navigation property of a relationship when the same type takes part in multipart relationships.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;InverseProperty&lt;/code&gt; attribute is used when two entities have more than one relationship.&lt;/li&gt;
+  &lt;li&gt;For Example, in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Student&lt;/code&gt; class, you may want to track the the online class as well as the offline class.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Classroom&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;all_offlineline_students&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;all_online_students&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Student&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Classroom&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;offline&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Classroom&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;online&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The above code will make Entity Framework Core confused. The &lt;code class=&quot;highlighter-rouge&quot;&gt;Student&lt;/code&gt; class has two navigation reference properties. The Code First convention mechanism doesn’t know to use which one to establish a relationship with one of the navigation properties in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Classroom&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;p&gt;An expected error will be thrown out when trying to execute the command &lt;code class=&quot;highlighter-rouge&quot;&gt;Add-Migration&lt;/code&gt; by force.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;div style=&quot;color:red&quot;&gt;Unable to determine the relationship represented by navigation property 'Classroom.all_offlineline_students' of type 'List&amp;#60;Student&amp;#62;'. Either manually configure the relationship, or ignore this property using the '[NotMapped]' attribute or by using 'EntityTypeBuilder.Ignore' in 'OnModelCreating'.&lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To achieve this purpose, we can apply an &lt;code class=&quot;highlighter-rouge&quot;&gt;InverseProperty&lt;/code&gt; above on the collection properties in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Classroom&lt;/code&gt; class to specify their corresponding inverse properties in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Student&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Classroom&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;InverseProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;offline&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;all_offlineline_students&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;InverseProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;online&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;all_online_students&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Student&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Classroom&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;offline&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Classroom&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;online&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2020-04-08-Data-Annotation-Attribute-Inverse-a.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
 
 </content>
  </entry>
  
  <entry>
-   <title>Data Annotations Attributes</title>
-   <link href="http://localhost:4000/csharp-ef/2020/03/29/Data-Annotations-Attributes/"/>
-   <updated>2020-03-29T02:01:01+00:00</updated>
-   <id>http://localhost:4000/blog/csharp-ef/2020/03/29/Data-Annotations-Attributes</id>
+   <title>Data Annotation - NotMapped Attribute</title>
+   <link href="http://localhost:4000/csharp-ef/2020/04/07/Data-Annotation-Attribute-Notmapped/"/>
+   <updated>2020-04-07T02:01:01+00:00</updated>
+   <id>http://localhost:4000/blog/csharp-ef/2020/04/07/Data-Annotation-Attribute-Notmapped</id>
    <content type="html">&lt;!--navigation bar--&gt;
 &lt;div class=&quot;navi-link-container&quot;&gt;
   
@@ -101,6 +164,102 @@
     
   
     
+        
+            &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+            &lt;a href=&quot;/blog/csharp-ef/2020/03/29/Data-Annotations-Attributes/&quot; class=&quot;navi-link&quot;&gt;attributes&lt;/a&gt;
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+&lt;a class=&quot;navi-link&quot;&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;!--navigation bar--&gt;
+
+&lt;p&gt;As per the Code First convention, the Entity Framework will map each property which has setter and getter method to a column by default. the &lt;code class=&quot;highlighter-rouge&quot;&gt;NotMapped&lt;/code&gt; attribute can override this default convention. Entity Framework will exclude the property which applied the &lt;code class=&quot;highlighter-rouge&quot;&gt;NotMapped&lt;/code&gt; attribute.&lt;/p&gt;
+
+&lt;p&gt;Let’s look at the below illustration.&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Student&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NotMapped&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The Entity Framework doesn’t map the &lt;code class=&quot;highlighter-rouge&quot;&gt;age&lt;/code&gt; property.
+&lt;img src=&quot;/blog/public/img/2020-04-07-Data-Annotation-Attribute-Notmapped-a.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;NotMapped&lt;/code&gt; can also be permitted to apply on a Entity name.&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Classroom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;students&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NotMapped&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pubic&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;we placed the &lt;code class=&quot;highlighter-rouge&quot;&gt;NotMapped&lt;/code&gt; attribute above the &lt;code class=&quot;highlighter-rouge&quot;&gt;Student&lt;/code&gt; Entity. the &lt;code class=&quot;highlighter-rouge&quot;&gt;Student&lt;/code&gt; will not map to a table.
+&lt;img src=&quot;/blog/public/img/2020-04-07-Data-Annotation-Attribute-Notmapped-b.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Data Annotations Attributes Overview</title>
+   <link href="http://localhost:4000/csharp-ef/2020/04/01/Data-Annotations-Attributes-Introduction/"/>
+   <updated>2020-04-01T02:01:01+00:00</updated>
+   <id>http://localhost:4000/blog/csharp-ef/2020/04/01/Data-Annotations-Attributes-Introduction</id>
+   <content type="html">&lt;!--navigation bar--&gt;
+&lt;div class=&quot;navi-link-container&quot;&gt;
+  
   
     
   
@@ -115,12 +274,58 @@
     
   
     
-  
-    
+      
         &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+        
     
   
-&lt;/div&gt;
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+        &lt;a href=&quot;/blog/csharp-ef/2020/03/29/Data-Annotations-Attributes/&quot; class=&quot;navi-link&quot;&gt;attributes&lt;/a&gt;
+        
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+&lt;a class=&quot;navi-link&quot;&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;!--navigation bar--&gt;
 
 &lt;p&gt;Entity Framework Core and Entity Framework both provide attributes for help programmers conveniently specify database-related information.&lt;/p&gt;
@@ -241,7 +446,313 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;I assigned the &lt;strong&gt;dbo&lt;/strong&gt; to the &lt;strong&gt;schema&lt;/strong&gt;. However, the default &lt;strong&gt;schema&lt;/strong&gt; would also be &lt;strong&gt;dbo&lt;/strong&gt;, if you don’t specify it.&lt;/p&gt;
 
-&lt;p&gt;As you can see from the illustration, these basic attributes are easy to use. In the next episodes, I am going to dig into other attributes.&lt;/p&gt;
+&lt;p&gt;As you can see from the illustration, these basic attributes are easy to use.&lt;/p&gt;
+
+&lt;p&gt;In the next episodes, I am going to dig into other attributes.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Data Annotation - ForeignKey Attribute</title>
+   <link href="http://localhost:4000/csharp-ef/2020/04/01/Data-Annotation-Attribute-Foreignkey/"/>
+   <updated>2020-04-01T02:01:01+00:00</updated>
+   <id>http://localhost:4000/blog/csharp-ef/2020/04/01/Data-Annotation-Attribute-Foreignkey</id>
+   <content type="html">&lt;!--navigation bar--&gt;
+&lt;div class=&quot;navi-link-container&quot;&gt;
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+        
+            &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+            &lt;a href=&quot;/blog/csharp-ef/2020/03/29/Data-Annotations-Attributes/&quot; class=&quot;navi-link&quot;&gt;attributes&lt;/a&gt;
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+    
+        
+    
+  
+&lt;a class=&quot;navi-link&quot;&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;!--navigation bar--&gt;
+
+&lt;h1 id=&quot;foreign-key-default-conventions&quot;&gt;foreign key default conventions&lt;/h1&gt;
+
+&lt;p&gt;First,Let’s look into the default conventions in &lt;a href=&quot;https://docs.microsoft.com/en-us/ef/core/modeling/relationships?tabs=fluent-api%2Cfluent-api-simple-key%2Csimple-key#conventions&quot;&gt;MSDN&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The most common pattern for relationships is to have navigation properties defined on both ends of the relationship and a foreign key property defined in the dependent entity class.&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;p&gt;If a pair of navigation properties is found between two types, then they will be configured as inverse navigation properties of the same relationship.&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;If the dependent entity contains a property with a name matching one of these patterns then it will be configured as the foreign key:&lt;/p&gt;
+
+      &lt;ul&gt;
+        &lt;li&gt;&lt;strong&gt;&amp;lt;navigation property name&amp;gt;&amp;lt;principal key property name&amp;gt;&lt;/strong&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;&amp;lt;navigation property name&amp;gt;Id&lt;/strong&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;&amp;lt;principal entity name&amp;gt;&amp;lt;principal key property name&amp;gt;&lt;/strong&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;&amp;lt;principal entity name&amp;gt;Id&lt;/strong&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As per the default convention, when we are going to define a relationship, we should define navigation properties on both ends of the relationship and a foriegn key property in the dependent entity class.&lt;/p&gt;
+
+&lt;p&gt;Suppose we had the following entities.&lt;/p&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Classroom&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cid&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;students&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Student&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myclassroomid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Classroom&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myclassroom&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The above example is going to configure a column which named &lt;code class=&quot;highlighter-rouge&quot;&gt;myclassroomid&lt;/code&gt; which also is the &lt;strong&gt;foreign key property&lt;/strong&gt; in the dependent entity &lt;code class=&quot;highlighter-rouge&quot;&gt;Student&lt;/code&gt;. This scenario matching the rule:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;&amp;lt;navigation property name&amp;gt;Id&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The navigation property name is &lt;code class=&quot;highlighter-rouge&quot;&gt;myclassroom&lt;/code&gt;, It’s not mentioned explicitly but the matching is case insensitive, so &lt;code class=&quot;highlighter-rouge&quot;&gt;Id&lt;/code&gt; also matches &lt;code class=&quot;highlighter-rouge&quot;&gt;ID&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt; etc.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-b.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;foreignkey-attribute&quot;&gt;[ForeignKey] attribute&lt;/h1&gt;
+
+&lt;p&gt;The  &lt;code class=&quot;highlighter-rouge&quot;&gt;ForeignKey&lt;/code&gt; property can override the default convention for a foreign key property. it allows us to specify the foreign key’s name casually.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ForeignKey&lt;/code&gt; attribute can be applied in three ways.&lt;/p&gt;
+
+&lt;h2 id=&quot;foreignkey-on-foreign-key-property-in-dependent-entity&quot;&gt;[ForeignKey] on foreign key property in dependent entity&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;[ForeignKey]&lt;/code&gt; can be applied on &lt;strong&gt;a foreign key property&lt;/strong&gt; in the dependent entity.but it doesn’t have any effects, so it’s not wise to apply &lt;code class=&quot;highlighter-rouge&quot;&gt;[ForeignKey]&lt;/code&gt; property on &lt;strong&gt;a foreign key property&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;let’s look at the below illustration.&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Classroom&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;students&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Student&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ForeignKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mycustomclassroomid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myclassroomid&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Classroom&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myclassroom&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-a.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As we can see from the screenshot. it changed nothing, This is because that the &lt;strong&gt;foreign key property&lt;/strong&gt;(&lt;code class=&quot;highlighter-rouge&quot;&gt;public int myclassroomid { set; get; }&lt;/code&gt;) has defined the rule explicitly, so it will ignore the &lt;code class=&quot;highlighter-rouge&quot;&gt;[ForeignKey]&lt;/code&gt; attribute. it’s unnecessary to define a &lt;code class=&quot;highlighter-rouge&quot;&gt;[ForeignKey]&lt;/code&gt; attribtue on &lt;strong&gt;a foreign key property&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;foreignkey-on-navigation-property-in-dependent-entity&quot;&gt;[ForeignKey] on navigation property in dependent entity&lt;/h2&gt;
+&lt;p&gt;it’s recommended to define &lt;strong&gt;a foreign key property&lt;/strong&gt; explicitly on the dependent entity, but it’s not required.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;If no &lt;strong&gt;foreign key property&lt;/strong&gt; is found, a &lt;strong&gt;shadow foreign key&lt;/strong&gt; property will be introduced with the name &lt;strong&gt;&amp;lt;navigation property name&amp;gt;&amp;lt;principal key property name&amp;gt;&lt;/strong&gt; or &lt;strong&gt;&amp;lt;principal entity name&amp;gt;&amp;lt;principal key property name&amp;gt;&lt;/strong&gt; if no navigation is present on the dependent entity.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;First, let’s dig into the situation which maps the rule &lt;strong&gt;&amp;lt;navigation property name&amp;gt;&amp;lt;principal key property name&amp;gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Classroom&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;students&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Student&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Classroom&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myownclassroom&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Here, we don’t define a &lt;strong&gt;foreign key property&lt;/strong&gt;. Entity Framework Core will automatically introduce a &lt;strong&gt;shadow foreign key&lt;/strong&gt; property which named &lt;code class=&quot;highlighter-rouge&quot;&gt;myownclassroomid&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-c.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The matching rule is &lt;strong&gt;&amp;lt;navigation property name&amp;gt;&amp;lt;principal key property name&amp;gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;navigation property : Student.myownclassroom
+principal key : Classroom.id
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Here, we can also use the &lt;code class=&quot;highlighter-rouge&quot;&gt;[Foreignkey]&lt;/code&gt; property to override the default convention. put it above on the navigation property &lt;code class=&quot;highlighter-rouge&quot;&gt;myownclassroom&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Classroom&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;students&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Student&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ForeignKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;custom_myownclassroomfk&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Classroom&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myownclassroom&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The above codes will generate a foreign key column which named &lt;code class=&quot;highlighter-rouge&quot;&gt;custom_myownclassroomfk&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-d.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;foreignkey-on-navigation-property-in-principle-entity&quot;&gt;[ForeignKey] on navigation property in principle entity&lt;/h2&gt;
+&lt;p&gt;The third situation is that it doesn’t define any &lt;strong&gt;foreign key properties&lt;/strong&gt; and navigation properties on the dependent entity.
+Only define collection properties in the principle entity(no inverse navigation, and no foreign key property) . example like below:&lt;/p&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Classroom&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;students&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Student&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;we don’t define navigation properties and foreign key properties in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Student&lt;/code&gt;. a &lt;strong&gt;shadow foreign key&lt;/strong&gt; property will be automatically introduced in this scenario, the matching rule is the &lt;strong&gt;&amp;lt;principal entity name&amp;gt;&amp;lt;principal key property name&amp;gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;and the shadow foreign key column name would be the &lt;code class=&quot;highlighter-rouge&quot;&gt;Classroomid&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;principal entity : Classroom
+principal key property : Classroom.id
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-e.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;[ForeignKey]&lt;/code&gt; can also be used on the collection reference property &lt;code class=&quot;highlighter-rouge&quot;&gt;Classroom.students&lt;/code&gt;, example like below:&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Classroom&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ForeignKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;my_custom_classroom_fk&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;students&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Student&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The foreign key property column will be changed to the &lt;code class=&quot;highlighter-rouge&quot;&gt;my_custom_classroom_fk&lt;/code&gt;. 
+&lt;img src=&quot;/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-f.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;we have learned the most details about the &lt;code class=&quot;highlighter-rouge&quot;&gt;[ForeignKey]&lt;/code&gt; annotation attribute, I personally have two recommendations.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Aways use explicit mapping for relationships&lt;/li&gt;
+  &lt;li&gt;Try to avoid &lt;strong&gt;FK&lt;/strong&gt; , use &lt;strong&gt;shadow key&lt;/strong&gt; or &lt;strong&gt;fluent API map()&lt;/strong&gt; instead.&lt;/li&gt;
+&lt;/ol&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Data Annotations Attributes</title>
+   <link href="http://localhost:4000/csharp-ef/2020/03/29/Data-Annotations-Attributes/"/>
+   <updated>2020-03-29T02:01:01+00:00</updated>
+   <id>http://localhost:4000/blog/csharp-ef/2020/03/29/Data-Annotations-Attributes</id>
+   <content type="html">&lt;!--navigation bar--&gt;
+&lt;div class=&quot;navi-link-container&quot;&gt;
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+        &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+&lt;a class=&quot;navi-link&quot;&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;!--navigation bar--&gt;
+
+&lt;p&gt;Configuration enables you to override EF Core’s default behaviour. Configuration can be applied in two ways, using the &lt;strong&gt;Fluent API&lt;/strong&gt;, and through &lt;strong&gt;DataAnnotation attributes&lt;/strong&gt;.  we are going to dig into &lt;strong&gt;Data Annotations&lt;/strong&gt; in the next few articles.&lt;/p&gt;
 
 &lt;!--items--&gt;
 &lt;div&gt;
@@ -291,18 +802,35 @@
   
     
       
-                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/04/01/Data-Annotation-Attribute-Foreignkey/&quot; class=&quot;item-link&quot;&gt;Data Annotation Attribute ForeignKey&lt;/a&gt;&lt;/li&gt;
+    
+  
+    
+      
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/04/01/Data-Annotations-Attributes-Introduction/&quot; class=&quot;item-link&quot;&gt;Data Annotations Attributes Overview&lt;/a&gt;&lt;/li&gt;
       
     
   
     
+      
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/04/01/Data-Annotation-Attribute-Foreignkey/&quot; class=&quot;item-link&quot;&gt;Data Annotation - ForeignKey Attribute&lt;/a&gt;&lt;/li&gt;
+      
+    
+  
+    
+      
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/04/07/Data-Annotation-Attribute-Notmapped/&quot; class=&quot;item-link&quot;&gt;Data Annotation - NotMapped Attribute&lt;/a&gt;&lt;/li&gt;
+      
+    
+  
+    
+      
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/04/07/Data-Annotation-Attribute-Inverse/&quot; class=&quot;item-link&quot;&gt;Data Annotation - Inverse Attribute&lt;/a&gt;&lt;/li&gt;
       
     
   
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;!--items--&gt;
-
 </content>
  </entry>
  
@@ -334,6 +862,12 @@
   
     
   
+    
+  
+    
+      
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
     
   
     
@@ -372,11 +906,17 @@
   
     
       
-          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+    
+  
+    
       
     
   
-&lt;/div&gt;
+    
+      
+    
+  
+&lt;a class=&quot;navi-link&quot;&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;!--navigation bar--&gt;
 
 &lt;p&gt;we have known how to use Eager Loading, Explicit Loading and Lazy Loading in the previous three posts. I am going to dig into what’s the advantages and disadvantages of those methods.&lt;/p&gt;
@@ -431,6 +971,12 @@
   
     
       
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
+    
+  
+    
+      
     
   
     
@@ -465,11 +1011,17 @@
   
     
       
-          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+    
+  
+    
       
     
   
-&lt;/div&gt;
+    
+      
+    
+  
+&lt;a class=&quot;navi-link&quot;&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;!--navigation bar--&gt;
 
 &lt;p&gt;&lt;strong&gt;Lazy Loading&lt;/strong&gt; means that the related data is transparently loaded from the database when the navigation property is accessed.&lt;/p&gt;
@@ -566,6 +1118,12 @@
   
     
       
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
+    
+  
+    
+      
     
   
     
@@ -600,11 +1158,17 @@
   
     
       
-          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+    
+  
+    
       
     
   
-&lt;/div&gt;
+    
+      
+    
+  
+&lt;a class=&quot;navi-link&quot;&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;!--navigation bar--&gt;
 
 &lt;p&gt;&lt;strong&gt;Explicit Loading&lt;/strong&gt; means that related entities are explicitly loaded from the database at a later time.&lt;/p&gt;
@@ -689,6 +1253,12 @@
   
     
       
+          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+      
+    
+  
+    
+      
     
   
     
@@ -723,11 +1293,17 @@
   
     
       
-          &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
+    
+  
+    
       
     
   
-&lt;/div&gt;
+    
+      
+    
+  
+&lt;a class=&quot;navi-link&quot;&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;!--navigation bar--&gt;
 
 &lt;p&gt;I supposed that you had known &lt;strong&gt;Eager Loading&lt;/strong&gt; means that related entities are loaded as part of the initial query.&lt;/p&gt;
@@ -786,6 +1362,10 @@
   
     
       
+    
+  
+    
+      
                 &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/02/25/Tutorial-Explore-EF-Core-Console-Application/&quot; class=&quot;item-link&quot;&gt;Tutorial: Explore EF Core Console Application&lt;/a&gt;&lt;/li&gt;
       
     
@@ -826,6 +1406,14 @@
       
     
   
+    
+      
+    
+  
+    
+      
+    
+  
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;!--items--&gt;
@@ -855,43 +1443,55 @@
   
     
       
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
           &lt;a href=&quot;/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/&quot; class=&quot;navi-link&quot;&gt;main&lt;/a&gt;
       
     
   
-&lt;/div&gt;
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+&lt;a class=&quot;navi-link&quot;&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;!--navigation bar--&gt;
 
 &lt;p&gt;Entity Framework Core allows you to use navigation properties in your model to load related entities. There are three common ORM patterns used to load related entities. They are Eager Loader, Explicit Loading, Lazying Loading. Those loading methods have different performance. I am going to dig into it in this article.&lt;/p&gt;
@@ -916,6 +1516,10 @@
   
     
   
+    
+  
+    
+      
     
   
     
@@ -962,6 +1566,14 @@
       
     
   
+    
+      
+    
+  
+    
+      
+    
+  
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;!--items--&gt;
@@ -976,6 +1588,18 @@
    <id>http://localhost:4000/blog/csharp-ef/2020/02/25/Tutorial-Explore-EF-Core-Console-Application</id>
    <content type="html">&lt;!--navigation bar--&gt;
 &lt;div class=&quot;navi-link-container&quot;&gt;
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
   
     
       
@@ -1027,7 +1651,7 @@
   
     
   
-&lt;/div&gt;
+&lt;a class=&quot;navi-link&quot;&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;!--navigation bar--&gt;
 
 &lt;h1 id=&quot;whats-the-difference-between-ef6-and-ef-core&quot;&gt;What’s the difference between EF6 and EF Core?&lt;/h1&gt;

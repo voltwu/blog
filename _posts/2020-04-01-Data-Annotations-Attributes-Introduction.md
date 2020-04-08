@@ -27,7 +27,7 @@ excerpt: Data annotations attributes help programmers easly specify database-rel
         {%endif%}
     {% endif %}
   {% endfor %}
-</div>
+<a class='navi-link'></a></div>
 <!--navigation bar-->
 
 Entity Framework Core and Entity Framework both provide attributes for help programmers conveniently specify database-related information.

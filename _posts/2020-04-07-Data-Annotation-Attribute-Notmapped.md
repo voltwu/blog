@@ -27,7 +27,7 @@ excerpt: notmapped denotes a property or a class should be excluded from the dat
         {%endif%}
     {% endif %}
   {% endfor %}
-</div>
+<a class='navi-link'></a></div>
 <!--navigation bar-->
 
 

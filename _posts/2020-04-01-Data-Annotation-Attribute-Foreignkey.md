@@ -27,7 +27,7 @@ excerpt: denotes a property used as a foreign key in a relationship
         {%endif%}
     {% endif %}
   {% endfor %}
-</div>
+<a class='navi-link'></a></div>
 <!--navigation bar-->
 
 # foreign key default conventions
