@@ -40,7 +40,10 @@ Configuration enables you to override EF Core's default behaviour. Configuration
       {% if post.navi-order == "a1-3-1" or
             post.navi-order == "a1-3-2" or 
             post.navi-order == "a1-3-3" or 
-            post.navi-order == "a1-3-4"%}
+            post.navi-order == "a1-3-4" or
+            post.navi-order == "a1-3-5" or 
+            post.navi-order == "a1-3-6" or 
+            post.navi-order == "a1-3-7"%}
                 <li><a href="{{ site.baseurl }}{{ post.url }}" class="item-link">{{post.title}}</a></li>
       {% endif %}
     {% endif %}
