@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Data Annotation - Inverse Attribute"
+title: "Data Annotation - InverseProperty Attribute"
 date: 2020-04-07 10:01:01+0800
 categories:
   - CSharp-EF
