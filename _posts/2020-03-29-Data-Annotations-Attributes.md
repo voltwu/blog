@@ -11,7 +11,7 @@ toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: true
 navi-enable-ef: true
-navi-name: "attributes"
+navi-name: "annotations"
 navi-order: 'a1-3'
 description: Data annotations attributes help programmers easly specify database-related information.
 excerpt: Data annotations attributes help programmers easly specify database-related information.
