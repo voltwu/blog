@@ -6,7 +6,7 @@ categories:
   - CSharp-EF
 tags:
   - ORM
-toc: true
+toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: true
