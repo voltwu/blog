@@ -11,7 +11,7 @@ toc_label: "TABLE Of CONTENTS"
 toc_icon: "cog"
 comments: true
 navi-enable-ef: true
-navi-name: "main"
+navi-name: "EF"
 navi-order: 'a1'
 description: This is a tutorial for entity framework.
 excerpt: This is an Entity Framework Tutorial
