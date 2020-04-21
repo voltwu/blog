@@ -35,15 +35,6 @@ excerpt: the fluent api is another data annotation implemention which applied mo
 2. Fluent API is more flexible and provides developers more functionalities than Data Annotation.
 3. The priority of the Entity Framework processing is ***Fluent API > Data Annotation > Default Convention***.
 
-<!--
-1. Fluent API
-2. Configure One To Many Relationship
-3. Configure One To One Relationship
-4. Configure Many To Many Relationship
--->
-
-
-
 
 
 <!--items-->
