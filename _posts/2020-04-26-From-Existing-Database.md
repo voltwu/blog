@@ -38,10 +38,10 @@ I have a database which already populated.
 
 **Scaffold-DbContext Command**
 
-Use `Scaffold-DbContext` to create models is easy. the syntax:
+Use `Scaffold-DbContext` to create models is easy. get its syntax and details by running the `get-help entityframeworkcore` or `get-help Scaffold-DbContext` command on ***Package Manager Console***:
 ```
-Scaffold-DbContext [-Connection] [-Provider] [-OutputDir] [-Context] [-Schemas>] [-Tables>] 
-                    [-DataAnnotations] [-Force] [-Project] [-StartupProject] [<CommonParameters>]
+Scaffold-DbContext [-Connection] <String> [-Provider] <String> [-OutputDir <String>] [-ContextDir <String>] [-Context <String>] [-Schemas <String[]>] [-Tables <String[]>] [-DataAnnotations] [-UseDatabaseNames] [-Force] [-Project <String>] [-StartupProject <String>] [<CommonParameters>]
+
 ```
 
 In this situation, run the following code on ***NuGet package manager***:
