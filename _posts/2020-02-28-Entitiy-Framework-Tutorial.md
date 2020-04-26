@@ -29,7 +29,10 @@ excerpt: This is an Entity Framework Tutorial
       {% if post.navi-order == "a1-1" or
             post.navi-order == "a1-2" or 
             post.navi-order == "a1-3" or 
-            post.navi-order == "a1-4"%}
+            post.navi-order == "a1-4" or 
+            post.navi-order == "a1-5" or 
+            post.navi-order == "a1-6" or 
+            post.navi-order == "a1-7"%}
                 <li><a href="{{ site.baseurl }}{{ post.url }}" class="item-link">{{post.title}}</a></li>
       {% endif %}
     {% endif %}
