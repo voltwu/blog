@@ -13,8 +13,8 @@ comments: true
 navi-enable-ef: true
 navi-name: "Fluent API Tutorial"
 navi-order: 'a1-4'
-description: the fluent api is another data annotation implemention which applied more functions.
-excerpt: the fluent api is another data annotation implemention which applied more functions.
+description: Fluent API is another alternative way of data annotation.
+excerpt: Fluent API is another alternative way of data annotation.
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>
