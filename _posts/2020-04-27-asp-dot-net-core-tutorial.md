@@ -8,6 +8,7 @@ tags:
   - .net core
 navi-enable-csharpaspnetcore: true
 navi-name: 'asp.net core tutorial'
+navi-order: a1
 toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
