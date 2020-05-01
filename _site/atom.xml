@@ -4,13 +4,197 @@
  <title>A Dream Chaser</title>
  <link href="http://localhost:4000/blog/atom.xml" rel="self"/>
  <link href="http://localhost:4000/blog/"/>
- <updated>2020-04-26T08:03:04+00:00</updated>
+ <updated>2020-05-01T14:13:56+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>A Dream Chaser</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>.NET Core</title>
+   <link href="http://localhost:4000/csharp-asp.net%20core/2020/04/28/dot-net-core/"/>
+   <updated>2020-04-28T02:01:01+00:00</updated>
+   <id>http://localhost:4000/blog/csharp-asp.net%20core/2020/04/28/dot-net-core</id>
+   <content type="html">&lt;!--navigation bar--&gt;
+&lt;div class=&quot;navi-link-container&quot;&gt;
+  
+  
+    
+        
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+        
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+&lt;a class=&quot;navi-link&quot;&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;!--navigation bar--&gt;
+
+&lt;p&gt;&lt;strong&gt;.NET Core&lt;/strong&gt; is an &lt;strong&gt;&lt;em&gt;open-source&lt;/em&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;em&gt;cross-platform&lt;/em&gt;&lt;/strong&gt; framework. It’s a new version of the .NET Framework(pronounced as &lt;em&gt;dot net&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;.NET Framework&lt;/strong&gt; was developing in the late 1990s by Microsoft. By late &lt;strong&gt;2000&lt;/strong&gt;, Microsoft released the first beta version of &lt;strong&gt;.NET 1.0&lt;/strong&gt;. The latest version is &lt;strong&gt;.NET 4.8&lt;/strong&gt; that was released on &lt;strong&gt;18 April 2019&lt;/strong&gt; today, and it is also the &lt;strong&gt;last version&lt;/strong&gt; of the &lt;strong&gt;.NET branch&lt;/strong&gt;. Microsoft announced that they are going to &lt;strong&gt;stop developing further .NET version&lt;/strong&gt; in the future.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2020-04-28-dot-net-core-a.png&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Today, the concept of &lt;code class=&quot;highlighter-rouge&quot;&gt;Write once, run everywhere.&lt;/code&gt; is very popular. However, the &lt;strong&gt;.NET Framework&lt;/strong&gt; is just permitted to run on windows. So, the &lt;strong&gt;.NET Core&lt;/strong&gt; was born. The &lt;strong&gt;.NET Core&lt;/strong&gt; absorbed almost all advantages of the &lt;strong&gt;.NET Framework&lt;/strong&gt;, and it also adds a lot of new features. The &lt;strong&gt;.Net Core 1.0&lt;/strong&gt; was released in &lt;strong&gt;June 2016&lt;/strong&gt; by Microsoft. In &lt;strong&gt;2017&lt;/strong&gt;, the &lt;strong&gt;.NET Core 2.0&lt;/strong&gt; was born. In &lt;strong&gt;2019&lt;/strong&gt;, &lt;strong&gt;.NET Core 3.0&lt;/strong&gt; was born. Microsoft is planning to release &lt;strong&gt;.NET 5&lt;/strong&gt; in &lt;strong&gt;2020&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/public/img/2020-04-28-dot-net-core-b.webp&quot; alt=&quot;Alt&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Below are some of the &lt;strong&gt;.NET Core&lt;/strong&gt; advantages:&lt;/p&gt;
+
+&lt;h2 id=&quot;cross-platform&quot;&gt;Cross-platform&lt;/h2&gt;
+&lt;p&gt;You can run .NET Core project on Windows, Linux, and Mac, etc.&lt;/p&gt;
+
+&lt;h2 id=&quot;open-source&quot;&gt;Open-source&lt;/h2&gt;
+&lt;p&gt;.NET Core is Open-Source(&lt;a href=&quot;https://github.com/dotnet/aspnetcore&quot;&gt;link&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id=&quot;supports-a-wide-range-of-application-types&quot;&gt;Supports a wide range of application types&lt;/h2&gt;
+&lt;p&gt;You can build multiple application types on .NET Core. such as Desktop, Web, Mobile.&lt;/p&gt;
+
+&lt;h2 id=&quot;cil&quot;&gt;CIL&lt;/h2&gt;
+&lt;p&gt;.NET Core includes CIL(common-line interface) for development,&lt;/p&gt;
+
+&lt;h2 id=&quot;compatibility&quot;&gt;Compatibility&lt;/h2&gt;
+&lt;p&gt;Compatibility with .NET Framework by using &lt;a href=&quot;https://docs.microsoft.com/en-us/dotnet/standard/net-standard&quot;&gt;.NET started&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ASP.NET Core Tutorial</title>
+   <link href="http://localhost:4000/csharp-asp.net%20core/2020/04/27/asp-dot-net-core-tutorial/"/>
+   <updated>2020-04-27T02:01:01+00:00</updated>
+   <id>http://localhost:4000/blog/csharp-asp.net%20core/2020/04/27/asp-dot-net-core-tutorial</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;ASP.NET Core&lt;/strong&gt; is a &lt;strong&gt;free&lt;/strong&gt;, &lt;strong&gt;open-source&lt;/strong&gt;(&lt;a href=&quot;https://github.com/dotnet/aspnetcore&quot;&gt;link&lt;/a&gt;), and &lt;strong&gt;cross-platform&lt;/strong&gt; web framework. You can run your Asp.Net Core web app on Windows, Linux, and Mac, etc..&lt;/p&gt;
+
+&lt;p&gt;This article follows the latest release of the &lt;strong&gt;.NET CORE&lt;/strong&gt;. The purpose of this paper is to study and share. Let’s explore together!&lt;/p&gt;
+
+&lt;!--
+https://www.tutorialsteacher.com/core
+1. ASP.NET Core and ASP.NET
+2. ASP.NET Core runtime illustration
+3. 
+--&gt;
+&lt;!--items--&gt;
+&lt;div&gt;
+&lt;span style=&quot;color: green;&quot;&gt;In this article:&lt;/span&gt;
+&lt;ul&gt;
+  
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+                &lt;li&gt;&lt;a href=&quot;/blog/csharp-asp.net%20core/2020/04/28/dot-net-core/&quot; class=&quot;item-link&quot;&gt;.NET Core&lt;/a&gt;&lt;/li&gt;
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--items--&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>From Existing Database</title>
@@ -41,6 +225,8 @@
   
     
         
+    
+  
     
   
     
@@ -278,6 +464,8 @@
     
   
     
+  
+    
         
     
   
@@ -439,6 +627,8 @@
   
     
         
+    
+  
     
   
     
@@ -747,6 +937,8 @@
     
   
     
+  
+    
         
     
   
@@ -849,6 +1041,8 @@
   
     
       
+    
+  
     
   
     
@@ -957,6 +1151,8 @@
   
     
         
+    
+  
     
   
     
@@ -1099,6 +1295,8 @@ SELECT @@ROWCOUNT;
   
     
         
+    
+  
     
   
     
@@ -1317,6 +1515,8 @@ last_modify_time:2020/4/9 22:58:52
     
   
     
+  
+    
         
     
   
@@ -1498,6 +1698,8 @@ WHERE @@ROWCOUNT = 1 AND [id] = @p1;
     
   
     
+  
+    
         
     
   
@@ -1656,6 +1858,8 @@ WHERE @@ROWCOUNT = 1 AND [id] = @p1;
     
   
     
+  
+    
         
     
   
@@ -1791,6 +1995,8 @@ WHERE @@ROWCOUNT = 1 AND [id] = @p1;
   
     
       
+    
+  
     
   
     
@@ -2020,6 +2226,8 @@ WHERE @@ROWCOUNT = 1 AND [id] = @p1;
   
     
         
+    
+  
     
   
     
@@ -2329,6 +2537,8 @@ principal key property : Classroom.id
   
     
   
+    
+  
 &lt;a class=&quot;navi-link&quot;&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;!--navigation bar--&gt;
 
@@ -2358,6 +2568,8 @@ principal key property : Classroom.id
   
     
       
+    
+  
     
   
     
@@ -2449,15 +2661,6 @@ principal key property : Classroom.id
  </entry>
  
  <entry>
-   <title>Dependency Injection</title>
-   <link href="http://localhost:4000/csharp-asp.net%20core/2020/03/21/asp-dot-net-core-dependency-injection/"/>
-   <updated>2020-03-21T02:01:01+00:00</updated>
-   <id>http://localhost:4000/blog/csharp-asp.net%20core/2020/03/21/asp-dot-net-core-dependency-injection</id>
-   <content type="html">&lt;p&gt;How to use dependence injection? and what’s the advantages it included. let’s find out it together.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
    <title>Analysis of advantage and disadvantage of Eager Loading, Explicit Loading, Lazy Loading</title>
    <link href="http://localhost:4000/csharp-ef/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading/"/>
    <updated>2020-03-21T02:01:01+00:00</updated>
@@ -2486,6 +2689,8 @@ principal key property : Classroom.id
   
     
       
+    
+  
     
   
     
@@ -2619,6 +2824,8 @@ principal key property : Classroom.id
   
     
       
+    
+  
     
   
     
@@ -2797,6 +3004,8 @@ principal key property : Classroom.id
     
   
     
+  
+    
       
           &lt;a href=&quot;/blog/csharp-ef/2020/02/28/EF-Core-Load-Related-Entities/&quot; class=&quot;navi-link&quot;&gt;query&lt;/a&gt;
       
@@ -2960,6 +3169,8 @@ principal key property : Classroom.id
     
   
     
+  
+    
       
           &lt;a href=&quot;/blog/csharp-ef/2020/02/28/EF-Core-Load-Related-Entities/&quot; class=&quot;navi-link&quot;&gt;query&lt;/a&gt;
       
@@ -3097,6 +3308,8 @@ principal key property : Classroom.id
     
   
     
+  
+    
       
                 &lt;li&gt;&lt;a href=&quot;/blog/csharp-ef/2020/02/28/EF-Core-Load-Related-Entities/&quot; class=&quot;item-link&quot;&gt;EF Core Load Related Entities&lt;/a&gt;&lt;/li&gt;
       
@@ -3212,6 +3425,8 @@ principal key property : Classroom.id
     
   
     
+  
+    
       
     
   
@@ -3315,6 +3530,8 @@ principal key property : Classroom.id
     
   
     
+  
+    
       
     
   
@@ -3406,7 +3623,7 @@ principal key property : Classroom.id
 &lt;div class=&quot;navi-link-container&quot;&gt;
   
     
-      
+  
     
   
     
@@ -3453,6 +3670,8 @@ principal key property : Classroom.id
       
     
   
+    
+      
     
   
     
