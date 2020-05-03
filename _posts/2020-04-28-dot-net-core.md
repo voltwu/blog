@@ -7,7 +7,7 @@ categories:
 tags:
   - .net core
 navi-enable-csharpaspnetcore: true
-navi-name: ""
+navi-name: '.net core'
 navi-order: 'a1-1'
 toc: false
 toc_label: "TABLE OF CONTENTS"
@@ -26,7 +26,8 @@ excerpt:
         {%endif%}
     {% endif %}
   {% endfor %}
-<a class='navi-link'></a></div>
+<a class='navi-link' href="">{{page.navi-name}}</a>
+</div>
 <!--navigation bar-->
 
 
@@ -53,7 +54,7 @@ You can run .NET Core project on Windows, Linux, and Mac, etc.
 ## Supports a wide range of application types
 You can build multiple application types on .NET Core. such as Desktop, Web, Mobile.
 
-## CIL
+## CLI
 .NET Core includes CIL(common-line interface) for development, 
 
 ## Compatibility
