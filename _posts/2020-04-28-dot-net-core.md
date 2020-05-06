@@ -64,4 +64,4 @@ Compatibility with .NET Framework by using [.NET started][3].
 [1]: /blog/public/img/2020-04-28-dot-net-core-a.png
 [2]: /blog/public/img/2020-04-28-dot-net-core-b.webp
 [3]: https://docs.microsoft.com/en-us/dotnet/standard/net-standard
-[4]: https://github.com/dotnet/aspnetcore
+[4]: https://source.dot.net/
