@@ -13,8 +13,8 @@ toc: true
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: true
-description: 
-excerpt: 
+description: ASP.NET Core supports dependency injection(DI), which is a technique for achieving Inverse of Control(IoC). The Built-In IoC container doesn't provide as many features as other third libraries
+excerpt: ASP.NET Core supports dependency injection(DI), which is a technique for achieving Inverse of Control(IoC). The Built-In IoC container doesn't provide as many features as other third libraries
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>
