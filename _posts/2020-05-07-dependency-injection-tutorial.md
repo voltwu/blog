@@ -13,8 +13,8 @@ toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: true
-description: 
-excerpt: 
+description: .NET Core is designed from scratch to support dependency injection, which is also one of the principal features. 
+excerpt: .NET Core is designed from scratch to support dependency injection, which is also one of the principal features. 
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>
