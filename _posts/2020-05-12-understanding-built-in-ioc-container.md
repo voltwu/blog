@@ -7,7 +7,7 @@ categories:
 tags:
   - .net core
 navi-enable-csharpaspnetcore: true
-navi-name: 'Dependency Injection Tutorial'
+navi-name: 'Understanding built-in IoC container'
 navi-order: 'a1-4-2'
 toc: false
 toc_label: "TABLE OF CONTENTS"
@@ -21,7 +21,8 @@ excerpt: the working mechanism behind dependency injection.
   {% assign posts = site.posts|sort:'navi-order' %}
   {% for post in posts %}
     {% if post.navi-enable-csharpaspnetcore %}
-        {% if post.navi-order == "a1"%}
+        {% if post.navi-order == "a1" or 
+              post.navi-order == "a1-4" %}
             <a href="{{ site.baseurl }}{{ post.url }}" class='navi-link'>{{post.navi-name}}</a>
         {%endif%}
     {% endif %}
