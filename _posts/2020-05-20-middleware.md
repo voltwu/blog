@@ -148,7 +148,7 @@ app.Run(async context=> {
 |localhost   |I am from non map method.   |
 
 <span style="color:red">Note:</span>
-> Because the route path matches in turn, so the order is critical. Put the detailed path first.
+> Because the route path matches in sequential, so the order is critical. Put the detailed path first.
 
 # Built-in Middleware
 
