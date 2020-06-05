@@ -167,7 +167,7 @@ ASP.NET Core provides multiple useful built-in middlewares. The following table 
 |URL Rewrite   |Provides support for rewriting URLs and redirecting requests.   |
 |Response Compression   |Provides support for compressing responses.   |
 
-Looking for entire built-in middlewares, see [here][4]. In the next articles, I am going to dive into those built-in middlewares.
+Looking for entire built-in middlewares, see [here][4].
 
 Here is the end of this article, we learned the concept of middleware and usage of middleware if you have any questions leave a message below. 
 
