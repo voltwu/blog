@@ -16,6 +16,12 @@ comments: false
 description: ASP.NET Core is a new version of Microsoft, it's a open-source web framework which can be run on Windows, Mac, Or Linux.
 excerpt: ASP.NET Core is a new version of Microsoft, it's a open-source web framework which can be run on Windows, Mac, Or Linux.
 ---
+<!--navigation bar-->
+<div class='navi-link-container'>
+<a class='navi-link' href="">{{page.navi-name}}</a>
+</div>
+<!--navigation bar-->
+
 
 **ASP.NET Core** is a **free**, **open-source**([link][1]), and **cross-platform** web framework. You can run your Asp.Net Core web app on Windows, Linux, and Mac, etc..
 
