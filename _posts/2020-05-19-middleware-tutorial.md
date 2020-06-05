@@ -12,7 +12,7 @@ navi-order: 'a1-5'
 toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
-comments: true
+comments: false
 description: ASP.NET Core introduced a new feature called as Middleware. Middleware is a software that assembled a set of applications, which will be going through on each request. In other words, it's a layer that each incoming and outgoing request will go through it.
 excerpt: ASP.NET Core introduced a new feature called as Middleware. Middleware is a software that assembled a set of applications, which will be going through on each request. In other words, it's a layer that each incoming and outgoing request will go through it.
 ---
@@ -31,9 +31,13 @@ excerpt: ASP.NET Core introduced a new feature called as Middleware. Middleware 
 <!--navigation bar-->
 
 ASP.NET Core introduced a new feature called as Middleware. Middleware is a software that assembled a set of applications, which will be going through on each request. In other words, it's a layer that each incoming and outgoing request will go through it.
-<!-- Dependency Injection Overview -->
-<!-- the mechanism behide Dependency Injection -->
-<!-- Design specification -->
+
+<!-- Middleware overview -->
+<!-- Built your own middleware  -->
+<!-- built-in middleware(tutorial) -->
+<!-- conclution -->
+
+
 <!--items-->
 <div>
 <span style="color: green;">In this article:</span>

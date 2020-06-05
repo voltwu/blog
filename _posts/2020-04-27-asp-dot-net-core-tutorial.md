@@ -12,7 +12,7 @@ navi-order: a1
 toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
-comments: true
+comments: false
 description: ASP.NET Core is a new version of Microsoft, it's a open-source web framework which can be run on Windows, Mac, Or Linux.
 excerpt: ASP.NET Core is a new version of Microsoft, it's a open-source web framework which can be run on Windows, Mac, Or Linux.
 ---
