@@ -86,6 +86,7 @@ dotnet watch run
 Then, open [https://localhost:5001/](https://localhost:5001/) in your browser.
 ![Alt][9]
 
+The above code creates a MVC Project, However, there are two project examples, one is MVC, another is Razor. Both are a complete ASP.NET Core project, they are good projects for a newbie. [MVC booklist][10] project and [Razor Booklist][11] project.
 
 [1]: https://github.com/dotnet/aspnetcore
 [2]: https://docs.microsoft.com/en-us/dotnet/standard/net-standard
@@ -96,3 +97,5 @@ Then, open [https://localhost:5001/](https://localhost:5001/) in your browser.
 [7]: /blog/public/img/2020-05-03-asp-dot-net-core-d.png
 [8]: /blog/public/img/2020-05-03-asp-dot-net-core-e.png
 [9]: /blog/public/img/2020-05-03-asp-dot-net-core-f.png
+[10]: https://github.com/voltwu/C-Sharp-Web-Net-Core-MVC-BookListMVC
+[11]: https://github.com/voltwu/C-Sharp-Web-Net-Core-MVC-BookListMVC
