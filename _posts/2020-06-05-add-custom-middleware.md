@@ -112,11 +112,15 @@ public class ExceptionHandlerMiddleware
 {
     private readonly RequestDelegate _next;
     private readonly MySignletonService _signleton;
+    //if you want your services behave like singleton,
+    //register them via constructor
     public ExceptionHandlerMiddleware(RequestDelegate next,MySignletonService signleton)
     {
         _next = next;
         _signleton = signleton;
     }
+    //if you want your service behave like scoped and transient,
+    //register them via the Invoke() method
     public async Task Invoke(HttpContext httpContext,MyScopedService scoped,MyTransientService transient)
     {
         //await _next(httpContext);
