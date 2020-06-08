@@ -32,7 +32,7 @@ excerpt: asp.net core security and identity,authentication,authorization,identit
 </div>
 <!--navigation bar-->
 
-In this article, we are going to discuss some basic concepts, and with a useful project. You can find and download this project on my Github repository.
+In this article, we are going to discuss some basic concepts, and with a useful project. You can find and download this project on [authenticaton & authorization][1] repository.
 
 Authentication and Authorization are two things. However, they have similar concepts. Typically, Authentication determines a user's identity, and Authorization determines what a user can do. Let's think about this scenario that a person comes to your home. The first thing you need to ask is who you are. After you identify this person's identity, then you determine what's this person can do in your house. 
 
@@ -200,3 +200,5 @@ public IActionResult Userprofile() {
 
 # Conclusion
 The above example is the almost simplest authentication. It doesn't include identity authorization, OAuth and identity server, etc.. Even though, it is simple. But it also provides you a very scalable framework. As it's flexible, you can add whatever additional functionality you want.
+
+[1]: https://github.com/voltwu/C-Sharp-Web-Net-Core-authentication-and-authorization
