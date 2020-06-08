@@ -56,8 +56,8 @@ tag_page: '/blog/tags/'
 category_page: '/blog/categories/'
 
 hero:
-  image: /public/img/kobe-bryant-have-you-seen-los-angeless-at-4-am.jpg
-  caption: <a href="https://en.wikipedia.org/wiki/Kobe_Bryant">Kobe Bryant & 1978-2020 </a> 
+  image: /public/img/liwenliang.jpg
+  caption: <a href="https://en.wikipedia.org/wiki/Li_Wenliang">Li Wenliang & 1986-2020 </a> 
 # Puglins
 mathjax: true # whether support mathjax
 google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google analytics
