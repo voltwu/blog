@@ -185,7 +185,7 @@ else
 ```
 
 # Conclusion
-According to the [precedent article][1] and this article, we have studied how to use identity authentication and [claim authentication][1]. Identity authentication provides a complete function, which includes database operation, user management, etc.. so you don't need to operate SQL operations by yourself. However, [Claim authentication][1] ***doesn't*** provide SQL operations, so you have to implement SQL operations by yourself manually.
+According to the [preceding article][1] and this article, we have studied how to use identity authentication and [claim authentication][1]. Identity authentication provides a complete function, which includes database operation, user management, etc.. so you don't need to operate SQL operations by yourself. However, [Claim authentication][1] ***doesn't*** provide SQL operations, so you have to implement SQL operations by yourself manually.
 
 
 [1]: https://voltwu.github.io/blog/csharp-asp.net%20core/2020/06/08/authentication-and-authorization-basics/
