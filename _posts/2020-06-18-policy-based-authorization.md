@@ -259,7 +259,7 @@ public void ConfigureServices(IServiceCollection services)
 ```
 The above code illustrates a simple code that illustrates how to use authorization generally. This repository [Authentication&Authorization security level example][8] also includes another project, which is more useful and convenient. In that project, you can specify a security level, which will be used to compare with the source security level. If a user's security reaches the target level, then it authorizes success, otherwise, authorizes fail.
 
-Thanks for watching, if you have any questions, please be free to leave comments at bellow.
+Thanks for reading, if you have any questions, please be free to leave comments at bellow.
 
 [1]: /blog/csharp-asp.net%20core/2020/06/15/role-based-authorization/#policy-based-role-checks
 [2]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationservice?view=aspnetcore-3.1
