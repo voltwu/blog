@@ -47,7 +47,8 @@ https://www.tutorialsteacher.com/core
             post.navi-order == "a1-4" or 
             post.navi-order == "a1-5" or 
             post.navi-order == "a1-6" or 
-            post.navi-order == "a1-7"%}
+            post.navi-order == "a1-7" or
+            post.navi-order == "a1-8" %}
                 <li><a href="{{ site.baseurl }}{{ post.url }}" class="item-link">{{post.title}}</a></li>
       {% endif %}
     {% endif %}
