@@ -8,7 +8,7 @@ tags:
   - .net core
 navi-enable-csharpaspnetcore: true
 navi-name: 'policy based authorization'
-navi-order: 'a1-6-1-4'
+navi-order: 'a1-7-1-4'
 toc: true
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
@@ -22,8 +22,8 @@ excerpt: how to add custom policy, how to implements custom requirements, how to
   {% for post in posts %}
     {% if post.navi-enable-csharpaspnetcore %}
         {% if post.navi-order == "a1" or 
-              post.navi-order == "a1-6" or 
-              post.navi-order == "a1-6-1" %}
+              post.navi-order == "a1-7" or 
+              post.navi-order == "a1-7-1" %}
             <a href="{{ site.baseurl }}{{ post.url }}" class='navi-link'>{{post.navi-name}}</a>
         {%endif%}
     {% endif %}

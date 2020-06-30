@@ -8,7 +8,7 @@ tags:
   - .net core
 navi-enable-csharpaspnetcore: true
 navi-name: 'role based authorization'
-navi-order: 'a1-6-1-3'
+navi-order: 'a1-7-1-3'
 toc: true
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
@@ -22,8 +22,8 @@ excerpt: how to add custom roles. how to implements role based authorization.
   {% for post in posts %}
     {% if post.navi-enable-csharpaspnetcore %}
         {% if post.navi-order == "a1" or 
-              post.navi-order == "a1-6" or 
-              post.navi-order == "a1-6-1" %}
+              post.navi-order == "a1-7" or 
+              post.navi-order == "a1-7-1" %}
             <a href="{{ site.baseurl }}{{ post.url }}" class='navi-link'>{{post.navi-name}}</a>
         {%endif%}
     {% endif %}

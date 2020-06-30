@@ -8,7 +8,7 @@ tags:
   - .net core
 navi-enable-csharpaspnetcore: true
 navi-name: 'security & identity'
-navi-order: 'a1-6'
+navi-order: 'a1-7'
 toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
@@ -38,10 +38,10 @@ excerpt: asp.net core security and identity,authentication,authorization,identit
     {% assign posts =site.posts | sort: 'navi-order' %}
     {% for post in posts %}
       {% if post.navi-enable-csharpaspnetcore %}
-        {% if post.navi-order == "a1-6-1" or
-              post.navi-order == "a1-6-2" or 
-              post.navi-order == "a1-6-3" or 
-              post.navi-order == "a1-6-4"%}
+        {% if post.navi-order == "a1-7-1" or
+              post.navi-order == "a1-7-2" or 
+              post.navi-order == "a1-7-3" or 
+              post.navi-order == "a1-7-4"%}
                   <li><a href="{{ site.baseurl }}{{ post.url }}" class="item-link">{{post.title}}</a></li>
         {% endif %}
       {% endif %}

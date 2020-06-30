@@ -8,7 +8,7 @@ tags:
   - .net core
 navi-enable-csharpaspnetcore: true
 navi-name: 'authentication and authorization'
-navi-order: 'a1-6-1'
+navi-order: 'a1-7-1'
 toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
@@ -22,7 +22,7 @@ excerpt: asp.net core security and identity,authentication,authorization,identit
   {% for post in posts %}
     {% if post.navi-enable-csharpaspnetcore %}
         {% if post.navi-order == "a1" or 
-              post.navi-order == "a1-6" %}
+              post.navi-order == "a1-7" %}
             <a href="{{ site.baseurl }}{{ post.url }}" class='navi-link'>{{post.navi-name}}</a>
         {%endif%}
     {% endif %}
@@ -38,10 +38,10 @@ excerpt: asp.net core security and identity,authentication,authorization,identit
     {% assign posts =site.posts | sort: 'navi-order' %}
     {% for post in posts %}
       {% if post.navi-enable-csharpaspnetcore %}
-        {% if post.navi-order == "a1-6-1-1" or
-              post.navi-order == "a1-6-1-2" or 
-              post.navi-order == "a1-6-1-3" or 
-              post.navi-order == "a1-6-1-4"%}
+        {% if post.navi-order == "a1-7-1-1" or
+              post.navi-order == "a1-7-1-2" or 
+              post.navi-order == "a1-7-1-3" or 
+              post.navi-order == "a1-7-1-4"%}
                   <li><a href="{{ site.baseurl }}{{ post.url }}" class="item-link">{{post.title}}</a></li>
         {% endif %}
       {% endif %}
