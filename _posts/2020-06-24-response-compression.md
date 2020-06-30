@@ -8,7 +8,7 @@ tags:
   - .net core
 navi-enable-csharpaspnetcore: true
 navi-name: 'Response Compression'
-navi-order: 'a1-7-1'
+navi-order: 'a1-8-1'
 toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
@@ -22,7 +22,7 @@ excerpt: How to compress your response contents. How to compress image or html, 
   {% for post in posts %}
     {% if post.navi-enable-csharpaspnetcore %}
         {% if post.navi-order == "a1" or 
-              post.navi-order == "a1-7" %}
+              post.navi-order == "a1-8" %}
             <a href="{{ site.baseurl }}{{ post.url }}" class='navi-link'>{{post.navi-name}}</a>
         {%endif%}
     {% endif %}

@@ -8,7 +8,7 @@ tags:
   - .net core
 navi-enable-csharpaspnetcore: true
 navi-name: 'Performance'
-navi-order: 'a1-7'
+navi-order: 'a1-8'
 toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
@@ -38,10 +38,10 @@ excerpt: How to improve your website's performance, how to make your website mor
     {% assign posts =site.posts | sort: 'navi-order' %}
     {% for post in posts %}
       {% if post.navi-enable-csharpaspnetcore %}
-        {% if post.navi-order == "a1-7-1" or
-              post.navi-order == "a1-7-2" or 
-              post.navi-order == "a1-7-3" or 
-              post.navi-order == "a1-7-4"%}
+        {% if post.navi-order == "a1-8-1" or
+              post.navi-order == "a1-8-2" or 
+              post.navi-order == "a1-8-3" or 
+              post.navi-order == "a1-8-4"%}
                   <li><a href="{{ site.baseurl }}{{ post.url }}" class="item-link">{{post.title}}</a></li>
         {% endif %}
       {% endif %}
