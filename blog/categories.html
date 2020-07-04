@@ -2,6 +2,8 @@
 layout: page
 title: Categories
 ---
+<!--import vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
 
 <div class="tags-expo">
   <div class="tags-expo-list">
@@ -11,18 +13,63 @@ title: Categories
   </div>
   <hr/>
   <div class="tags-expo-section">
+
     {% for tag in site.categories %}
-    <h2 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h2>
-    <ul class="tags-expo-posts">
-      {% for post in tag[1] %}
-        <a class="post-title" href="{{ site.baseurl }}{{ post.url }}">
-      <li>
-        {{ post.title }}
-      <small class="post-date">{{ post.date | date_to_string }}</small>
-      </li>
-      </a>
+    <div id="{{ tag[0] | slugify }}">
+      {% assign cl_title = '' %}
+      {% assign cl_link = '' %}
+      {% for cls in site.category_links %}
+        {% assign i = 1 %}
+        {% for cl in cls %}
+          {% if i==1 %}
+            {% assign cl_title = cl%}
+            {% assign i = 2 %}
+          {% endif %}
+          {% if i==2 %}
+            {% assign cl_link = cl%}
+            {% assign i = 2 %}
+          {% endif %}
+        {% endfor %}
+
+        {% assign temp1 = cl_title[0]|escape %}
+        {% if temp1 == tag[0] %}
+            {% break %}
+        {% endif %}
+        {% assign cl_title = '' %}
+        {% assign cl_link = '' %}
       {% endfor %}
-    </ul>
+
+      <h2>
+        {% if cl_title=='' %}
+          {{ tag[0] }}
+        {% else %}
+          <a class="post-title" href='{{ cl_link }}'>{{ tag[0] }}</a>
+        {% endif %}       
+        <span class="closeopenbutton" @click="show = !show">
+          <span v-if="show">-</span>
+          <span v-else>+</span>
+        </span>
+      </h2>
+ 
+      <ul class="tags-expo-posts" v-if="show">
+        {% for post in tag[1] %}
+          <a class="post-title" href="{{ site.baseurl }}{{ post.url }}">
+        <li>
+          {{ post.title }}
+        <small class="post-date">{{ post.date | date_to_string }}</small>
+        </li>
+        </a>
+        {% endfor %}
+      </ul>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: '#{{ tag[0] | slugify }}',
+        data: {
+          show: location.hash == '#{{ tag[0] | slugify }}'
+        }
+      });
+    </script>
     {% endfor %}
   </div>
 </div>

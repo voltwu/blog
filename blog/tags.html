@@ -2,6 +2,8 @@
 layout: page
 title: Tags
 ---
+<!--import vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
 
 <div class="tags-expo">
   <div class="tags-expo-list">
@@ -12,17 +14,32 @@ title: Tags
   <hr/>
   <div class="tags-expo-section">
     {% for tag in site.tags %}
-    <h2 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h2>
-    <ul class="tags-expo-posts">
-      {% for post in tag[1] %}
-        <a class="post-title" href="{{ site.baseurl }}{{ post.url }}">
-      <li>
-        {{ post.title }}
-      <small class="post-date">{{ post.date | date_to_string }}</small>
-      </li>
-      </a>
-      {% endfor %}
-    </ul>
+    <div id="{{ tag[0] | slugify }}">
+      <h2>{{ tag[0] }}
+        <span class="closeopenbutton" @click="show = !show">
+          <span v-if="show">-</span>
+          <span v-else>+</span>
+        </span>        
+      </h2>
+      <ul class="tags-expo-posts" v-if="show">
+        {% for post in tag[1] %}
+          <a class="post-title" href="{{ site.baseurl }}{{ post.url }}">
+        <li>
+          {{ post.title }}
+        <small class="post-date">{{ post.date | date_to_string }}</small>
+        </li>
+        </a>
+        {% endfor %}
+      </ul>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: '#{{ tag[0] | slugify }}',
+        data: {
+          show: location.hash == '#{{ tag[0] | slugify }}'
+        }
+      });
+    </script>
     {% endfor %}
   </div>
 </div>
