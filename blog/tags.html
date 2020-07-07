@@ -12,13 +12,17 @@ title: Tags
     {% endfor %}
   </div>
   <hr/>
+  <script>
+    var tempStripe = true;
+  </script>  
   <div class="tags-expo-section">
     {% for tag in site.tags %}
     <div id="{{ tag[0] | slugify }}">
-      <h2>{{ tag[0] }}
+      <h2 class='stripe' v-bind:class='{ darkstripe: istriped }'>
+        {{ tag[0] }}
         <span class="closeopenbutton" @click="show = !show">
-          <span v-if="show">-</span>
-          <span v-else>+</span>
+          <span v-if="show" title="close">-</span>
+          <span v-else  title="open">+</span>
         </span>        
       </h2>
       <ul class="tags-expo-posts" v-if="show">
@@ -36,9 +40,12 @@ title: Tags
       var vm = new Vue({
         el: '#{{ tag[0] | slugify }}',
         data: {
-          show: location.hash == '#{{ tag[0] | slugify }}'
+          show: location.hash == '#{{ tag[0] | slugify }}',
+          istriped: tempStripe
         }
       });
+      tempStripe = !vm.istriped
+
     </script>
     {% endfor %}
   </div>
