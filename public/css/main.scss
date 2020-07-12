@@ -21,8 +21,16 @@
 .toc-side{
 top: 7.0rem; 
 position: fixed;
-left:0.5rem;
+left:1rem;
 max-width:16rem;
+}
+.toc-side ul{
+    margin-bottom: 0px;;
+}
+.toc-topic{
+    font-weight: bold;
+    font-size: 18px;
+    color: #6a9fb5;
 }
 @media (max-width: 84em) {
  .toc-side {
@@ -74,4 +82,9 @@ max-width:16rem;
 .imgcenter img
 {
     margin: 0 auto;
+}
+.quote
+{
+    color:green;
+    font-weight: bold;
 }
