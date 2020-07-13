@@ -47,7 +47,8 @@ Click the create repository button, enter a name.
 <b>NOTE:</b> You can choose your repository whether is a public repository. A public repository can be used by anyone. If you want to secret your repository, then you can make your repository private. 
 </p>
 </blockquote>
-**Tag your image**
+
+# Tag your image
 
 Tag your image, before you push your image into the remote repository. Your tag name should be like this `<Your Docker ID>/<Repository Name>:<tag>`.
 
