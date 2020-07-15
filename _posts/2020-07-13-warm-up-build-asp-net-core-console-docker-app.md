@@ -46,125 +46,50 @@ This article will show you a simple, which you can learn how to build a .net Cor
 You can choose different editors, like VSCode, Visual Studio, etc. This article builds an App through the command-line interface. Make sure you have [.NET CORE SDK][1] installed.
 
 Use the following snippet to create a .NET Core app. 
-```
-dotnet new console -o MyApp
-```
+
+<script src="https://gist.github.com/voltwu/a496e1bfdbb9846f3ddd33bbc0e43e7e.js"></script>
 
 Get into `MyApp` folder. then run your App.
-```
-[root]# cd MyApp/
-[root]# dotnet run
-Hello World!
-```
+
+<script src="https://gist.github.com/voltwu/b8fee310d708a007670c09b5c06267b3.js"></script>
 
 Publish your App.
-```
-[root]# dotnet publish -c release
-Microsoft (R) Build Engine version 16.6.0+5ff7b0c9e for .NET Core
-Copyright (C) Microsoft Corporation. All rights reserved.
 
-  Determining projects to restore...
-  All projects are up-to-date for restore.
-  MyApp -> /root/user/MyApp/bin/release/netcoreapp3.1/MyApp.dll
-  MyApp -> /root/user/MyApp/bin/release/netcoreapp3.1/publish/
-```
+<script src="https://gist.github.com/voltwu/8483789cb18d6a88316753dd86f8132f.js"></script>
 
 Get into your released folder, then run your `.dll` file up. 
-```
-[root]# cd bin/release/netcoreapp3.1/publish/
-[root]# ll
-total 112
--rwxr-xr-x 1 root root 90712 Jul 13 21:42 MyApp
--rw-r--r-- 1 root root   385 Jul 13 21:42 MyApp.deps.json
--rw-r--r-- 1 root root  4608 Jul 13 21:42 MyApp.dll
--rw-r--r-- 1 root root   620 Jul 13 21:42 MyApp.pdb
--rw-r--r-- 1 root root   146 Jul 13 21:42 MyApp.runtimeconfig.json
 
-[root]# dotnet MyApp.dll
-Hello World!
-```
+<script src="https://gist.github.com/voltwu/e295ec25e55561cb3e96f2e82406be36.js"></script>
 
 # Containerize
 Create a `Dockerfile` with the following snippet to containerize your released App.
-```
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 
-COPY bin/release/netcoreapp3.1/publish/ App/
-WORKDIR /App
+<script src="https://gist.github.com/voltwu/2e02f788d87882253defd5082b22c8e3.js"></script>
 
-ENTRYPOINT ["dotnet", "MyApp.dll"]
-```
+Put the above Dockerfile under `MyApp` directory.
 
-Put the above Dockerfile under MyApp directory.
-```
-[root]# ls
-total 20
-drwxr-xr-x 4 root root 4096 Jul 13 21:42 bin
--rw-r--r-- 1 root root  141 Jul 13 21:56 Dockerfile
--rw-r--r-- 1 root root  178 Jul 13 21:41 MyApp.csproj
-drwxr-xr-x 4 root root 4096 Jul 13 21:42 obj
--rw-r--r-- 1 root root  187 Jul 13 21:41 Program.cs
-```
+<script src="https://gist.github.com/voltwu/a83a39a91085fb9f7d029fe07a8a4ba5.js"></script>
 
 Build an image.
-```
-[root]# docker build -t hello-world:1.0 .
-Sending build context to Docker daemon  700.9kB
-Step 1/4 : FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
- ---> 014a41b1f39a
-Step 2/4 : COPY bin/release/netcoreapp3.1/publish/ App/
- ---> fbfccbc52704
-Step 3/4 : WORKDIR /App
- ---> Running in 34f680e442c9
-Removing intermediate container 34f680e442c9
- ---> 89134e5935e7
-Step 4/4 : ENTRYPOINT ["dotnet", "MyApp.dll"]
- ---> Running in c1874d0701b5
-Removing intermediate container c1874d0701b5
- ---> ed920239370c
-Successfully built ed920239370c
-Successfully tagged hello-world:1.0
-```
+
+<script src="https://gist.github.com/voltwu/4aefedf217a630eb0a00267378497bc2.js"></script>
 
 Run your image as container.
-```
-[root]# docker run --name hello-world hello-world:1.0
-Hello World!
-```
+
+<script src="https://gist.github.com/voltwu/7d22860f02f5abbbd261a4cbd3a3d3f4.js"></script>
+
 Now, your container is running up successfully. If you want to extend more, check the [Docker][2]. 
 
 The above process only containerized your released App. As the Docker is a container, so you can do the same thing as you are in a real operating system. You can build, publish, release your App in a single Docker container.
 
 The following Dockerfile shows you how to complete all operations(build, publish, release) in a Docker container.
 
-```
-FROM mcr.microsoft.com/dotnet/core/runtime:3.1-buster-slim AS base
-WORKDIR /app
+<script src="https://gist.github.com/voltwu/96f5c2edbfb2f6f28a39450b9e7e046f.js"></script>
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
-WORKDIR /src
-COPY ["ConsoleApp1/ConsoleApp1.csproj", "ConsoleApp1/"]
-RUN dotnet restore "ConsoleApp1/ConsoleApp1.csproj"
-COPY . .
-WORKDIR "/src/ConsoleApp1"
-RUN dotnet build "ConsoleApp1.csproj" -c Release -o /app/build
-
-FROM build AS publish
-RUN dotnet publish "ConsoleApp1.csproj" -c Release -o /app/publish
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ConsoleApp1.dll"]
-```
 The above Dockerfile comes from Visual Studio Docker Tools, and the Dockerfile related to multi-stage features, which was introduced in docker 17.05. Check these articles [How Visual Studio builds containerized apps][3], and [Use multi-stage builds][4] to learn more about Docker and Visual Studio.
 
-```
-[root]# dir
-[root]# cd ..
-[root]# docker run -f ConsoleApp1/Dockerfile ConsoleApp1/
-Hello World!
-```
+<script src="https://gist.github.com/voltwu/4237a9db898dca0d1aa5756d7d69a40c.js"></script>
+
 Use the `-f` to specify the Dockerfile explicitly.
 
 # Conclusion
