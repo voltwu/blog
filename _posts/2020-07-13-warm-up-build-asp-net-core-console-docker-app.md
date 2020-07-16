@@ -82,7 +82,7 @@ Now, your container is running up successfully. If you want to extend more, chec
 
 The above process only containerized your released App. As the Docker is a container, so you can do the same thing as you are in a real operating system. You can build, publish, release your App in a single Docker container.
 
-The following Dockerfile shows you how to complete all operations(build, publish, release) in a single Docker container.
+The following Dockerfile shows you how to complete all operations(build, publish, release) in a single Dockerfile.
 
 <script src="https://gist.github.com/voltwu/96f5c2edbfb2f6f28a39450b9e7e046f.js"></script>
 
