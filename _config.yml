@@ -11,7 +11,8 @@ timezone: Asia/Shanghai
 # Site configurations
 gems:
   - jekyll-paginate
-plugins: [jekyll-paginate]
+  - jekyll-sitemap  
+plugins: [jekyll-paginate,jekyll-sitemap]
 markdown: kramdown
 kramdown:
   input: GFM
