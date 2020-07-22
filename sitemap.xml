@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://voltwu.github.io/blog/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/blog/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/blog/categories/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/blog/tags/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/about/</loc>
+  <changefreq>monthly</changefreq>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/07/20/enable-docker-support-on-visual-studio/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/07/13/warm-up-build-asp-net-core-console-docker-app/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/07/13/host/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/07/13/docker/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/docker/2020/07/08/share-your-image-on-docker-hub/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/docker/2020/07/08/manage-your-images-containers/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/docker/2020/07/08/deploy-your-first-docker-app/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/docker/2020/07/08/build-and-run-your-image/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/docker/2020/07/08/getting-started/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/docker/2020/07/08/docker-tutorial/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/blog/page2/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/java/2019/08/29/How-to-use-Jetty-build-simple-Http-Server/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/python/2019/12/08/Verification-Code-Recognition-With-Tesseract-OCR/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/python/2019/10/08/Running-A-CGI-Web-Server-With-http-server-Module/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/python/2019/09/08/Everything-You-Need-To-Know-Fetching-Internet-Resource-With-Python/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/python/2019/09/01/Python-JSON-Example/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/04/24/From-Existing-Database/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/04/24/Raw-Sql-Operation/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/04/15/Fluent-API/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/04/14/Fluent-API-Introduction/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/04/10/Data-Annotation-Attribute-Concurrency/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/04/09/Data-Annotation-Attribute-DatabaseGenerated/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/04/09/Data-Annotation-Attribute-Timestamp/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/04/07/Data-Annotation-Attribute-Inverse/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/04/07/Data-Annotation-Attribute-Notmapped/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/04/01/Data-Annotations-Attributes-Introduction/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/04/01/Data-Annotation-Attribute-Foreignkey/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/03/29/Data-Annotations-Attributes/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/03/21/Analysis-of-advantage-and-disadvantage-of-Eager-Explicit-Lazy-Loading/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/03/19/EF-Core-Lazy-Loading/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/03/06/EF-Core-Explicit-Loading/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/03/03/EF-Core-Eager-Loading/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/02/28/EF-Core-Load-Related-Entities/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-ef/2020/02/25/Tutorial-Explore-EF-Core-Console-Application/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/04/27/asp-dot-net-core-tutorial/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/06/29/Logging/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/06/24/response-compression/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/06/24/performance/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/06/18/policy-based-authorization/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/06/15/role-based-authorization/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/06/09/aspnetcore-identity/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/06/08/authentication-and-authorization/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/06/08/authentication-and-authorization-basics/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/06/08/security-and-identity/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/06/05/add-custom-middleware/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/05/20/middleware/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/05/19/middleware-tutorial/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/05/12/understanding-built-in-ioc-container/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/05/08/dependency-injection/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/05/07/dependency-injection-tutorial/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/05/06/project-structure/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/05/03/asp-dot-net-core/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/csharp-asp.net%20core/2020/04/28/dot-net-core/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/blog/page3/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/blog/page4/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/blog/page5/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://voltwu.github.io/blog/blog/page6/</loc>
+  <lastmod>2020-07-22T08:28:14+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+
+
+</urlset>
