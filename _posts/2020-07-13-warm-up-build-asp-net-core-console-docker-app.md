@@ -43,7 +43,7 @@ This article will show you a simple, which you can learn how to build a .net Cor
 * Familiar with [.NET CORE][5]
 
 # Build and Publish a console App
-You can choose different editors, like VSCode, Visual Studio, etc. This article builds an App through the command-line interface. Make sure you have [.NET CORE SDK][1] installed.
+You can choose different editors, like VSCode, Visual Studio, etc. This article builds an App through the command-line interface. Make sure you have [.NET CORE SDK][1] installed first.
 
 Use the following snippet to create a .NET Core app. 
 
@@ -80,13 +80,13 @@ Run your image as container.
 
 Now, your container is running up successfully. If you want to extend more, check the [Docker][2]. 
 
-The above process only containerized your released App. As the Docker is a container, so you can do the same thing as you are in a real operating system. You can build, publish, release your App in a single Docker container.
+The above process only containerized your released App. As the Docker is a container, so you can do the same thing as you are in a real operating system. You can build, publish, release your App in a single Docker container. Even though you can do multi-steps in a single docker container, however, it is not recommended. It will be hard to manage and track stages when doing too many steps in a single docker container. You can take advantage of the multi-stage feature, which is much more flexible and convenient.
 
-The following Dockerfile shows you how to complete all operations(build, publish, release) in a single Dockerfile.
+The following Dockerfile illustrate a multi-stage example in a single Dockerfile.
 
 <script src="https://gist.github.com/voltwu/96f5c2edbfb2f6f28a39450b9e7e046f.js"></script>
 
-The above Dockerfile comes from Visual Studio Docker Tools, and the Dockerfile related to `multistage` features, which was introduced in docker 17.05. Check these articles [How Visual Studio builds containerized apps][3], and [Use multi-stage builds][4] to learn more about Docker and Visual Studio.
+The above Dockerfile comes from Visual Studio Docker Tools, and the above Dockerfile related to `multistage` features, which was introduced in docker 17.05. Check these articles [How Visual Studio builds containerized apps][3], and [Use multi-stage builds][4] to learn more about Docker and Visual Studio.
 
 <script src="https://gist.github.com/voltwu/4237a9db898dca0d1aa5756d7d69a40c.js"></script>
 
