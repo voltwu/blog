@@ -41,14 +41,14 @@ The most basic way to containerizing an App is the following steps:
 2. Run your image as a container
 3. Share your image
 
-This article will explain to you almost everything you need to care about during build your images.  
+This article will explain to you almost everything you need to know while building your images.  
 
 You can clone this project's source code down with git command.
 
 <script src="https://gist.github.com/voltwu/d0e2509259153461551d0988ade35a2d.js"></script>
 
 # Dockerfile
-In most of the cases, different containers(windows, Linux) need to match different Dockerfiles. So if you have an app that needs to deploy on a Windows container and a Linux container, then you may need to write different Dockerfiles for Windows and Linux. 
+In most of the cases, different containers(windows, Linux) need to match different Dockerfiles. So if you have an app that needs to deploy on both Windows container and Linux container, then you may need to write different Dockerfiles for Windows and Linux. 
 
 As the project's Dockerfile is for Linux Container, so let's analyze the file first.
 ## Linux
