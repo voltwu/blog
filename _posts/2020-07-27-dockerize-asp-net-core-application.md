@@ -33,7 +33,7 @@ excerpt: dockerize your asp.net core app on docker. delpoy first app on docker. 
 </div>
 <!--navigation bar-->
 
-You may have known how to deploy an asp net core application through the preceding [two articles][3]. However, if you don't, then you can follow this post tutorial to dockerize your application step by step.
+You may have known how to deploy an asp net core application through the preceding [two articles][3]. However, if you don't know, then you can follow this post tutorial to dockerize your application step by step.
 
 Docker has become massively popular, and it's also pretty easy to use. It's similar to dockerize a web application as a console application, except the running commands. However, it exists many ways to host your app(the [load balance][1] and [microservices][2]). This blog arming to make the process as simple as possible, and would not dive into advance([load balance][1] and [microservices][2]).
 
