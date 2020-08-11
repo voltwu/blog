@@ -35,7 +35,7 @@ excerpt: After you build and run your image successfully, then you need to manag
 After you build and run your image successfully, then you need to manage them. Docker provides a full, complete manage command that fits for you. This article divides into three main parts.
 1. Image management.
 2. Container management.
-3. App management.
+3. Interaction.
 
 This blog continues from the previous episode, if you are unfamiliar, take a review look at [build and run your image][1].
 
