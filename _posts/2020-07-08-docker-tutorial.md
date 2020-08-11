@@ -25,7 +25,7 @@ Let's take a brief look at the docker container.
 
 Docker is similar to Virtual Machines. Both of them can emulate operating system environments. But, instead of a full operating system on Virtual Machines, the docker is only a set of processes that running on a shared OS kernel.
 
-Docker is a container technique, which is lightweight and has a lower overhead than VM. By contrast, VM(eg.[VMware][2] and [KVM][1]) is a full virtual operating system that runs depends on virtual hardware, VM needs to emulate hardware and transfer users' operation between the host and visual machine. So VM commonly has a higher overhead than containers.
+Docker is a container technique, which is lightweight and has a lower overhead than VM. By contrast, VM(eg.[VMware][2] and [KVM][1]) is a full virtual operating system that runs depends on virtual hardware, VM needs to emulate hardware and transfer users' operation between the host and virtual machine. So VM commonly has a higher overhead than containers.
 
 [1]: https://www.linux-kvm.org/page/Main_Page
 [2]: https://www.vmware.com/
