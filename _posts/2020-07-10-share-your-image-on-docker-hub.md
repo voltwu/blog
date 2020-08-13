@@ -54,7 +54,7 @@ Tag your image, before you push your image into the remote repository. Your tag 
 
 <script src="https://gist.github.com/voltwu/17499f229bd70d729c53aa1377904050.js"></script>
 
-`docker tag` is basically to copy an image from another image. The above code will create a new image named as `<Your Docker ID>/tweet_app:1.0` from the `tweet_app:1.0` image. After this, you will have two images `tweet_app:1.0` and `<Your Docker ID>/tweet_app:1.0`. You can run `docker image ls` to list all your images.
+`docker tag` is basically to create an alias from another image. The above code will create a new alias `<Your Docker ID>/tweet_app:1.0` of the `tweet_app:1.0` image. After this, you will have two names `tweet_app:1.0` and `<Your Docker ID>/tweet_app:1.0`. You can run `docker image ls` to list all your images.
 You can omit your `tag` part, if you do that, your `tag` will be the `latest` by default.
 
 <script src="https://gist.github.com/voltwu/c131228083bff4e08615dc1f44409212.js"></script>
