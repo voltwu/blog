@@ -82,6 +82,6 @@ If you add a directive `-a` on the end, then it filter in all containers, includ
 # Update labels
 It's easy to update labels on Images. You only need to change the Dockerfile contents, edit the `LABEL` value, and then rebuild your image. 
 
-However, it's a little doozy to update labels on containers. It is because of that changing the settings or code running inside a container involves deleting and restarting the container. So, we need to delete the previous existing container and start a new one with new labels.
+However, it's a little doozy to update labels on containers. It is because of that changing the settings or code running inside a container involves deleting and restarting the container. And the labels are inside the containers, So, if you want to update your container labels, need to delete or stop the running containers that you want to update labels, and then start a new one with new labels.
 
 
