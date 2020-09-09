@@ -32,7 +32,125 @@
         {% endfor %}
         </p>
       </div>
-      {% endif %}
+      <div class="sidebar-personal-info-section" id="lightchanger">
+        <p>
+          <input type="radio" name="changer" v-on:click="sunclick" value="sun" :checked="checked()"> <i class="fa fa-sun-o"></i> &nbsp;&nbsp;
+          <input type="radio" name="changer" value="night" v-on:click="nightclick()" :checked="!checked()"> <i class="fa fa-moon-o"></i>
+        </p>
+      </div>
+      <script>
+        var vm = new Vue({
+          el: '#lightchanger',
+          data: {
+            checked: function(event){
+              var isIfSun = localStorage.getItem("issun") == "true";
+              if(!isIfSun)
+              {
+                document.getElementsByTagName("body")[0].onload = loadNightStyle;
+              }
+              return isIfSun;
+            }
+          },
+          methods: {
+            sunclick: function(event){
+              localStorage.setItem("issun","true");
+              loadSunStyle();
+            },
+            nightclick: function(event){
+              localStorage.setItem("issun","false");
+              loadNightStyle();
+            }
+          }
+        });
+        function loadSunStyle(){
+          document.getElementsByTagName("body")[0].style.background="white";
+          document.getElementsByClassName("masthead")[0].style.background="white";
+          document.getElementsByClassName("masthead")[0].style.borderBottomWidth=1;
+          document.getElementsByClassName("sidebar-toggle")[0].style.opacity=1;
+          document.querySelectorAll("code.highlighter-rouge").forEach(function(e,i){
+            e.style.background="#f9f9f9";
+          });
+          document.querySelectorAll(".gist-meta").forEach(function(e,i){
+            e.style.background="white";
+          });
+          document.querySelectorAll("article h1").forEach(function(e,i){
+            e.style.color="#313131";
+          });
+          document.querySelectorAll("article h2").forEach(function(e,i){
+            e.style.color="#313131";
+          });
+          document.querySelectorAll("article h3").forEach(function(e,i){
+            e.style.color="#313131";
+          });
+          document.querySelectorAll("article h4").forEach(function(e,i){
+            e.style.color="#313131";
+          });
+          document.querySelectorAll("article h5").forEach(function(e,i){
+            e.style.color="#313131";
+          });
+          document.querySelectorAll("article h6").forEach(function(e,i){
+            e.style.color="#313131";
+          });
+          document.querySelectorAll(".gist .blob-num").forEach(function(e,i){
+            e.style.color="rgba(27,31,35,.3)";
+            e.style.background="transparent";
+          });
+          document.querySelectorAll(".gist .blob-code").forEach(function(e,i){
+            e.style.background="transparent";
+          });         
+          document.querySelectorAll("blockquote").forEach(function(e,i){
+            e.style.borderLeftColor="#e5e5e5";
+          });
+          document.querySelectorAll("h2.darkstripe").forEach(function(e,i){
+            e.style.background="#1f1f1f";
+          });
+        }
+
+        function loadNightStyle(){
+          document.getElementsByTagName("body")[0].style.background="black";
+          document.getElementsByClassName("masthead")[0].style.background="rgb(20 20 20)";
+          document.getElementsByClassName("masthead")[0].style.borderBottomWidth=0
+          document.getElementsByClassName("sidebar-toggle")[0].style.opacity=0.6;
+          document.querySelectorAll("code.highlighter-rouge").forEach(function(e,i){
+            e.style.background="#282828";
+          });
+          document.querySelectorAll(".gist-meta").forEach(function(e,i){
+            e.style.background="black";
+          });
+          document.querySelectorAll("article h1").forEach(function(e,i){
+            e.style.color="#6a9fb5";
+          });
+          document.querySelectorAll("article h2").forEach(function(e,i){
+            e.style.color="#6a9fb5";
+          });
+          document.querySelectorAll("article h3").forEach(function(e,i){
+            e.style.color="#6a9fb5";
+          });
+          document.querySelectorAll("article h4").forEach(function(e,i){
+            e.style.color="#6a9fb5";
+          });
+          document.querySelectorAll("article h5").forEach(function(e,i){
+            e.style.color="#6a9fb5";
+          });
+          document.querySelectorAll("article h6").forEach(function(e,i){
+            e.style.color="#6a9fb5";
+          });
+          document.querySelectorAll(".gist .blob-num").forEach(function(e,i){
+            e.style.color="#a3a3a3";
+            e.style.background="black";
+          });        
+          document.querySelectorAll(".gist .blob-code").forEach(function(e,i){
+            e.style.background="#b6b6b6";
+          });
+          document.querySelectorAll("blockquote").forEach(function(e,i){
+            e.style.borderLeftColor="#2c2c2c";
+          });          
+          document.querySelectorAll("h2.darkstripe").forEach(function(e,i){
+            e.style.background="#1f1f1f";
+          });                    
+        }
+      </script>      
+    {% endif %}
     </div>
   </div>
 
