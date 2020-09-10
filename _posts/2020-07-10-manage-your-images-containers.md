@@ -171,8 +171,32 @@ docker exec -it <mycontainer> bash
 docker run -it --entrypoint /bin/bash <imageid>
 ```
 
-
 `Docker Attach` and `Docker Exec` both can let you connect to your container, but the `Docker Attach` isn't really the same thing as `SSH`.  For example, if your container is running a webserver, the `Docker Attach` will probably connect you to the *stdout* of the webserver process.  The `Docker Exec` command can let you get inside a running container, it didn't like the `Docker Attach`, `Docker Exec` will let you get inside the really private filesystem. The  `docker run -it --entrypoint /bin/bash <imageid>` base on an image, so you can inspect an image's filesystem, without running it as a container first. If you want to exit the interactive window, input the `exit` command.
+
+If you execute the above `<myimage>` command, you may encounter a crash error. Just as the fallowing:
+```CMD
+$ # try to get inside on a container
+$ docker exec -it <mycontainer> bash
+rpc error: code = 2 desc = oci runtime error: exec failed: container_linux.go:247: starting container process caused "exec: \"bash\": executable file not found in $PATH"
+$ 
+$ # try to get inside on an image
+$ docker run -it --entrypoint /bin/bash <myimage>
+Error response from daemon: OCI runtime create failed: container_linux.go:349: starting container process caused "exec: \"/bin/bash\": stat /bin/bash: no such file or directory": unknown.
+```
+You have these errors because your container/image doesn't have a `bash` command installed. However, there are still have other solutions for these problems, if your `bash` hasn't installed, you should use `/bin/sh` instead.
+```
+$ # try to get inside on a container
+$ docker exec -it <mycontainer> /bin/sh
+$ 
+$ # try to get inside on an image
+$ docker run -it --entrypoint /bin/sh <myimage>
+```
+Or more visualization, you can view your containers filesystem without really get inside it.
+```
+$ docker exec -ti <mycontainer> ls /etc
+```
+
+
 
 
 [1]: /blog/docker/2020/07/08/build-and-run-your-image
