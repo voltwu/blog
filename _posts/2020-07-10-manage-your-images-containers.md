@@ -173,7 +173,7 @@ docker run -it --entrypoint /bin/bash <imageid>
 
 `Docker Attach` and `Docker Exec` both can let you connect to your container, but the `Docker Attach` isn't really the same thing as `SSH`.  For example, if your container is running a webserver, the `Docker Attach` will probably connect you to the *stdout* of the webserver process.  The `Docker Exec` command can let you get inside a running container, it didn't like the `Docker Attach`, `Docker Exec` will let you get inside the really private filesystem. The  `docker run -it --entrypoint /bin/bash <imageid>` base on an image, so you can inspect an image's filesystem, without running it as a container first. If you want to exit the interactive window, input the `exit` command.
 
-If you execute the above `<myimage>` command, you may encounter a crash error. Just as the fallowing:
+If you execute the above `bin/bash` command, you may encounter a crash error. Just as the fallowing:
 ```CMD
 $ # try to get inside on a container
 $ docker exec -it <mycontainer> bash
