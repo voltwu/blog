@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Set up a private docker registry on debian 4.6"
+title: "Set up a docker registry on debian 4.6"
 date: 2020-09-10 10:03:01+0800
 categories:
   - Docker
 tags:
   - Container Technique
 navi-enable-docker: true
-navi-name: 'Set up a private docker registry on debian 4.6'
+navi-name: 'Set up a docker registry on debian 4.6'
 navi-order: 'a1-4-2-1'
 toc: true
 toc_label: "TABLE OF CONTENTS"
