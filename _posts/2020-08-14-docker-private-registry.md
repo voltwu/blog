@@ -12,9 +12,9 @@ navi-order: 'a1-4-2'
 toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
-comments: true
+comments: false
 description: As a curious programmer, you may want to build a private, unlimited registry instead of using the docker hub. You can even secure your docker registry, as well as distribute roles. This tutorial is designed from scratch to advance level, so I do hope this tutorial can help you. If you learned anything new, please give me a thumber up.
-excerpt: As a curious programmer, you may want to build a private, unlimited registry instead of using the docker hub. You can even secure your docker registry, as well as distribute roles. This tutorial is designed from scratch to advance level, so I do hope this tutorial can help you. If you learned anything new, please give me a thumber up.
+excerpt: As a curious programmer, you may want to build a private, unlimited registry instead of using the docker hub. You can even secure your docker registry, as well as distribute roles. This tutorial is designed from scratch to advance level, so I do hope this tutorial can help you.
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>
