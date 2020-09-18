@@ -64,6 +64,7 @@ b90413c663ae        registry:2.7            "/entrypoint.sh /etc…"   4 hours a
 # Push/Pull Images 
 You can access your docker registry from either localhost or other address. The way that you access your registry is the same way that you do on the docker hub. If you are don't remember, you can review [Share Your Image On Docker Hub][3] for more syntax details.
 
+**Access from localhost:**
 First, let us access from the localhost. Here, take the example with an `ubuntu` image.
 ```
 $ # pull a ubuntu image from docker hub
@@ -163,6 +164,35 @@ $ ls
 ubuntu
 ```
 The above snippet removed the `my-ubuntu` image from the docker registry. 
+
+As the opposite to inspect your volume details for registry storage location, you can get into a registry container for storage information instead. They both have the same result. At the present, your container is already running up, so use the following command to get inside it.
+```
+$ docker exec -it <mycontainer> /bin/sh
+```
+
+Note, a registry container doesn't have `bash` installed by default, so you should use the `sh` instead. 
+```
+$ docker ps
+CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS              PORTS                    NAMES
+d09c04a74c93        registry:2.7            "/entrypoint.sh /etc…"   3 days ago          Up 3 days           0.0.0.0:5005->5000/tcp   registry
+$ 
+$ docker exec -it d09c04a74c93 /bin/sh
+```
+
+The `/var/lib/registry` path stores the repositories.
+```
+$ docker exec -it d09c04a74c93 /bin/sh
+$ 
+$ # Now, I am in the registry container.
+$ cd /var/lib/registry
+$ ls
+docker
+$ cd docker/registry/v2/repositories/
+$ ls
+ubuntu
+```
+
+If you want to change the default storage location, you might use a bind mount instead. see [Storage Customization][5] for more details.
 
 # Conclusion
 Congratulations! You have learned how to set up a basic docker registry and manage its repositories. As malicious hackers can easily leverage vulnerabilities on an open docker registry, so this is only recommended for the test environment. 
