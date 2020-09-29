@@ -109,6 +109,12 @@ time="2020-09-28T05:49:36.527667014Z" level=fatal msg="open /certs/fullchain.pem
 ```
 This is because that the docker isn't very compatible with dots. Hope docker will fix this bug in the future. You can check whether your docker support dots. But I highly recommended that don't use dots or any other special character in your mounted path.
 
+SSL Checker is a great tool for checking is if a website has an SSL certificate on. If you follow the above steps strictly, then you'll see all green right symbols on the SSL Checker(There should not be any break symbols). Just as the following image.
+<div class="imgcenter" markdown="1">
+![Alt][7]*registry.vigourwu.xyz:5050 protected with SSL*
+</div>
+
+
 Once your Docker registry is running up, you can access your registry with secure connection from other hosts as the following snippet:
 ```
 $ docker pull redis
@@ -121,3 +127,4 @@ $ docker push registry.vigourwu.xyz:5050/redis
 [4]: https://stackoverflow.com/questions/2043617/is-it-possible-to-have-ssl-certificate-for-ip-address-not-domain-name
 [5]: https://your.domain:port
 [6]: /blog/docker/2020/09/10/set-up-a-private-docker-registry-on-debian/
+[7]: /blog/public/img/2020-09-21-secure-your-registry-with-ssl-a.png
