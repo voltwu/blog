@@ -6,6 +6,7 @@ categories:
   - Docker
 tags:
   - Container Technique
+  - Docker-registry
 navi-enable-docker: true
 navi-name: 'Set up a docker registry on debian 4.6'
 navi-order: 'a1-4-2-1'
@@ -13,8 +14,8 @@ toc: true
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: true
-description: 
-excerpt: 
+description: This article will lead you to set up a private registry step by step. It is pretty easy to set a registry up with a public registry image in Docker Hub. At the end of this lesson, you may ask more questions, such as how to secure your registry, how to distribute roles. All those advanced fundamentals I will discuss in the next articles, this one is only focusing on how to running up a registry and manage its repositories.
+excerpt: This article will lead you to set up a private registry step by step. It is pretty easy to set a registry up with a public registry image in Docker Hub. At the end of this lesson, you may ask more questions, such as how to secure your registry, how to distribute roles. All those advanced fundamentals I will discuss in the next articles, this one is only focusing on how to running up a registry and manage its repositories.
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>
