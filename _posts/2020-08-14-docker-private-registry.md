@@ -6,6 +6,7 @@ categories:
   - Docker
 tags:
   - Container Technique
+  - Docker-registry
 navi-enable-docker: true
 navi-name: 'Docker private registry'
 navi-order: 'a1-4-2'
