@@ -101,7 +101,7 @@ $ docker logout registry.vigourwu.xyz:5050/ubuntu
 ```
 
 # Conclusion
-At this point, you know how to set up a password secured registry.  I have mentioned all the details in the process. By the way, in the previous article [Set up a docker registry on debian 4.6][3], we built up a public registry without SSL and password, it should only be used in the testing environment. However, now the registry secured over SSL and password fits for the production environment.
+At this point, you know how to set up a password secured registry.  I have mentioned all the details in the process. By the way, in the previous article [Set up a docker registry on debian 4.6][3], we built up a public registry without SSL and password, it should only be used in the testing environment. However, now our registry secured over SSL and password fits for the production environment.
 
 If you have any questions, please feel free to comments.
 
