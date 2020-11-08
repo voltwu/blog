@@ -45,7 +45,8 @@ Let us get started now!
     {% if post.navi-enable-docker %}
       {% if post.navi-order == "a1-4-2-1" or
             post.navi-order == "a1-4-2-2" or
-            post.navi-order == "a1-4-2-3"
+            post.navi-order == "a1-4-2-3" or 
+            post.navi-order == "a1-4-2-4" 
        %}
                 <li><a href="{{ site.baseurl }}{{ post.url }}" class="item-link">{{post.title}}</a></li>
       {% endif %}
