@@ -58,6 +58,14 @@ $ apt-get install -y apache2-utils
 $ htpasswd -c htpasswd user
 ```
 
+Follow the prompt for the password, and it will save the `user` and its password in the `htpasswd` file(with the `-c` flag to create a new file). If you want to create additional user-password pairs, then omit the `-c` flag because the file already exists.
+
+<blockquote class="quote">
+<p>
+<b>NOTE:</b>
+<p>If you are running Nginx out of the docker image. I highly don't recommend to use bcrypt, because Nginx doesn't support very well on bcrypt password. Since bcrypt is not supported within <code>auth_basic</code> ATM, mysterious 500 errors can be found in nginx <code>error.log</code>, (usually found at <code>/var/log/nginx/error.log</code>). For more information, take a look at <a href="https://stackoverflow.com/questions/31833583/nginx-gives-an-internal-server-error-500-after-i-have-configured-basic-auth">Nginx gives an Internal Server Error 500 after I have configured basic auth</a> </p>
+</p>
+</blockquote>
 
 # Let's start
 Start your registry with a Compose file. If you are unfamiliar with Docker Compose, take a look at [docker compose][3].
