@@ -1,5 +1,5 @@
 # Site Info
-title: A Dream Chaser
+title: David Blog
 tagline: 'An Enthusiastic Programmer'
 description: 'WuXingGuo blog'
 baseurl: "/blog"
@@ -28,7 +28,7 @@ version: 2.0.0
 
 # About/contact
 author:
-  name: A Dream Chaser
+  name: David
   description: A passionate <strong>developer and researcher</strong>, learning to be a giant.
   gravatar: a2590617c567e9568d51e2ded184d225 # md5 hash of your email address
   contact:
