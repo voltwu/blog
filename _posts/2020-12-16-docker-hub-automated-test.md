@@ -15,8 +15,8 @@ toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: true
-description: 
-excerpt: 
+description: Docker Hub enables you to build images from the source code, which needs to pass the tests. When you **configured** automated tests, **the Docker Hub only builds the images when the tests passed**. If an image failed on the tests, then it won't be pushed into your docker hub registry.
+excerpt: Docker Hub enables you to build images from the source code, which needs to pass the tests. When you **configured** automated tests, **the Docker Hub only builds the images when the tests passed**. If an image failed on the tests, then it won't be pushed into your docker hub registry.
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>
