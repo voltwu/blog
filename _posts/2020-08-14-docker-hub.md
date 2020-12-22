@@ -14,8 +14,8 @@ toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: false
-description: 
-excerpt: 
+description: Docker Hub is a free and web hosted repository by Docker. And it is very convenient to find public images and host your images. In this tutorial, I am going to dive into Docker Hub and analyze all its functionalities, which include Basic Usage, Automated build, Automated test, and Webhooks. This tutorial aimed to follow the latest Docker Hub features,  and hence this tutorial will be updated from time to time. 
+excerpt: Docker Hub is a free and web hosted repository by Docker. And it is very convenient to find public images and host your images. In this tutorial, I am going to dive into Docker Hub and analyze all its functionalities, which include Basic Usage, Automated build, Automated test, and Webhooks. This tutorial aimed to follow the latest Docker Hub features,  and hence this tutorial will be updated from time to time. 
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>
