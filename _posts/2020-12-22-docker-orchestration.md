@@ -30,7 +30,7 @@ excerpt: It is time to discuss the docker orchestration now. We have talked a lo
 <a class='navi-link' href="">{{page.navi-name}}</a>
 </div>
 <!--navigation bar-->
-It is time to discuss the docker orchestration now. We have talked a lot about docker right now, and it is time ready for production. Let us think about a scenario that you managed a microservice with tens, hundreds, or thousands of container instances. It is rough to deploy and manage these containers, and even it is impossible by manually. Here, the orchestration comes into play, with orchestration all of these becomes easier and convenient. Orchestration offers you a reliable way to deploy, scale, network, volume and manage, etc.
+It is time to discuss the docker orchestration now. We have talked a lot about docker, and it is time ready for production. Let us think about a scenario that you managed a microservice with tens, hundreds, or thousands of container instances. It is rough to deploy and manage these containers, and even it is impossible by manually. And hence, the orchestration comes into play, with orchestration all of these becomes easier and convenient. Orchestration offers you a reliable way to deploy, scale, network, volume and manage, etc.
 
 At present, the most popular orchestration for containerization is [Kubernetes][2], which is provided by Google. Docker also gives its own orchestration, which is [Docker Swarm][3]. Kubernetes is more complex, features, and hard to learn than Docker Swarm. If you want to get to know more about Kubernetes, you can take a look at [Learn Kubernetes Basics][1].
 
