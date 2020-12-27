@@ -15,8 +15,8 @@ toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: false
-description: test
-excerpt: test
+description: Jenkins is used for automated continuous integration and continuous deployment. And it is an open-source continuous integration in support of DevOps. In Jenkins, you can set up an automated CI/CD process in a stable, convenient, and fast way.
+excerpt: Jenkins is used for automated continuous integration and continuous deployment. And it is an open-source continuous integration in support of DevOps. In Jenkins, you can set up an automated CI/CD process in a stable, convenient, and fast way.
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>

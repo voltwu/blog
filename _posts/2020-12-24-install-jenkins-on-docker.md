@@ -15,8 +15,8 @@ toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: true
-description: test
-excerpt: test
+description: Generally, Jenkins provides two major releases, weekly and lts. Weekly, as the name says, new releases are produced weekly to deliver bug fixes and features to users and plugin developers. lts, every 12 weeks from the stream of regular releases as the stable release for that time period.
+excerpt: Generally, Jenkins provides two major releases, weekly and lts. weekly, as the name says, new releases are produced weekly to deliver bug fixes and features to users and plugin developers. lts, every 12 weeks from the stream of regular releases as the stable release for that time period.
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>
