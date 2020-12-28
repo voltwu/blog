@@ -39,14 +39,11 @@ Let us dive into Jenkins's journey!
   {% assign posts =site.posts | sort: 'navi-order' %}
   {% for post in posts %}
     {% if post.navi-enable-jenkins %}
-      {% if post.navi-order == "a1-1" or
-            post.navi-order == "a1-2" or 
-            post.navi-order == "a1-3" or 
-            post.navi-order == "a1-4" or 
-            post.navi-order == "a1-5" or 
-            post.navi-order == "a1-6" or 
-            post.navi-order == "a1-7" or
-            post.navi-order == "a1-8" %}
+      {% assign splitorder = page.navi-order | append: "-" %}
+      {% assign splitnum = post.navi-order | split: splitorder %}
+      {% assign stagesnumber = splitnum | split: "-" | size %}
+      {% assign beginstagesnumber = splitnum | split: "a" | size %}
+      {% if stagesnumber == 1 and beginstagesnumber == 1 %}
                 <li><a href="{{ site.baseurl }}{{ post.url }}" class="item-link">{{post.title}}</a></li>
       {% endif %}
     {% endif %}

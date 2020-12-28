@@ -10,7 +10,7 @@ tags:
   - DevOps
 navi-enable-jenkins: true
 navi-name: 'Install Jenkins Using Docker'
-navi-order: a1-1
+navi-order: a1-1-1
 toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
@@ -23,7 +23,8 @@ excerpt: Generally, Jenkins provides two major releases, weekly and lts. weekly,
   {% assign posts = site.posts|sort:'navi-order' %}
   {% for post in posts %}
     {% if post.navi-enable-jenkins %}
-        {% if post.navi-order == "a1"%}
+        {% assign number = page.navi-order | split: post.navi-order | size %}
+        {% if number == 2 %}
             <a href="{{ site.baseurl }}{{ post.url }}" class='navi-link'>{{post.navi-name}}</a>
         {%endif%}
     {% endif %}
