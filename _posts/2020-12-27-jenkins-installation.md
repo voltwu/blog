@@ -15,8 +15,8 @@ toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: false
-description: 
-excerpt: 
+description: According to the official document, Jenkins supports many installation ways.  You can install Jenkins on Linux, Windows, or mac. Take a look at the official document for more details. This tutorial collects some common issues during installation, also contains comprehensive installation guilds and details that everything you matter. Please be free to leave comments if you have any questions or advice.
+excerpt: According to the official document, Jenkins supports many installation ways.  You can install Jenkins on Linux, Windows, or mac. Take a look at the official document for more details. This tutorial collects some common issues during installation, also contains comprehensive installation guilds and details that everything you matter. Please be free to leave comments if you have any questions or advice.
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>
@@ -32,7 +32,12 @@ excerpt:
 <a class='navi-link' href="">{{page.navi-name}}</a>
 </div>
 <!--navigation bar-->
+According to the official document, Jenkins supports many installation ways.  You can install Jenkins on Linux, Windows, or mac. Take a look at the official document for more details. This tutorial collects some common issues during installation, also contains comprehensive installation guilds and details that everything you matter. Please be free to leave comments if you have any questions or advice.
 
+<blockquote>
+<b>NOTE:</b>
+You can install Jenkins through Docker, it is very convenient and fast. However, If your CI/CD pipeline needs to utilize the original operating system resources, it will be difficult(such as run installed software in bash command). If you only matter the CI process, then Docker will be okay for you, because Jenkins has provided abundant plugins now. However, if you also matter the CD process, usually you need to manipulate the server, and it will be more difficult when using Docker. So, use Docker or not, it all depends on you.
+</blockquote>
 
 <!--items-->
 <div>
