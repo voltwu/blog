@@ -105,7 +105,7 @@ docker run  \
 <red-bold>--net host</red-bold>   \
 jenkins/jenkins:lts
 </pre>
-The <red-bold>host</red-bold> network mode instructs docker daemon to use your host's network. So you <b>don't</b> need to specify the <b>ports mapping</b> anymore(beacuase it directly runs on your host's network). Once your Jenkins is running up,  access your Jenkins on the browser at [server_ip:port][2].
+The <red-bold>host</red-bold> network mode instructs docker daemon to use your host's network. So you <b>don't</b> need to specify the <b>ports mapping</b> anymore(beacuase it directly runs on your host's network). Once your Jenkins is running up,  access your Jenkins on the browser at [server_ip:8080][2], the default port is `8080`.
 
 You will see someting like this for setup wizard.
 <div class="imgcenter" markdown="1">
@@ -130,7 +130,7 @@ $ docker exec &lt;containerid&gt; cat /var/jenkins_home/secrets/initialAdminPass
 Now, a Jenkins instance is fully set up. And in the next articles, I will discuss how to use the Jenkins dashboard.
 
 [1]: https://github.com/jenkinsci/docker
-[2]: http://server_ip:port
+[2]: http://server_ip:8080
 [3]: /blog/public/img/2020-12-24-install-jenkins-on-docker-a.png
 [4]: /blog/public/img/2020-12-24-install-jenkins-on-docker-b.png
 [5]: /blog/public/img/2020-12-24-install-jenkins-on-docker-c.png
