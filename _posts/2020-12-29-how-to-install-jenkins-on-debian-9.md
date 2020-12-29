@@ -120,7 +120,7 @@ Opens [server_ip:8080][2] at your browser, the default port is `8080`, and you c
 </div>
 Check initual admin password.
 ```
-$ cat /var/bin/jenkins/secrets/initialAdminPassword
+$ cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 Copy the passord and paste it at *administrator password*, then click *Continue*.
 
