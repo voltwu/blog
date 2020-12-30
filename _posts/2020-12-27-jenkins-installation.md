@@ -36,7 +36,7 @@ According to the official document, Jenkins supports many installation ways.  Yo
 
 <blockquote>
 <b>NOTE:</b>
-You can install Jenkins through Docker, it is very convenient and fast. However, If your CI/CD pipeline needs to utilize the original operating system resources, it will be difficult(such as run installed software in bash command). If you only matter the CI process, then Docker will be okay for you, because Jenkins has provided abundant plugins now. However, if you also matter the CD process, usually you need to manipulate the server, and it will be more difficult when using Docker. So, use Docker or not, it all depends on you.
+You can install Jenkins through Docker, it is very convenient and fast. However, If your CI/CD pipeline needs to utilize the original operating system resources, it will be difficult(such as run installed software in bash command). If you only matter the CI process, then Docker will be okay for you, because Jenkins has provided abundant plugins now. However, if you also matter the CD process, usually you need to manipulate the server, and it will be difficult when using Docker. So, use Docker or not, it all depends on you.
 </blockquote>
 
 <!--items-->
