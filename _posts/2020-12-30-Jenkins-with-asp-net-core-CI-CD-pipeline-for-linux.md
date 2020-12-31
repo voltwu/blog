@@ -34,8 +34,13 @@ excerpt: guild you to set up a CI and CD workflow pipeline step by step
 </div>
 <!--navigation bar-->
 
-In this tutorial, I will guild you to set up a CI and CD workflow pipeline step by step. 
+In this tutorial, I will guild you to set up a CI and CD workflow pipeline step by step. I use this GitHub repository [https://github.com/voltwu/Jenkins-.NET-Core-CI-CD-pipeline][17] to demonstrate this example, which has two branches, `main` and `dev`.
 
+<div class="imgcenter" markdown="1">
+![Alt][18]*Example repository*
+</div>
+
+The purpose of this article:
 <div class="imgcenter" markdown="1">
 ![Alt][1]*Jenkins pipeline architecture*
 </div>
@@ -175,7 +180,7 @@ Push somes codes into repository and take a look at stages.
 ![Alt][15]*Jenkins notify as pipeline code*
 </div>
 
-Enjoy your Jenkins.
+Now, you have an entire workflow pipeline set up. Let's enjoy your Jenkins. If you have any questions or doubts, please feel free to leave comments below.
 
 [1]: /blog/public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-a.png
 [2]: /blog/jenkins/2020/12/27/jenkins-installation/
@@ -193,3 +198,5 @@ Enjoy your Jenkins.
 [14]: /blog/public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-j.png
 [15]: /blog/public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-k.png
 [16]: https://stackoverflow.com/questions/42062481/how-to-trigger-a-jenkins-multibranch-pipeline-when-code-change-is-pushed-to-gith?noredirect=1&lq=1
+[17]: https://github.com/voltwu/Jenkins-.NET-Core-CI-CD-pipeline/tree/dev
+[18]: /blog/public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-l.png
