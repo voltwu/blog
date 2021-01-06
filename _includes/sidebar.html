@@ -34,8 +34,8 @@
       </div>
       <div class="sidebar-personal-info-section" id="lightchanger">
         <p>
-          <input type="radio" name="changer" v-on:click="sunclick" value="sun" :checked="checked()"> <i class="fa fa-sun-o"></i> &nbsp;&nbsp;
-          <input type="radio" name="changer" value="night" v-on:click="nightclick()" :checked="!checked()"> <i class="fa fa-moon-o"></i>
+          <input type="radio" name="changer" v-on:click="sunclick" value="sun" :checked="!checked()"> <i class="fa fa-sun-o"></i> &nbsp;&nbsp;
+          <input type="radio" name="changer" value="night" v-on:click="nightclick()" :checked="checked()"> <i class="fa fa-moon-o"></i>
         </p>
       </div>
       <script>
@@ -43,12 +43,14 @@
           el: '#lightchanger',
           data: {
             checked: function(event){
-              var isIfSun = localStorage.getItem("issun") == "true";
-              if(!isIfSun)
+              var isIfNight = localStorage.getItem("issun") == "false";
+              if(!isIfNight)
               {
+                document.getElementsByTagName("body")[0].onload = loadSunStyle;
+              }else{
                 document.getElementsByTagName("body")[0].onload = loadNightStyle;
               }
-              return isIfSun;
+              return isIfNight;
             }
           },
           methods: {
@@ -102,7 +104,7 @@
             e.style.borderLeftColor="#e5e5e5";
           });
           document.querySelectorAll("h2.darkstripe").forEach(function(e,i){
-            e.style.background="#1f1f1f";
+            e.style.background="#DDDDDD";
           });
         }
 
