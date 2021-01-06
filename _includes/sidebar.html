@@ -43,12 +43,12 @@
           el: '#lightchanger',
           data: {
             checked: function(event){
-              var isIfNight = localStorage.getItem("issun") == "false";
-              if(!isIfNight)
+              var isIfSun = localStorage.getItem("issun") == "true";
+              if(!isIfSun)
               {
-                document.getElementsByTagName("body")[0].onload = loadSunStyle;
+                document.getElementsByTagName("body")[0].onload = loadNightStyle;
               }
-              return isIfNight;
+              return isIfSun;
             }
           },
           methods: {
