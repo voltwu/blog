@@ -13,7 +13,7 @@ navi-order: 'a1-9-2-1'
 toc: true
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
-comments: false
+comments: true
 description: The Microsoft Build Engine(aka. MSBuild) is a platform for building applications. You can define an XML file, which guilds how the MSBuild behavior. The Visual Studio uses MSBuild to achieve the building process. However, the MSBuild doesn't depend on Visual Studio, and hence you can invoke the MSBuild.exe without Visual Studio IDE installed. MSTest is a command-line command to run tests. Web Deploy (aka. msdeploy) is a command-line executable tool created by Microsoft, which simplifies the deployment of Web applications and Web sites to IIS servers.
 excerpt: The Microsoft Build Engine(aka. MSBuild) is a platform for building applications. You can define an XML file, which guilds how the MSBuild behavior. The Visual Studio uses MSBuild to achieve the building process. However, the MSBuild doesn't depend on Visual Studio, and hence you can invoke the MSBuild.exe without Visual Studio IDE installed. MSTest is a command-line command to run tests. Web Deploy (aka. msdeploy) is a command-line executable tool created by Microsoft, which simplifies the deployment of Web applications and Web sites to IIS servers.
 ---
