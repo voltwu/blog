@@ -118,6 +118,6 @@ With `http.server` module, the programmer can build a web server quickly. a lot 
 
 Okay, everything is settled up. Today is the first working day after the  7-day national holiday. Have a nice day at work!
 
-[1]: /blog/public/img/2019-10-08-Running-A-CGI-Web-Server-With-http-server-Module-cgi-diagram.png
-[2]: /blog/public/img/2019-10-08-Running-A-CGI-Web-Server-With-http-server-Module-a.png
+[1]: /public/img/2019-10-08-Running-A-CGI-Web-Server-With-http-server-Module-cgi-diagram.png
+[2]: /public/img/2019-10-08-Running-A-CGI-Web-Server-With-http-server-Module-a.png
 [3]: https://docs.python.org/3/library/http.server.html

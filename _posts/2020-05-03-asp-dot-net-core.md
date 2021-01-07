@@ -91,11 +91,11 @@ The above code creates a MVC Project, However, there are two project examples, o
 [1]: https://github.com/dotnet/aspnetcore
 [2]: https://docs.microsoft.com/en-us/dotnet/standard/net-standard
 [3]: https://docs.microsoft.com/en-us/dotnet/core/install/sdk?pivots=os-windows
-[4]: /blog/public/img/2020-05-03-asp-dot-net-core-a.png
-[5]: /blog/public/img/2020-05-03-asp-dot-net-core-b.png
-[6]: /blog/public/img/2020-05-03-asp-dot-net-core-c.png
-[7]: /blog/public/img/2020-05-03-asp-dot-net-core-d.png
-[8]: /blog/public/img/2020-05-03-asp-dot-net-core-e.png
-[9]: /blog/public/img/2020-05-03-asp-dot-net-core-f.png
+[4]: /public/img/2020-05-03-asp-dot-net-core-a.png
+[5]: /public/img/2020-05-03-asp-dot-net-core-b.png
+[6]: /public/img/2020-05-03-asp-dot-net-core-c.png
+[7]: /public/img/2020-05-03-asp-dot-net-core-d.png
+[8]: /public/img/2020-05-03-asp-dot-net-core-e.png
+[9]: /public/img/2020-05-03-asp-dot-net-core-f.png
 [10]: https://github.com/voltwu/C-Sharp-Web-Net-Core-MVC-BookListMVC
 [11]: https://github.com/voltwu/C-Sharp-Web-Net-Core-MVC-BookListMVC

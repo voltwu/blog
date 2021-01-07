@@ -51,5 +51,5 @@ According to the preceding articles, you have known that what is docker registry
 </div>
 <!--items-->
 
-[1]: /blog/docker/2020/07/08/getting-started/
-[2]: /blog/docker/2020/07/08/share-your-image-on-docker-hub/
+[1]: /docker/2020/07/08/getting-started/
+[2]: /docker/2020/07/08/share-your-image-on-docker-hub/

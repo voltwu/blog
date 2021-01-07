@@ -80,4 +80,4 @@ Now your Image is on Docker Hub available. You can pull your image back in many 
 
 
 [1]: https://hub.docker.com/signup
-[2]: /blog/public/img/2020-07-10-share-your-image-on-docker-hub-a.png
+[2]: /public/img/2020-07-10-share-your-image-on-docker-hub-a.png

@@ -125,7 +125,7 @@ Because we can get IServiceProvider from IServiceCollection, and IServiceCollect
 
 
 
-[1]: /blog/public/img/2020-05-12-understanding-built-in-ioc-container-a.png
+[1]: /public/img/2020-05-12-understanding-built-in-ioc-container-a.png
 [2]: https://source.dot.net/#Microsoft.Extensions.DependencyInjection/ServiceProvider.cs
 [3]: https://source.dot.net/#Microsoft.Extensions.DependencyInjection/ServiceCollection.cs,beaaadffb389924e
 [4]: https://github.com/voltwu/C-Sharp-Console-Application-NET-CORE-Built-In-Dependency-Injection-Example

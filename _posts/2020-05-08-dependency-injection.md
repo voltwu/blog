@@ -169,8 +169,8 @@ public class HomeController : Controller
 
 
 [1]: https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1#default-service-container-replacement
-[2]: /blog/public/img/2020-05-08-dependency-injection-a.png
+[2]: /public/img/2020-05-08-dependency-injection-a.png
 [3]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor?f1url=https%3A%2F%2Fmsdn.microsoft.com%2Fquery%2Fdev16.query%3FappId%3DDev16IDEF1%26l%3DEN-US%26k%3Dk(Microsoft.Extensions.DependencyInjection.ServiceDescriptor);k(DevLang-csharp)%26rd%3Dtrue&view=dotnet-plat-ext-3.1
-[4]: /blog/public/img/2020-05-08-dependency-injection-b.png
-[5]: /blog/public/img/2020-05-08-dependency-injection-c.png
-[6]: /blog/public/img/2020-05-08-dependency-injection-d.png
+[4]: /public/img/2020-05-08-dependency-injection-b.png
+[5]: /public/img/2020-05-08-dependency-injection-c.png
+[6]: /public/img/2020-05-08-dependency-injection-d.png

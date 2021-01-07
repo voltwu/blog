@@ -164,7 +164,7 @@ public partial class Classroom
 ```
 Here it is the **DataAnnotation** now!
 
-[1]: /blog/public/img/2020-04-26-From-Existing-Database-a.png
-[2]: /blog/public/img/2020-04-26-From-Existing-Database-b.png
+[1]: /public/img/2020-04-26-From-Existing-Database-a.png
+[2]: /public/img/2020-04-26-From-Existing-Database-b.png
 
 

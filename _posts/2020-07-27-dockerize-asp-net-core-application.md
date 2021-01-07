@@ -58,4 +58,4 @@ I hope this helped you, if you have any questions, please be free to comment.
 
 [1]: https://en.wikipedia.org/wiki/Load_balancing_(computing)
 [2]: https://en.wikipedia.org/wiki/Microservices
-[3]: /blog/csharp-asp.net%20core/2020/07/13/docker/
+[3]: /csharp-asp.net%20core/2020/07/13/docker/

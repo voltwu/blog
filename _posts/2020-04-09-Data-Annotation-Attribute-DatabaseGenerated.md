@@ -144,6 +144,6 @@ last_modify_time:2020/4/9 22:58:52
 ```
 
 
-[1]: /blog/public/img/2020-04-09-Data-Annotation-Attribute-DatabaseGenerated-a.png
+[1]: /public/img/2020-04-09-Data-Annotation-Attribute-DatabaseGenerated-a.png
 [2]: https://docs.microsoft.com/en-us/ef/core/modeling/generated-properties?tabs=data-annotations
 [3]: https://docs.microsoft.com/en-us/ef/core/modeling/generated-properties?tabs=data-annotations#value-generated-on-add

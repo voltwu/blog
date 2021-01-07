@@ -56,4 +56,4 @@ This article aims to take cover a comprehensive deployment process through the c
 </div>
 <!--item-->
 
-[1]: /blog/jenkins/2020/12/23/jenkins-tutorial/
+[1]: /jenkins/2020/12/23/jenkins-tutorial/

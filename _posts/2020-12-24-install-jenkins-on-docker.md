@@ -131,7 +131,7 @@ Now, a Jenkins instance is fully set up. And in the next articles, I will discus
 
 [1]: https://github.com/jenkinsci/docker
 [2]: http://server_ip:8080
-[3]: /blog/public/img/2020-12-24-install-jenkins-on-docker-a.png
-[4]: /blog/public/img/2020-12-24-install-jenkins-on-docker-b.png
-[5]: /blog/public/img/2020-12-24-install-jenkins-on-docker-c.png
-[6]: /blog/public/img/2020-12-24-install-jenkins-on-docker-e.png
+[3]: /public/img/2020-12-24-install-jenkins-on-docker-a.png
+[4]: /public/img/2020-12-24-install-jenkins-on-docker-b.png
+[5]: /public/img/2020-12-24-install-jenkins-on-docker-c.png
+[6]: /public/img/2020-12-24-install-jenkins-on-docker-e.png

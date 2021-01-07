@@ -126,6 +126,6 @@ $ docker push registry.vigourwu.xyz:5050/redis
 [2]: https://www.sslforfree.com/
 [4]: https://stackoverflow.com/questions/2043617/is-it-possible-to-have-ssl-certificate-for-ip-address-not-domain-name
 [5]: https://your.domain:port
-[6]: /blog/docker/2020/09/10/set-up-a-private-docker-registry-on-debian/
-[7]: /blog/public/img/2020-09-21-secure-your-registry-with-ssl-a.png
+[6]: /docker/2020/09/10/set-up-a-private-docker-registry-on-debian/
+[7]: /public/img/2020-09-21-secure-your-registry-with-ssl-a.png
 [8]: https://www.sslshopper.com/ssl-checker.html

@@ -61,7 +61,7 @@ You can build multiple application types on .NET Core. such as Desktop, Web, Mob
 Compatibility with .NET Framework by using [.NET started][3].
 
 
-[1]: /blog/public/img/2020-04-28-dot-net-core-a.png
-[2]: /blog/public/img/2020-04-28-dot-net-core-b.webp
+[1]: /public/img/2020-04-28-dot-net-core-a.png
+[2]: /public/img/2020-04-28-dot-net-core-b.webp
 [3]: https://docs.microsoft.com/en-us/dotnet/standard/net-standard
 [4]: https://source.dot.net/

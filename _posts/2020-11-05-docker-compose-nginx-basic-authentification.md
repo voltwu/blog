@@ -261,7 +261,7 @@ I have summed them up in the following order.
 if you have any questions or suggestions, please be free to leave comments.
 
 [1]: https://docs.docker.com/compose/
-[2]: /blog/docker/2020/09/21/secure-your-registry-with-ssl/
+[2]: /docker/2020/09/21/secure-your-registry-with-ssl/
 [3]: https://www.digitalocean.com/community/questions/ubuntu-ufw-firewall-not-working-at-all
 [4]: https://stackoverflow.com/questions/49549834/ufw-firewall-is-not-working-on-ubuntu-in-digitalocean/49563279#49563279
 [5]: https://wiki.ubuntu.com/UncomplicatedFirewall

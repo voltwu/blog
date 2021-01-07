@@ -192,5 +192,5 @@ According to the [preceding article][1] and this article, we have studied how to
 [2]: https://github.com/voltwu/C-Sharp-Web-Net-Core-authentication-and-authorization
 [3]: https://voltwu.github.io/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/
 [4]: https://voltwu.github.io/blog/csharp-asp.net%20core/2020/06/08/authentication-and-authorization-basics/#deploy-authentication-settings
-[5]: /blog/public/img/2020-06-09-aspnetcore-identity-a.png
+[5]: /public/img/2020-06-09-aspnetcore-identity-a.png
 [6]: https://voltwu.github.io/blog/csharp-asp.net%20core/2020/06/08/authentication-and-authorization-basics/#log-in

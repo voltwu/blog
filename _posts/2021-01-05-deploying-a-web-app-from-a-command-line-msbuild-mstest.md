@@ -159,7 +159,7 @@ The `-dest:contentPath='WebApplication'` informs `msdeploy.exe` deploy to the `W
 In this article, we have discussed how to build, test, and deploy on the Windows platform. The `MSBuild` and `MSDeploy` are both independent tools. However, It is hard to set up an `MSTest` without Visual Studio installed(you need to configure many dependencies), and also `MSTest` is less compatible in the Windows CLI environment. You really should consider for testing using `dotnet test` or `vstest.console.exe` instead.
 
 
-[1]: /blog/public/img/2021-01-05-deploying-a-web-app-from-a-command-line-msbuild-mstest-a.png
+[1]: /public/img/2021-01-05-deploying-a-web-app-from-a-command-line-msbuild-mstest-a.png
 [2]: https://stackoverflow.com/questions/25506178/getting-msbuild-exe-without-installing-visual-studio
 [3]: https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild
 [4]: https://stackoverflow.com/questions/3402899/can-i-use-mstest-exe-without-installing-visual-studio

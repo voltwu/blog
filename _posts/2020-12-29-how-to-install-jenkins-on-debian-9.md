@@ -137,7 +137,7 @@ Copy the passord and paste it at *administrator password*, then click *Continue*
 </div>
 
 [2]: http://server_ip:8080
-[3]: /blog/public/img/2020-12-29-how-to-install-jenkins-on-debian-9-a.png
-[4]: /blog/public/img/2020-12-29-how-to-install-jenkins-on-debian-9-b.png
-[5]: /blog/public/img/2020-12-29-how-to-install-jenkins-on-debian-9-c.png
-[6]: /blog/public/img/2020-12-29-how-to-install-jenkins-on-debian-9-d.png
+[3]: /public/img/2020-12-29-how-to-install-jenkins-on-debian-9-a.png
+[4]: /public/img/2020-12-29-how-to-install-jenkins-on-debian-9-b.png
+[5]: /public/img/2020-12-29-how-to-install-jenkins-on-debian-9-c.png
+[6]: /public/img/2020-12-29-how-to-install-jenkins-on-debian-9-d.png

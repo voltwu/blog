@@ -261,11 +261,11 @@ The above code illustrates a simple code that illustrates how to use authorizati
 
 Thanks for reading, if you have any questions, please be free to leave comments at bellow.
 
-[1]: /blog/csharp-asp.net%20core/2020/06/15/role-based-authorization/#policy-based-role-checks
+[1]: /csharp-asp.net%20core/2020/06/15/role-based-authorization/#policy-based-role-checks
 [2]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationservice?view=aspnetcore-3.1
 [3]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authorization.IAuthorizationRequirement?view=aspnetcore-3.1
 [4]: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-3.1
-[5]: /blog/public/img/2020-06-18-policy-based-authorization-a.png
+[5]: /public/img/2020-06-18-policy-based-authorization-a.png
 [6]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authorization.IAuthorizationHandler?view=aspnetcore-3.1
 [7]: https://github.com/voltwu/C-Sharp-Web-Net-Core-authentication-and-authorization
 [8]: https://github.com/voltwu/C-Sharp-Web-Net-Core-authentication-and-authorization/

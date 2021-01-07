@@ -199,4 +199,4 @@ $ docker exec -ti <mycontainer> ls /etc
 
 
 
-[1]: /blog/docker/2020/07/08/build-and-run-your-image
+[1]: /docker/2020/07/08/build-and-run-your-image

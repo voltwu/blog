@@ -101,7 +101,7 @@ Through this tutorial, you've learned how to deploy NET CORE Console in Docker. 
 
 
 [1]: https://dotnet.microsoft.com/download
-[2]: /blog/docker/2020/07/08/docker-tutorial/
+[2]: /docker/2020/07/08/docker-tutorial/
 [3]: https://docs.microsoft.com/en-us/visualstudio/containers/container-build?view=vs-2019
 [4]: https://docs.docker.com/develop/develop-images/multistage-build/
 [5]: https://docs.microsoft.com/en-us/dotnet/core/
