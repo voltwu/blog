@@ -65,8 +65,8 @@ google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google a
 disqus_short_name: 'https-github-com-voltwu-blog' # leave blank if you don't want disqus
 
 category_links: 
-  - { 'CSharp-EF', '/blog/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/' }
+  - { 'CSharp-EF', '/csharp-ef/2020/02/28/Entitiy-Framework-Tutorial/' }
   - { 'CSharp-ASP.NET Core', '/blog/csharp-asp.net core/2020/04/27/asp-dot-net-core-tutorial/' }
-  - { 'Docker', '/blog/docker/2020/07/08/docker-tutorial/'}
-  - { 'Jenkins', '/blog/jenkins/2020/12/23/jenkins-tutorial/'}
+  - { 'Docker', '/docker/2020/07/08/docker-tutorial/'}
+  - { 'Jenkins', '/jenkins/2020/12/23/jenkins-tutorial/'}
   
