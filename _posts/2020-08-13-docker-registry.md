@@ -41,7 +41,8 @@ According to the preceding articles, you have known that what is docker registry
   {% for post in posts %}
     {% if post.navi-enable-docker %}
       {% if post.navi-order == "a1-4-1" or
-            post.navi-order == "a1-4-2"
+            post.navi-order == "a1-4-2" or
+            post.navi-order == "a1-4-3"
        %}
                 <li><a href="{{ site.baseurl }}{{ post.url }}" class="item-link">{{post.title}}</a></li>
       {% endif %}
