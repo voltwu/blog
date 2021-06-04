@@ -2,8 +2,8 @@
 title: David Blog
 tagline: 'An Enthusiastic Programmer'
 description: 'WuXingGuo blog'
-baseurl: ""
-url: https://voltwu.github.io/blog/
+baseurl: "blog"
+url: https://voltwu.github.io
 logo: '/public/logo.png'
 timezone: Asia/Shanghai
 
