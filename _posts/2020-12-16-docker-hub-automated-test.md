@@ -116,5 +116,5 @@ done
 I hope I made this article clear, and if there was something not clear, please be free to leave it in the comments.
 
 [1]: https://voltwu.github.io/blog/docker/2020/12/15/docker-hub-automated-build
-[2]: /public/img/2020-12-16-docker-hub-automated-test-a.png
+[2]: /blog/public/img/2020-12-16-docker-hub-automated-test-a.png
 [3]: https://github.com/voltwu/docker-hub-CI-CD-explanation/

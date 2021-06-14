@@ -62,11 +62,11 @@ Docker CLI doesn't manage containers and other underlying resources directly. Do
 ![Alt][5]*Docker architecture, come from [docker.com][6]*
 </div>
 
-[1]: /public/img/2020-07-08-getting-started-a.png
+[1]: /blog/public/img/2020-07-08-getting-started-a.png
 [2]: https://docs.docker.com/get-started/overview/#the-docker-daemon
-[3]: /public/img/2020-07-08-getting-started-b.png
+[3]: /blog/public/img/2020-07-08-getting-started-b.png
 [4]: https://en.wikipedia.org/wiki/Command-line_interface
-[5]: /public/img/2020-07-08-getting-started-c.svg
+[5]: /blog/public/img/2020-07-08-getting-started-c.svg
 [6]: https://docs.docker.com/get-started/overview/#docker-architecture
 [7]: http://www.docker.com/
 [8]: https://en.wikipedia.org/wiki/Go_(programming_language)

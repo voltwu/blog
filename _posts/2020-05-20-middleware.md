@@ -171,7 +171,7 @@ Looking for entire built-in middlewares, see [here][4].
 
 Here is the end of this article, we learned the concept of middleware and usage of middleware if you have any questions leave a message below. 
 
-[1]: /public/img/2020-05-20-middleware-a.png
-[2]: /public/img/2020-05-20-middleware-b.png
-[3]: /public/img/2020-05-20-middleware-c.png
+[1]: /blog/public/img/2020-05-20-middleware-a.png
+[2]: /blog/public/img/2020-05-20-middleware-b.png
+[3]: /blog/public/img/2020-05-20-middleware-c.png
 [4]: https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-3.1#built-in-middleware

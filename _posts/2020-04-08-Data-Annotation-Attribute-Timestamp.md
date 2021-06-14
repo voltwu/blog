@@ -108,5 +108,5 @@ As we can see from the raw SQLs. Each **update** or **insert** command has a **s
 The EntityFrameworkCore also will automatically apply the ***token*** check when the **update** occurred on tables that have a **timestamp** column applied. Just as the above illustration.
 
 
-[1]: /public/img/2020-04-08-Data-Annotation-Attribute-Timestamp-a.png
+[1]: /blog/public/img/2020-04-08-Data-Annotation-Attribute-Timestamp-a.png
 

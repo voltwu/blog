@@ -178,11 +178,11 @@ The Configure method is a place where you can configure your pipeline by adding 
 
 This is the end of the article. In this article, we have learned the basic web structure. In the next articles, I am going dig into it.
 
-[1]: /public/img/2020-05-06-project-structure-a.png
-[2]: /public/img/2020-05-06-project-structure-b.png
-[3]: /public/img/2020-05-06-project-structure-c.png
-[4]: /public/img/2020-05-06-project-structure-d.png
+[1]: /blog/public/img/2020-05-06-project-structure-a.png
+[2]: /blog/public/img/2020-05-06-project-structure-b.png
+[3]: /blog/public/img/2020-05-06-project-structure-c.png
+[4]: /blog/public/img/2020-05-06-project-structure-d.png
 [5]: https://github.com/dotnet/runtime
-[6]: /public/img/2020-05-06-project-structure-e.png
+[6]: /blog/public/img/2020-05-06-project-structure-e.png
 
 

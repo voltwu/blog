@@ -60,8 +60,8 @@ If you want to compose a multi-container solution, then select the **Container O
 
 You can add multiple projects into a single docker-compose. When you add a new project into a docker-compose, then the docker-compose will reference that project's Dockerfile into the *docker-compose.yml* file. When you launch the docker-compose, all the related Dockerfile will be launched at the same time.
 
-[1]: /public/img/2020-07-20-enable-docker-support-on-visual-studio-a.png
-[2]: /public/img/2020-07-20-enable-docker-support-on-visual-studio-b.png
+[1]: /blog/public/img/2020-07-20-enable-docker-support-on-visual-studio-a.png
+[2]: /blog/public/img/2020-07-20-enable-docker-support-on-visual-studio-b.png
 [3]: /csharp-asp.net%20core/2020/07/13/warm-up-build-asp-net-core-console-docker-app/
 [4]: https://docs.microsoft.com/en-us/visualstudio/containers/overview?view=vs-2019
-[5]: /public/img/2020-07-20-enable-docker-support-on-visual-studio-c.png
+[5]: /blog/public/img/2020-07-20-enable-docker-support-on-visual-studio-c.png

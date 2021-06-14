@@ -80,7 +80,7 @@ Open your docker hub dashboard, navigate to *webhooks*.
 
 This article discussed the Docker Hub webhook and according to the previous two articles [Docker Hub Automated Builds][7] and [Docker Hub Automated Tests][8]. We built up a comprehensive, automated deployment system. Hope you can enjoy this, if you have any questions or advisements, please be free to comments at [DISQUS][9] in the below.
 
-[1]: /public/img/2020-12-20-docker-hub-webhooks-a.png
+[1]: /blog/public/img/2020-12-20-docker-hub-webhooks-a.png
 [2]: https://webhook.site/
 [3]: https://github.com/voltwu/docker-hub-webhook
 [4]: https://github.com/Praisebetoscience/dockerhub-webhook

@@ -206,8 +206,8 @@ You had learned how to run a basic EF Core program.I had put those code in Githu
 
 [1]:https://docs.microsoft.com/en-us/ef/efcore-and-ef6/index
 [2]:https://docs.microsoft.com/en-us/ef/core/providers/index?tabs=vs
-[3]:/blog/public/img/2020-02-25-Tutorial-Explore-EF-Core-Console-Application-a.png
-[4]:/blog/public/img/2020-02-25-Tutorial-Explore-EF-Core-Console-Application-b.png
+[3]:/blog/blog/public/img/2020-02-25-Tutorial-Explore-EF-Core-Console-Application-a.png
+[4]:/blog/blog/public/img/2020-02-25-Tutorial-Explore-EF-Core-Console-Application-b.png
 [5]:https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?redirectedfrom=MSDN&view=netframework-4.8
-[6]:/blog/public/img/2020-02-25-Tutorial-Explore-EF-Core-Console-Application-c.png
+[6]:/blog/blog/public/img/2020-02-25-Tutorial-Explore-EF-Core-Console-Application-c.png
 [7]:https://github.com/voltwu/C-Sharp-Console-Application-EF-Core-Example/tree/b1e4c8a75245f4bd569b8c0b7cca586523db96f4

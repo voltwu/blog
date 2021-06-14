@@ -64,5 +64,5 @@ pubic class Student{
 we placed the `NotMapped` attribute above the `Student` Entity. the `Student` will not map to a table.
 ![Alt][2]
 
-[1]:/blog/public/img/2020-04-07-Data-Annotation-Attribute-Notmapped-a.png
-[2]:/blog/public/img/2020-04-07-Data-Annotation-Attribute-Notmapped-b.png
+[1]:/blog/blog/public/img/2020-04-07-Data-Annotation-Attribute-Notmapped-a.png
+[2]:/blog/blog/public/img/2020-04-07-Data-Annotation-Attribute-Notmapped-b.png

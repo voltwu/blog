@@ -108,4 +108,4 @@ As you can see from the illustration, these basic attributes are easy to use.
 In the next episodes, I am going to dig into other attributes.
 
 
-[1]: /public/img/2020-03-29-Data-Annotations-Attributes-a.png
+[1]: /blog/public/img/2020-03-29-Data-Annotations-Attributes-a.png

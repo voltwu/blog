@@ -53,6 +53,6 @@ If you have any questions, you can take a look at the [documentation][4], or ask
 
 [1]: /docker/2020/07/08/share-your-image-on-docker-hub/
 [2]: https://hub.docker.com/
-[3]: /public/img/2020-08-14-docker-hub-a.png
+[3]: /blog/public/img/2020-08-14-docker-hub-a.png
 [4]: https://docs.docker.com/docker-hub/
 [5]: https://forums.docker.com/

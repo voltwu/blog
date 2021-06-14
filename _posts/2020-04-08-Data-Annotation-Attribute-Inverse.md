@@ -81,4 +81,4 @@ public class Student
 
 ![Alt][1]
 
-[1]:/blog/public/img/2020-04-08-Data-Annotation-Attribute-Inverse-a.png
+[1]:/blog/blog/public/img/2020-04-08-Data-Annotation-Attribute-Inverse-a.png

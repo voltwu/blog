@@ -199,9 +199,9 @@ we have learned the most details about the `[ForeignKey]` annotation attribute, 
 
 
 
-[1]:/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-b.png
-[2]:/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-a.png
-[3]:/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-c.png
-[4]:/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-d.png
-[5]:/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-e.png
-[6]:/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-f.png
+[1]:/blog/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-b.png
+[2]:/blog/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-a.png
+[3]:/blog/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-c.png
+[4]:/blog/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-d.png
+[5]:/blog/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-e.png
+[6]:/blog/blog/public/img/2020-04-01-Data-Annotation-Attribute-Foreignkey-f.png

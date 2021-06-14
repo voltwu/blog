@@ -182,21 +182,21 @@ Push somes codes into repository and take a look at stages.
 
 Now, you have an entire workflow pipeline set up. Let's enjoy your Jenkins. If you have any questions or doubts, please feel free to leave comments below.
 
-[1]: /public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-a.png
+[1]: /blog/public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-a.png
 [2]: /jenkins/2020/12/27/jenkins-installation/
 [3]: https://docs.microsoft.com/en-us/dotnet/core/install/linux
-[4]: /public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-b.png
-[5]: /public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-c.png
-[6]: /public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-d.png
-[7]: /public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-e.png
-[8]: /public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-f.png
-[9]: /public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-g.png
-[10]: /public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-h.png
+[4]: /blog/public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-b.png
+[5]: /blog/public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-c.png
+[6]: /blog/public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-d.png
+[7]: /blog/public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-e.png
+[8]: /blog/public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-f.png
+[9]: /blog/public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-g.png
+[10]: /blog/public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-h.png
 [11]: https://www.jenkins.io/doc/book/pipeline/
-[12]: /public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-i.png
+[12]: /blog/public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-i.png
 [13]: http://server:port/github-webhook/
-[14]: /public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-j.png
-[15]: /public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-k.png
+[14]: /blog/public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-j.png
+[15]: /blog/public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-k.png
 [16]: https://stackoverflow.com/questions/42062481/how-to-trigger-a-jenkins-multibranch-pipeline-when-code-change-is-pushed-to-gith?noredirect=1&lq=1
 [17]: https://github.com/voltwu/Jenkins-.NET-Core-CI-CD-pipeline/tree/dev
-[18]: /public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-l.png
+[18]: /blog/public/img/2020-12-30-Jenkins-with-asp-net-core-CI-CD-pipeline-for-linux-l.png
