@@ -13,8 +13,8 @@ toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: true
-description: 
-excerpt: 
+description: Caching Static Resources On asp.net core
+excerpt: Caching Static Resources On asp.net core
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>

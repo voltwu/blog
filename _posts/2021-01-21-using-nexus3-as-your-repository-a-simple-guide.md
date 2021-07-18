@@ -15,8 +15,8 @@ toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: false
-description: 
-excerpt: 
+description: set up a simple nexus3 instance. 
+excerpt: set up a simple nexus3 instance. 
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>

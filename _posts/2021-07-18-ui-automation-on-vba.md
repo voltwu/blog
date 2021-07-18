@@ -12,8 +12,8 @@ toc: false
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
 comments: false
-description: 
-excerpt: 
+description: In this chapter, I am gonna illustrate how to use the Microsoft UI Automation component. Microsoft UI Automation is a new accessibility framework for Microsoft Windows, available on all operating systems that support Window Presentation Foundation(WPF)
+excerpt: In this chapter, I am gonna illustrate how to use the Microsoft UI Automation component. Microsoft UI Automation is a new accessibility framework for Microsoft Windows, available on all operating systems that support Window Presentation Foundation(WPF)
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>
