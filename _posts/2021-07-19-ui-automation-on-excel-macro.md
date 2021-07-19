@@ -100,14 +100,22 @@ Identifier may change in the future!!!
 
 Assumpting that you had known the difference between Control Type and Control Pattern, If not, take a look at preivous article. Control Pattern provides client a way to manipulate ui elements(such as: click, input, or dropdown etc...)
 
-An element can have a lot patterns, you can find all pattern at [Control Pattern Identifiers][3]
+Each UI Elements have at least one pattern, Take a look at [Control Pattern Identifiers][3] for more details.
 
 **input**
 
 ```vba
-' 
+ ' input text
  Set oPattern = MyElement3.GetCurrentPattern(UIAutomationClient.UIA_LegacyIAccessiblePatternId)
- oPattern.SetValue ("C:\Users\xingguo.a.wu\Desktop\Softwares\SAP740\1 - How to add Logon entry.pdf")
+ oPattern.SetValue ("input text")
+```
+
+**click**
+``` vba
+ ' click a button
+ ' btnElement is a button element
+ Set oPattern = btnElement.GetCurrentPattern(UIAutomationClient.UIA_InvokePatternId)
+ ePattern.Invoke
 ```
 
 <!--items-->
