@@ -39,7 +39,7 @@ You need to create an Excel file and open its vba editor with striking `[ALT]`+`
 At the menu `Tools` -> `References...`, scroll down to find and refer `UIAutomationClient` component. 
 
 <div class="imgcenter" markdown="1">
-![Alt][1]*Adding UI AutomationClient reference*
+![Alt][5]*Adding UI AutomationClient reference*
 </div>
 
 # Creating CUIAutomation Object
