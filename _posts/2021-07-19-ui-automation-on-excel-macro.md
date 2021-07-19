@@ -124,6 +124,13 @@ Set oPattern = btnElement.GetCurrentPattern(UIAutomationClient.UIA_InvokePattern
 ePattern.Invoke
 </pre>
 
+# Conclusion
+The above code simply illustrated the steps of creating an excel macro application with Microsoft UI Compponent.  I made following reviews to help you to understand better.
+* Adding `UIAutomationClient` in reference window
+* Searching elements through `FindFirst` or `FindAll`
+* Performing actions through `Control Pattern`
+
+
 [1]: https://docs.microsoft.com/en-us/windows/win32/api/uiautomationclient/ne-uiautomationclient-treescope
 [2]: https://docs.microsoft.com/en-us/windows/win32/api/uiautomationclient/nn-uiautomationclient-iuiautomationcondition
 [3]: https://docs.microsoft.com/en-us/windows/win32/winauto/uiauto-controlpattern-ids
