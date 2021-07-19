@@ -118,26 +118,6 @@ Each UI Elements have at least one pattern, Take a look at [Control Pattern Iden
  ePattern.Invoke
 ```
 
-<!--items-->
-<div>
-<span style="color: green;">In this article:</span>
-<ul>
-  {% assign posts =site.posts | sort: 'navi-order' %}
-  {% for post in posts %}
-    {% if post.navi-enable-vba %}
-      {% assign splitorder = page.navi-order | append: "-" %}
-      {% assign splitnum = post.navi-order | split: splitorder %}
-      {% assign stagesnumber = splitnum | split: "-" | size %}
-      {% assign beginstagesnumber = splitnum | split: "a" | size %}
-      {% if stagesnumber == 1 and beginstagesnumber == 1 %}
-                <li><a href="{{ site.baseurl }}{{ post.url }}" class="item-link">{{post.title}}</a></li>
-      {% endif %}
-    {% endif %}
-  {% endfor %}
-</ul>
-</div>
-<!--items-->
-
 
 
 [1]: https://docs.microsoft.com/en-us/windows/win32/api/uiautomationclient/ne-uiautomationclient-treescope
