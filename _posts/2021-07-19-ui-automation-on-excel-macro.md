@@ -8,12 +8,12 @@ tags:
 navi-enable-vba: true
 navi-name: 'UI Automation On Excel Macro'
 navi-order: 'a1-1-1'
-toc: false
+toc: true
 toc_label: "TABLE OF CONTENTS"
 toc_icon: "cog"
-comments: false
-description: 
-excerpt: 
+comments: true
+description: a simple macro excel application with Microsoft UI Automation Client component.
+excerpt: a simple macro excel application with Microsoft UI Automation Client component.
 ---
 <!--navigation bar-->
 <div class='navi-link-container'>
@@ -30,19 +30,20 @@ excerpt:
 </div>
 <!--navigation bar-->
 
-In this article, I am going lead you to create a simple macro excel application with Microsoft UI Automation Client component step by step. As we already illustrated basic conceptual at the previous article, so here will focus on technical parts.
+In this article, I am going to lead you to create a simple macro excel application with Microsoft UI Automation Client component step by step. As we already illustrated basic concepts at the [UI Automation On VBA][4], so here will focus on technical parts.
+
+You need to create an Excel file and open its vba editor with striking `[ALT]`+`[F11]`. 
 
 # Adding Reference
-You need to create an Excel file and open its vba code editor with striking [ALT]+[F11]. 
 
 At the menu `Tools` -> `References...`, scroll down to find and refer `UIAutomationClient` component. 
 
-## Creating CUIAutomation Object
+# Creating CUIAutomation Object
 ```VBA
  Dim oAutomation As New CUIAutomation
 ```
 
-## Searching Elements
+# Searching Elements
 UI Automation Client provides several available ways to find elements. You can use `inspecter.exe` as an assistive software, which can inspect details of UI elements(such as: **classname**, **automation id**, and **name**). 
 
 `Scope` and `Condition` are required for searching elements. `Scope` specifies the scope of variant operations in UI Automation tree. `Condition` used in filtering when searching for elements in the UI Automation tree. Take a look at [TreeScope enumeration][1] and [IUIAutomationCondition interface][2] for more details.
@@ -70,8 +71,8 @@ Set MyElement3 = MyElement2.FindFirst(TreeScope_Parent, UiAutomation.CreatePrope
 **Find All elements**
 
 ```vba
- ' Creating CUIAutomation element
- Dim oAutomation As New CUIAutomation
+' Creating CUIAutomation element
+Dim oAutomation As New CUIAutomation
 
 ' find all elements with "button" as their's classname
 Dim MyElement4 As UIAutomationClient.IUIAutomationElementArray
@@ -92,11 +93,11 @@ Identifier may change in the future!!!
 **Focus Element**
 
 ```vba
- ' make MyElement3 be focused on the screen window
- MyElement3.SetFocus
+' make MyElement3 be focused on the screen window
+MyElement3.SetFocus
 ```
 
-## Retrieving Control Pattern
+# Retrieving Control Pattern
 
 Assumpting that you had known the difference between Control Type and Control Pattern, If not, take a look at preivous article. Control Pattern provides client a way to manipulate ui elements(such as: click, input, or dropdown etc...)
 
@@ -105,21 +106,20 @@ Each UI Elements have at least one pattern, Take a look at [Control Pattern Iden
 **input**
 
 ```vba
- ' input text
- Set oPattern = MyElement3.GetCurrentPattern(UIAutomationClient.UIA_LegacyIAccessiblePatternId)
- oPattern.SetValue ("input text")
+' input text
+Set oPattern = MyElement3.GetCurrentPattern(UIAutomationClient.UIA_LegacyIAccessiblePatternId)
+oPattern.SetValue ("input text")
 ```
 
 **click**
 ``` vba
- ' click a button
- ' btnElement is a button element
- Set oPattern = btnElement.GetCurrentPattern(UIAutomationClient.UIA_InvokePatternId)
- ePattern.Invoke
+' click a button
+' btnElement is a button element
+Set oPattern = btnElement.GetCurrentPattern(UIAutomationClient.UIA_InvokePatternId)
+ePattern.Invoke
 ```
-
-
 
 [1]: https://docs.microsoft.com/en-us/windows/win32/api/uiautomationclient/ne-uiautomationclient-treescope
 [2]: https://docs.microsoft.com/en-us/windows/win32/api/uiautomationclient/nn-uiautomationclient-iuiautomationcondition
 [3]: https://docs.microsoft.com/en-us/windows/win32/winauto/uiauto-controlpattern-ids
+[4]: ../../../../vba/2021/07/18/ui-automation-on-vba/
