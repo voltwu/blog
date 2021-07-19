@@ -38,6 +38,10 @@ You need to create an Excel file and open its vba editor with striking `[ALT]`+`
 
 At the menu `Tools` -> `References...`, scroll down to find and refer `UIAutomationClient` component. 
 
+<div class="imgcenter" markdown="1">
+![Alt][1]*Adding UI AutomationClient reference*
+</div>
+
 # Creating CUIAutomation Object
 ```VBA
  Dim oAutomation As New CUIAutomation
@@ -123,3 +127,5 @@ ePattern.Invoke
 [2]: https://docs.microsoft.com/en-us/windows/win32/api/uiautomationclient/nn-uiautomationclient-iuiautomationcondition
 [3]: https://docs.microsoft.com/en-us/windows/win32/winauto/uiauto-controlpattern-ids
 [4]: ../../../../vba/2021/07/18/ui-automation-on-vba/
+[5]: /blog/public/img/2021-07-19-ui-automation-on-excel-macro.png
+
