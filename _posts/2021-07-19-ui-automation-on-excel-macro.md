@@ -38,7 +38,7 @@ You need to create an Excel file and open its vba code editor with striking [ALT
 At the menu `Tools` -> `References...`, scroll down to find and refer `UIAutomationClient` component. 
 
 ## Creating CUIAutomation Object
-```vba
+```VBA
  Dim oAutomation As New CUIAutomation
 ```
 
