@@ -43,9 +43,9 @@ At the menu `Tools` -> `References...`, scroll down to find and refer `UIAutomat
 </div>
 
 # Creating CUIAutomation Object
-```VBA
+<pre>
  Dim oAutomation As New CUIAutomation
-```
+</pre>
 
 # Searching Elements
 UI Automation Client provides several available ways to find elements. You can use `inspecter.exe` as an assistive software, which can inspect details of UI elements(such as: **classname**, **automation id**, and **name**). 
@@ -54,7 +54,7 @@ UI Automation Client provides several available ways to find elements. You can u
 
 **Find first child or descendant element**
 
-```vba
+<pre>
 ' Creating CUIAutomation element
 Dim oAutomation As New CUIAutomation
 
@@ -70,36 +70,37 @@ Set MyElement2 = MyElement1.FindFirst(TreeScope_Descendants, UiAutomation.Create
 ' find first parent element with name
 Dim MyElement3 As UIAutomationClient.IUIAutomationElement
 Set MyElement3 = MyElement2.FindFirst(TreeScope_Parent, UiAutomation.CreatePropertyCondition(UIAutomationClient.UIA_NamePropertyId, "name"))
-``` 
+</pre>
 
 **Find All elements**
 
-```vba
+<pre>
 ' Creating CUIAutomation element
 Dim oAutomation As New CUIAutomation
 
 ' find all elements with "button" as their's classname
 Dim MyElement4 As UIAutomationClient.IUIAutomationElementArray
 Set MyElement4 = MyElement3.FindAll(TreeScope_Children, UiAutomation.CreatePropertyCondition(UIAutomationClient.UIA_ClassNamePropertyId, "button"))
-```
+</pre>
 
 **Get Element's unique identifier**
 
-```vba
+<pre>
 ' Get a unique identifier of an element
  Dim uniqueIdentifier As Variant
  uniqueIdentifier = MyElement3.GetRuntimeId()
-```
+</pre>
+
 The identifier is only guaranteed to be unique to the UI of the desktop on which it was generated. Identifiers can be reused over time.
 
 Identifier may change in the future!!!
 
 **Focus Element**
 
-```vba
+<pre>
 ' make MyElement3 be focused on the screen window
 MyElement3.SetFocus
-```
+</pre>
 
 # Retrieving Control Pattern
 
@@ -109,19 +110,19 @@ Each UI Elements have at least one pattern, Take a look at [Control Pattern Iden
 
 **input**
 
-```vba
+<pre>
 ' input text
 Set oPattern = MyElement3.GetCurrentPattern(UIAutomationClient.UIA_LegacyIAccessiblePatternId)
 oPattern.SetValue ("input text")
-```
+</pre>
 
 **click**
-``` vba
+<pre>
 ' click a button
 ' btnElement is a button element
 Set oPattern = btnElement.GetCurrentPattern(UIAutomationClient.UIA_InvokePatternId)
 ePattern.Invoke
-```
+</pre>
 
 [1]: https://docs.microsoft.com/en-us/windows/win32/api/uiautomationclient/ne-uiautomationclient-treescope
 [2]: https://docs.microsoft.com/en-us/windows/win32/api/uiautomationclient/nn-uiautomationclient-iuiautomationcondition
